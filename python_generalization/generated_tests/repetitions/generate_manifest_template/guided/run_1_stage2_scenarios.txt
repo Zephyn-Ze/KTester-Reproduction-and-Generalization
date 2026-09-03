@@ -1,0 +1,166 @@
+Here are the unit test scenarios based on the provided function `generate_manifest_template`:
+
+### Scenario 1: Normal Case with Mixed Record Types
+1. **Scenario Name**: Mixed Record Types
+2. **Input**: 
+   ```python
+   inventory = [
+       {"year": 2021, "kind": "proceedings", "part": "Part A", "part_title": "Proceedings of Part A", "paper_count": 5},
+       {"year": 2021, "kind": "journal", "journal": "Journal of Testing", "volume": 10, "issue": 1, "paper_count": 3},
+       {"year": 2022, "kind": "proceedings", "part": "Part B", "part_title": "Proceedings of Part B", "paper_count": 8}
+   ]
+   venue = "Conference XYZ"
+   ```
+3. **Expected Behavior/Output**:
+   ```python
+   {
+       "Conference XYZ": {
+           2021: [
+               {
+                   "kind": "proceedings",
+                   "part": "Part A",
+                   "display_name": "Proceedings of Part A",
+                   "paper_count": 5,
+               },
+               {
+                   "kind": "journal",
+                   "journal": "Journal of Testing",
+                   "display_name": "Journal of Testing volume 10 issue 1",
+                   "volume": 10,
+                   "issue": 1,
+                   "paper_count": 3,
+               }
+           ],
+           2022: [
+               {
+                   "kind": "proceedings",
+                   "part": "Part B",
+                   "display_name": "Proceedings of Part B",
+                   "paper_count": 8,
+               }
+           ]
+       }
+   }
+   ```
+4. **Why This Scenario Matters**: This scenario tests the function's ability to handle a mix of record types and ensure that they are correctly aggregated under the right year and venue.
+
+### Scenario 2: Empty Inventory
+1. **Scenario Name**: Empty Inventory
+2. **Input**:
+   ```python
+   inventory = []
+   venue = "Conference XYZ"
+   ```
+3. **Expected Behavior/Output**:
+   ```python
+   {
+       "Conference XYZ": {}
+   }
+   ```
+4. **Why This Scenario Matters**: This scenario tests the function's behavior when there are no records to process, ensuring it correctly initializes the venue without any years.
+
+### Scenario 3: Duplicate Years with Different Kinds
+1. **Scenario Name**: Duplicate Years
+2. **Input**:
+   ```python
+   inventory = [
+       {"year": 2021, "kind": "proceedings", "part": "Part A", "part_title": "Proceedings of Part A", "paper_count": 5},
+       {"year": 2021, "kind": "journal", "journal": "Journal of Testing", "volume": 10, "issue": 1, "paper_count": 3}
+   ]
+   venue = "Conference XYZ"
+   ```
+3. **Expected Behavior/Output**:
+   ```python
+   {
+       "Conference XYZ": {
+           2021: [
+               {
+                   "kind": "proceedings",
+                   "part": "Part A",
+                   "display_name": "Proceedings of Part A",
+                   "paper_count": 5,
+               },
+               {
+                   "kind": "journal",
+                   "journal": "Journal of Testing",
+                   "display_name": "Journal of Testing volume 10 issue 1",
+                   "volume": 10,
+                   "issue": 1,
+                   "paper_count": 3,
+               }
+           ]
+       }
+   }
+   ```
+4. **Why This Scenario Matters**: This scenario verifies that the function can correctly aggregate multiple records for the same year and venue.
+
+### Scenario 4: Year as a String
+1. **Scenario Name**: Year as String
+2. **Input**:
+   ```python
+   inventory = [
+       {"year": "2021", "kind": "proceedings", "part": "Part A", "part_title": "Proceedings of Part A", "paper_count": 5},
+       {"year": "2021", "kind": "journal", "journal": "Journal of Testing", "volume": 10, "issue": 1, "paper_count": 3}
+   ]
+   venue = "Conference XYZ"
+   ```
+3. **Expected Behavior/Output**:
+   ```python
+   {
+       "Conference XYZ": {
+           "2021": [
+               {
+                   "kind": "proceedings",
+                   "part": "Part A",
+                   "display_name": "Proceedings of Part A",
+                   "paper_count": 5,
+               },
+               {
+                   "kind": "journal",
+                   "journal": "Journal of Testing",
+                   "display_name": "Journal of Testing volume 10 issue 1",
+                   "volume": 10,
+                   "issue": 1,
+                   "paper_count": 3,
+               }
+           ]
+       }
+   }
+   ```
+4. **Why This Scenario Matters**: This scenario tests the function's ability to handle years represented as strings instead of integers, ensuring it can aggregate records correctly regardless of the data type.
+
+### Scenario 5: Missing Required Fields
+1. **Scenario Name**: Missing Required Fields
+2. **Input**:
+   ```python
+   inventory = [
+       {"year": 2021, "kind": "proceedings", "part": "Part A", "paper_count": 5},  # Missing part_title
+       {"year": 2021, "kind": "journal", "journal": "Journal of Testing", "volume": 10}  # Missing issue and paper_count
+   ]
+   venue = "Conference XYZ"
+   ```
+3. **Expected Behavior/Output**: 
+   The function will raise a KeyError because the required fields `part_title` and `issue` are missing in the provided records.
+4. **Why This Scenario Matters**: This scenario tests the robustness of the function against incomplete data, ensuring that it adheres to the expected input structure.
+
+### Scenario 6: Unexpected Kind Value
+1. **Scenario Name**: Unexpected Kind Value
+2. **Input**:
+   ```python
+   inventory = [
+       {"year": 2021, "kind": "unknown", "part": "Part A", "part_title": "Proceedings of Part A", "paper_count": 5}
+   ]
+   venue = "Conference XYZ"
+   ```
+3. **Expected Behavior/Output**:
+   The function will still process the record as a journal entry, but since the `kind` is not "proceedings" or "journal", it will not be added to the manifest. The output will be empty for the year.
+   ```python
+   {
+       "Conference XYZ": {
+           2021: []
+       }
+   }
+   ```
+4. **Why This Scenario Matters**: This scenario checks how the function handles unexpected values for the `kind` field, ensuring it does not break and still returns a structured output. 
+
+These scenarios encompass a variety of cases including normal operations, edge cases, and potential issues that could arise from the input data.

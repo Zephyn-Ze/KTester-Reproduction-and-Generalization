@@ -1,0 +1,69 @@
+Here are the designed unit test scenarios based on the provided source code and extracted knowledge:
+
+### Scenario 1: Convert Single Quotes to Double Quotes
+1. **Scenario Name**: Convert single quotes to double quotes
+2. **Input**: `s = "'Hello, World!'"` (Normal string with single quotes)
+3. **Expected Behavior**: The output should be `"Hello, World!"`
+4. **Why This Scenario Matters**: This tests the basic functionality of converting single quotes to double quotes, which is a fundamental behavior of the function.
+
+### Scenario 2: Convert Double Quotes to Single Quotes
+1. **Scenario Name**: Convert double quotes to single quotes
+2. **Input**: `s = '"Hello, World!"'` (Normal string with double quotes)
+3. **Expected Behavior**: The output should be `'Hello, World!'`
+4. **Why This Scenario Matters**: This ensures that the function can correctly handle the conversion in the opposite direction.
+
+### Scenario 3: Raw String with Unescaped Quotes
+1. **Scenario Name**: Raw string with unescaped quotes
+2. **Input**: `s = r"'Hello, 'World!'"` (Raw string with single quotes)
+3. **Expected Behavior**: The output should be `r"'Hello, 'World!'"` (No change)
+4. **Why This Scenario Matters**: This tests that the function correctly identifies and preserves raw strings without modifying backslashes.
+
+### Scenario 4: Raw String with Escaped Quotes
+1. **Scenario Name**: Raw string with escaped quotes
+2. **Input**: `s = r"'Hello, \'World!'"` (Raw string with escaped single quote)
+3. **Expected Behavior**: The output should be `r"'Hello, \'World!'"` (No change)
+4. **Why This Scenario Matters**: This ensures that the function maintains the integrity of raw strings with escaped quotes.
+
+### Scenario 5: Double Quotes with Escaped Quotes
+1. **Scenario Name**: Double quotes with escaped quotes
+2. **Input**: `s = '"Hello, \\"World!\\""'` (Double quotes with escaped double quotes)
+3. **Expected Behavior**: The output should be `'"Hello, \\"World!\\""'`
+4. **Why This Scenario Matters**: This tests the function's ability to handle escaped quotes correctly without introducing additional escapes.
+
+### Scenario 6: Triple Quotes Handling
+1. **Scenario Name**: Triple quotes in the string
+2. **Input**: `s = '"""Hello, World!"""'` (String with triple double quotes)
+3. **Expected Behavior**: The output should be '"""Hello, World!"""' (No change)
+4. **Why This Scenario Matters**: This checks if the function correctly identifies and preserves triple quotes without modification.
+
+### Scenario 7: Edge Case with Ending Quote
+1. **Scenario Name**: String ending with a quote
+2. **Input**: `s = '"Hello, World!'` (String that ends with a quote)
+3. **Expected Behavior**: The output should be `'"Hello, World!'` (No change)
+4. **Why This Scenario Matters**: This tests the function's handling of strings that end with a quote, ensuring no unintended modifications occur.
+
+### Scenario 8: Multiple Escaped Quotes
+1. **Scenario Name**: String with multiple escaped quotes
+2. **Input**: `s = '"He said, \\"Hello, World!\\""'` (String with multiple escaped quotes)
+3. **Expected Behavior**: The output should be `'"He said, \\"Hello, World!\\""'`
+4. **Why This Scenario Matters**: This scenario tests the function's ability to handle complex strings with multiple escape sequences correctly.
+
+### Scenario 9: Interpolated String
+1. **Scenario Name**: Interpolated string with f prefix
+2. **Input**: `s = f"'Hello, {name}!'"` (Interpolated string)
+3. **Expected Behavior**: The output should be `f"'Hello, {name}!'"` (No change)
+4. **Why This Scenario Matters**: This ensures that the function correctly identifies interpolated strings and does not modify them.
+
+### Scenario 10: String with No Quotes
+1. **Scenario Name**: String with no quotes
+2. **Input**: `s = 'Hello, World!'` (String without quotes)
+3. **Expected Behavior**: The output should be `'Hello, World!'` (No change)
+4. **Why This Scenario Matters**: This tests the function's behavior when there are no quotes present, ensuring that it returns the original string unchanged.
+
+### Scenario 11: Assertion Failure on No Quotes
+1. **Scenario Name**: Malformed string with no quotes
+2. **Input**: `s = 'Hello World'` (String without quotes)
+3. **Expected Behavior**: This should raise an AssertionError due to the absence of any quotes.
+4. **Why This Scenario Matters**: This tests the assertion in the function that requires at least one quote to be present in the input string.
+
+These scenarios cover a wide range of expected behaviors, including normal cases, edge cases, and exceptional cases based on the function's logic.

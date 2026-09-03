@@ -1,0 +1,917 @@
+{
+  "target": "parse_size",
+  "module": "target_functions.parse_size_target",
+  "function": "parse_size",
+  "mode": "repetitions",
+  "python": "<python-environment>/bin/python",
+  "summary": {
+    "baseline": {
+      "files": 5,
+      "collection_successes": 5,
+      "collected_tests": 28,
+      "passing_tests": 20,
+      "test_method_epr_percent": 71.42857142857143,
+      "average_raw_statement_percent": 85.71428571428571,
+      "average_raw_branch_percent": 75.0,
+      "average_correct_statement_percent": 85.71428571428571,
+      "average_correct_branch_percent": 75.0
+    },
+    "guided": {
+      "files": 5,
+      "collection_successes": 5,
+      "collected_tests": 71,
+      "passing_tests": 49,
+      "test_method_epr_percent": 69.01408450704226,
+      "average_raw_statement_percent": 87.14285714285714,
+      "average_raw_branch_percent": 76.66666666666667,
+      "average_correct_statement_percent": 87.14285714285714,
+      "average_correct_branch_percent": 76.66666666666667
+    }
+  },
+  "results": [
+    {
+      "strategy": "baseline",
+      "file": "generated_tests/repetitions/parse_size/baseline/run_1.py",
+      "collection_success": true,
+      "collection_output": "generated_tests/repetitions/parse_size/baseline/run_1.py::test_parse_size_normal_cases\ngenerated_tests/repetitions/parse_size/baseline/run_1.py::test_parse_size_edge_cases\ngenerated_tests/repetitions/parse_size/baseline/run_1.py::test_parse_size_invalid_cases\n\n3 tests collected in 0.01s\n",
+      "collected_tests": 3,
+      "passing_tests": 1,
+      "epr_percent": 33.333333333333336,
+      "method_results": [
+        {
+          "nodeid": "generated_tests/repetitions/parse_size/baseline/run_1.py::test_parse_size_normal_cases",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        },
+        {
+          "nodeid": "generated_tests/repetitions/parse_size/baseline/run_1.py::test_parse_size_edge_cases",
+          "passed": false,
+          "returncode": 1,
+          "output": "F                                                                        [100%]\n=================================== FAILURES ===================================\n__________________________ test_parse_size_edge_cases __________________________\n\n    def test_parse_size_edge_cases():\n        assert parse_size('0 bytes') == 0\n        assert parse_size('0') == 0\n        assert parse_size('1 MB') == 1000000\n        assert parse_size('1.0 TB') == 1000000000000\n        assert parse_size('1.0 TB', binary=True) == 1099511627776\n        assert parse_size('1 PB') == 1000000000000 * 1000\n>       assert parse_size('1.5 PB', binary=True) == 1125899906842624\nE       AssertionError: assert 1688849860263936 == 1125899906842624\nE        +  where 1688849860263936 = parse_size('1.5 PB', binary=True)\n\ngenerated_tests/repetitions/parse_size/baseline/run_1.py:21: AssertionError\n=========================== short test summary info ============================\nFAILED generated_tests/repetitions/parse_size/baseline/run_1.py::test_parse_size_edge_cases\n1 failed in 0.02s\n"
+        },
+        {
+          "nodeid": "generated_tests/repetitions/parse_size/baseline/run_1.py::test_parse_size_invalid_cases",
+          "passed": false,
+          "returncode": 1,
+          "output": "F                                                                        [100%]\n=================================== FAILURES ===================================\n________________________ test_parse_size_invalid_cases _________________________\n\n    def test_parse_size_invalid_cases():\n>       with pytest.raises(parse_size.InvalidSize):\n                           ^^^^^^^^^^^^^^^^^^^^^^\nE       AttributeError: 'function' object has no attribute 'InvalidSize'\n\ngenerated_tests/repetitions/parse_size/baseline/run_1.py:24: AttributeError\n=========================== short test summary info ============================\nFAILED generated_tests/repetitions/parse_size/baseline/run_1.py::test_parse_size_invalid_cases\n1 failed in 0.02s\n"
+        }
+      ],
+      "raw_coverage": {
+        "covered_statements": 12,
+        "statements": 14,
+        "statement_percent": 85.71428571428571,
+        "covered_branches": 9,
+        "branches": 12,
+        "branch_percent": 75.0
+      },
+      "raw_coverage_output": ".FF                                                                      [100%]\n=================================== FAILURES ===================================\n__________________________ test_parse_size_edge_cases __________________________\n\n    def test_parse_size_edge_cases():\n        assert parse_size('0 bytes') == 0\n        assert parse_size('0') == 0\n        assert parse_size('1 MB') == 1000000\n        assert parse_size('1.0 TB') == 1000000000000\n        assert parse_size('1.0 TB', binary=True) == 1099511627776\n        assert parse_size('1 PB') == 1000000000000 * 1000\n>       assert parse_size('1.5 PB', binary=True) == 1125899906842624\nE       AssertionError: assert 1688849860263936 == 1125899906842624\nE        +  where 1688849860263936 = parse_size('1.5 PB', binary=True)\n\ngenerated_tests/repetitions/parse_size/baseline/run_1.py:21: AssertionError\n________________________ test_parse_size_invalid_cases _________________________\n\n    def test_parse_size_invalid_cases():\n>       with pytest.raises(parse_size.InvalidSize):\n                           ^^^^^^^^^^^^^^^^^^^^^^\nE       AttributeError: 'function' object has no attribute 'InvalidSize'\n\ngenerated_tests/repetitions/parse_size/baseline/run_1.py:24: AttributeError\n================================ tests coverage ================================\n______________ coverage: platform darwin, python 3.13.14-final-0 _______________\n\nCoverage JSON written to file <temporary-coverage-file>\n=========================== short test summary info ============================\nFAILED generated_tests/repetitions/parse_size/baseline/run_1.py::test_parse_size_edge_cases\nFAILED generated_tests/repetitions/parse_size/baseline/run_1.py::test_parse_size_invalid_cases\n2 failed, 1 passed in 0.05s\n",
+      "correct_coverage": {
+        "covered_statements": 12,
+        "statements": 14,
+        "statement_percent": 85.71428571428571,
+        "covered_branches": 9,
+        "branches": 12,
+        "branch_percent": 75.0
+      },
+      "correct_coverage_output": ".                                                                        [100%]\n================================ tests coverage ================================\n______________ coverage: platform darwin, python 3.13.14-final-0 _______________\n\nCoverage JSON written to file <temporary-coverage-file>\n1 passed in 0.03s\n"
+    },
+    {
+      "strategy": "baseline",
+      "file": "generated_tests/repetitions/parse_size/baseline/run_2.py",
+      "collection_success": true,
+      "collection_output": "generated_tests/repetitions/parse_size/baseline/run_2.py::test_parse_size_bytes\ngenerated_tests/repetitions/parse_size/baseline/run_2.py::test_parse_size_kilobytes\ngenerated_tests/repetitions/parse_size/baseline/run_2.py::test_parse_size_megabytes\ngenerated_tests/repetitions/parse_size/baseline/run_2.py::test_parse_size_gigabytes\ngenerated_tests/repetitions/parse_size/baseline/run_2.py::test_parse_size_terabytes\ngenerated_tests/repetitions/parse_size/baseline/run_2.py::test_parse_size_petabytes\ngenerated_tests/repetitions/parse_size/baseline/run_2.py::test_parse_size_binary_kilobytes\ngenerated_tests/repetitions/parse_size/baseline/run_2.py::test_parse_size_binary_megabytes\ngenerated_tests/repetitions/parse_size/baseline/run_2.py::test_parse_size_binary_gigabytes\ngenerated_tests/repetitions/parse_size/baseline/run_2.py::test_parse_size_invalid\n\n10 tests collected in 0.02s\n",
+      "collected_tests": 10,
+      "passing_tests": 9,
+      "epr_percent": 90.0,
+      "method_results": [
+        {
+          "nodeid": "generated_tests/repetitions/parse_size/baseline/run_2.py::test_parse_size_bytes",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        },
+        {
+          "nodeid": "generated_tests/repetitions/parse_size/baseline/run_2.py::test_parse_size_kilobytes",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        },
+        {
+          "nodeid": "generated_tests/repetitions/parse_size/baseline/run_2.py::test_parse_size_megabytes",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        },
+        {
+          "nodeid": "generated_tests/repetitions/parse_size/baseline/run_2.py::test_parse_size_gigabytes",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        },
+        {
+          "nodeid": "generated_tests/repetitions/parse_size/baseline/run_2.py::test_parse_size_terabytes",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        },
+        {
+          "nodeid": "generated_tests/repetitions/parse_size/baseline/run_2.py::test_parse_size_petabytes",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        },
+        {
+          "nodeid": "generated_tests/repetitions/parse_size/baseline/run_2.py::test_parse_size_binary_kilobytes",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        },
+        {
+          "nodeid": "generated_tests/repetitions/parse_size/baseline/run_2.py::test_parse_size_binary_megabytes",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        },
+        {
+          "nodeid": "generated_tests/repetitions/parse_size/baseline/run_2.py::test_parse_size_binary_gigabytes",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        },
+        {
+          "nodeid": "generated_tests/repetitions/parse_size/baseline/run_2.py::test_parse_size_invalid",
+          "passed": false,
+          "returncode": 1,
+          "output": "F                                                                        [100%]\n=================================== FAILURES ===================================\n___________________________ test_parse_size_invalid ____________________________\n\n    def test_parse_size_invalid():\n>       with pytest.raises(InvalidSize):\n                           ^^^^^^^^^^^\nE       NameError: name 'InvalidSize' is not defined\n\ngenerated_tests/repetitions/parse_size/baseline/run_2.py:50: NameError\n=========================== short test summary info ============================\nFAILED generated_tests/repetitions/parse_size/baseline/run_2.py::test_parse_size_invalid\n1 failed in 0.04s\n"
+        }
+      ],
+      "raw_coverage": {
+        "covered_statements": 12,
+        "statements": 14,
+        "statement_percent": 85.71428571428571,
+        "covered_branches": 9,
+        "branches": 12,
+        "branch_percent": 75.0
+      },
+      "raw_coverage_output": ".........F                                                               [100%]\n=================================== FAILURES ===================================\n___________________________ test_parse_size_invalid ____________________________\n\n    def test_parse_size_invalid():\n>       with pytest.raises(InvalidSize):\n                           ^^^^^^^^^^^\nE       NameError: name 'InvalidSize' is not defined\n\ngenerated_tests/repetitions/parse_size/baseline/run_2.py:50: NameError\n================================ tests coverage ================================\n______________ coverage: platform darwin, python 3.13.14-final-0 _______________\n\nCoverage JSON written to file <temporary-coverage-file>\n=========================== short test summary info ============================\nFAILED generated_tests/repetitions/parse_size/baseline/run_2.py::test_parse_size_invalid\n1 failed, 9 passed in 0.06s\n",
+      "correct_coverage": {
+        "covered_statements": 12,
+        "statements": 14,
+        "statement_percent": 85.71428571428571,
+        "covered_branches": 9,
+        "branches": 12,
+        "branch_percent": 75.0
+      },
+      "correct_coverage_output": ".........                                                                [100%]\n================================ tests coverage ================================\n______________ coverage: platform darwin, python 3.13.14-final-0 _______________\n\nCoverage JSON written to file <temporary-coverage-file>\n9 passed in 0.05s\n"
+    },
+    {
+      "strategy": "baseline",
+      "file": "generated_tests/repetitions/parse_size/baseline/run_3.py",
+      "collection_success": true,
+      "collection_output": "generated_tests/repetitions/parse_size/baseline/run_3.py::test_parse_size_normal_cases\ngenerated_tests/repetitions/parse_size/baseline/run_3.py::test_parse_size_edge_cases\ngenerated_tests/repetitions/parse_size/baseline/run_3.py::test_parse_size_invalid_cases\n\n3 tests collected in 0.01s\n",
+      "collected_tests": 3,
+      "passing_tests": 2,
+      "epr_percent": 66.66666666666667,
+      "method_results": [
+        {
+          "nodeid": "generated_tests/repetitions/parse_size/baseline/run_3.py::test_parse_size_normal_cases",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        },
+        {
+          "nodeid": "generated_tests/repetitions/parse_size/baseline/run_3.py::test_parse_size_edge_cases",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        },
+        {
+          "nodeid": "generated_tests/repetitions/parse_size/baseline/run_3.py::test_parse_size_invalid_cases",
+          "passed": false,
+          "returncode": 1,
+          "output": "F                                                                        [100%]\n=================================== FAILURES ===================================\n________________________ test_parse_size_invalid_cases _________________________\n\n    def test_parse_size_invalid_cases():\n>       with pytest.raises(InvalidSize):\n                           ^^^^^^^^^^^\nE       NameError: name 'InvalidSize' is not defined\n\ngenerated_tests/repetitions/parse_size/baseline/run_3.py:24: NameError\n=========================== short test summary info ============================\nFAILED generated_tests/repetitions/parse_size/baseline/run_3.py::test_parse_size_invalid_cases\n1 failed in 0.02s\n"
+        }
+      ],
+      "raw_coverage": {
+        "covered_statements": 12,
+        "statements": 14,
+        "statement_percent": 85.71428571428571,
+        "covered_branches": 9,
+        "branches": 12,
+        "branch_percent": 75.0
+      },
+      "raw_coverage_output": "..F                                                                      [100%]\n=================================== FAILURES ===================================\n________________________ test_parse_size_invalid_cases _________________________\n\n    def test_parse_size_invalid_cases():\n>       with pytest.raises(InvalidSize):\n                           ^^^^^^^^^^^\nE       NameError: name 'InvalidSize' is not defined\n\ngenerated_tests/repetitions/parse_size/baseline/run_3.py:24: NameError\n================================ tests coverage ================================\n______________ coverage: platform darwin, python 3.13.14-final-0 _______________\n\nCoverage JSON written to file <temporary-coverage-file>\n=========================== short test summary info ============================\nFAILED generated_tests/repetitions/parse_size/baseline/run_3.py::test_parse_size_invalid_cases\n1 failed, 2 passed in 0.04s\n",
+      "correct_coverage": {
+        "covered_statements": 12,
+        "statements": 14,
+        "statement_percent": 85.71428571428571,
+        "covered_branches": 9,
+        "branches": 12,
+        "branch_percent": 75.0
+      },
+      "correct_coverage_output": "..                                                                       [100%]\n================================ tests coverage ================================\n______________ coverage: platform darwin, python 3.13.14-final-0 _______________\n\nCoverage JSON written to file <temporary-coverage-file>\n2 passed in 0.04s\n"
+    },
+    {
+      "strategy": "baseline",
+      "file": "generated_tests/repetitions/parse_size/baseline/run_4.py",
+      "collection_success": true,
+      "collection_output": "generated_tests/repetitions/parse_size/baseline/run_4.py::test_parse_size_normal_cases\ngenerated_tests/repetitions/parse_size/baseline/run_4.py::test_parse_size_edge_cases\ngenerated_tests/repetitions/parse_size/baseline/run_4.py::test_parse_size_invalid_cases\ngenerated_tests/repetitions/parse_size/baseline/run_4.py::test_parse_size_binary_cases\ngenerated_tests/repetitions/parse_size/baseline/run_4.py::test_parse_size_large_numbers\ngenerated_tests/repetitions/parse_size/baseline/run_4.py::test_parse_size_float_values\ngenerated_tests/repetitions/parse_size/baseline/run_4.py::test_parse_size_with_spaces\n\n7 tests collected in 0.02s\n",
+      "collected_tests": 7,
+      "passing_tests": 4,
+      "epr_percent": 57.142857142857146,
+      "method_results": [
+        {
+          "nodeid": "generated_tests/repetitions/parse_size/baseline/run_4.py::test_parse_size_normal_cases",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        },
+        {
+          "nodeid": "generated_tests/repetitions/parse_size/baseline/run_4.py::test_parse_size_edge_cases",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        },
+        {
+          "nodeid": "generated_tests/repetitions/parse_size/baseline/run_4.py::test_parse_size_invalid_cases",
+          "passed": false,
+          "returncode": 1,
+          "output": "F                                                                        [100%]\n=================================== FAILURES ===================================\n________________________ test_parse_size_invalid_cases _________________________\n\n    def test_parse_size_invalid_cases():\n>       with pytest.raises(InvalidSize):\n                           ^^^^^^^^^^^\nE       NameError: name 'InvalidSize' is not defined\n\ngenerated_tests/repetitions/parse_size/baseline/run_4.py:26: NameError\n=========================== short test summary info ============================\nFAILED generated_tests/repetitions/parse_size/baseline/run_4.py::test_parse_size_invalid_cases\n1 failed in 0.02s\n"
+        },
+        {
+          "nodeid": "generated_tests/repetitions/parse_size/baseline/run_4.py::test_parse_size_binary_cases",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        },
+        {
+          "nodeid": "generated_tests/repetitions/parse_size/baseline/run_4.py::test_parse_size_large_numbers",
+          "passed": false,
+          "returncode": 1,
+          "output": "F                                                                        [100%]\n=================================== FAILURES ===================================\n________________________ test_parse_size_large_numbers _________________________\n\n    def test_parse_size_large_numbers():\n>       assert parse_size('1 PB') == 1000000000000\nE       AssertionError: assert 1000000000000000 == 1000000000000\nE        +  where 1000000000000000 = parse_size('1 PB')\n\ngenerated_tests/repetitions/parse_size/baseline/run_4.py:42: AssertionError\n=========================== short test summary info ============================\nFAILED generated_tests/repetitions/parse_size/baseline/run_4.py::test_parse_size_large_numbers\n1 failed in 0.02s\n"
+        },
+        {
+          "nodeid": "generated_tests/repetitions/parse_size/baseline/run_4.py::test_parse_size_float_values",
+          "passed": false,
+          "returncode": 1,
+          "output": "F                                                                        [100%]\n=================================== FAILURES ===================================\n_________________________ test_parse_size_float_values _________________________\n\n    def test_parse_size_float_values():\n        assert parse_size('1.25 GB') == 1250000000\n        assert parse_size('2.5 MB') == 2500000\n        assert parse_size('0.5 TB') == 500000000000\n>       assert parse_size('0.1 PB') == 100000000000\nE       AssertionError: assert 100000000000000 == 100000000000\nE        +  where 100000000000000 = parse_size('0.1 PB')\n\ngenerated_tests/repetitions/parse_size/baseline/run_4.py:51: AssertionError\n=========================== short test summary info ============================\nFAILED generated_tests/repetitions/parse_size/baseline/run_4.py::test_parse_size_float_values\n1 failed in 0.02s\n"
+        },
+        {
+          "nodeid": "generated_tests/repetitions/parse_size/baseline/run_4.py::test_parse_size_with_spaces",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        }
+      ],
+      "raw_coverage": {
+        "covered_statements": 12,
+        "statements": 14,
+        "statement_percent": 85.71428571428571,
+        "covered_branches": 9,
+        "branches": 12,
+        "branch_percent": 75.0
+      },
+      "raw_coverage_output": "..F.FF.                                                                  [100%]\n=================================== FAILURES ===================================\n________________________ test_parse_size_invalid_cases _________________________\n\n    def test_parse_size_invalid_cases():\n>       with pytest.raises(InvalidSize):\n                           ^^^^^^^^^^^\nE       NameError: name 'InvalidSize' is not defined\n\ngenerated_tests/repetitions/parse_size/baseline/run_4.py:26: NameError\n________________________ test_parse_size_large_numbers _________________________\n\n    def test_parse_size_large_numbers():\n>       assert parse_size('1 PB') == 1000000000000\nE       AssertionError: assert 1000000000000000 == 1000000000000\nE        +  where 1000000000000000 = parse_size('1 PB')\n\ngenerated_tests/repetitions/parse_size/baseline/run_4.py:42: AssertionError\n_________________________ test_parse_size_float_values _________________________\n\n    def test_parse_size_float_values():\n        assert parse_size('1.25 GB') == 1250000000\n        assert parse_size('2.5 MB') == 2500000\n        assert parse_size('0.5 TB') == 500000000000\n>       assert parse_size('0.1 PB') == 100000000000\nE       AssertionError: assert 100000000000000 == 100000000000\nE        +  where 100000000000000 = parse_size('0.1 PB')\n\ngenerated_tests/repetitions/parse_size/baseline/run_4.py:51: AssertionError\n================================ tests coverage ================================\n______________ coverage: platform darwin, python 3.13.14-final-0 _______________\n\nCoverage JSON written to file <temporary-coverage-file>\n=========================== short test summary info ============================\nFAILED generated_tests/repetitions/parse_size/baseline/run_4.py::test_parse_size_invalid_cases\nFAILED generated_tests/repetitions/parse_size/baseline/run_4.py::test_parse_size_large_numbers\nFAILED generated_tests/repetitions/parse_size/baseline/run_4.py::test_parse_size_float_values\n3 failed, 4 passed in 0.05s\n",
+      "correct_coverage": {
+        "covered_statements": 12,
+        "statements": 14,
+        "statement_percent": 85.71428571428571,
+        "covered_branches": 9,
+        "branches": 12,
+        "branch_percent": 75.0
+      },
+      "correct_coverage_output": "....                                                                     [100%]\n================================ tests coverage ================================\n______________ coverage: platform darwin, python 3.13.14-final-0 _______________\n\nCoverage JSON written to file <temporary-coverage-file>\n4 passed in 0.05s\n"
+    },
+    {
+      "strategy": "baseline",
+      "file": "generated_tests/repetitions/parse_size/baseline/run_5.py",
+      "collection_success": true,
+      "collection_output": "generated_tests/repetitions/parse_size/baseline/run_5.py::test_parse_size_normal_cases\ngenerated_tests/repetitions/parse_size/baseline/run_5.py::test_parse_size_edge_cases\ngenerated_tests/repetitions/parse_size/baseline/run_5.py::test_parse_size_invalid_cases\ngenerated_tests/repetitions/parse_size/baseline/run_5.py::test_parse_size_large_numbers\ngenerated_tests/repetitions/parse_size/baseline/run_5.py::test_parse_size_binary_option\n\n5 tests collected in 0.02s\n",
+      "collected_tests": 5,
+      "passing_tests": 4,
+      "epr_percent": 80.0,
+      "method_results": [
+        {
+          "nodeid": "generated_tests/repetitions/parse_size/baseline/run_5.py::test_parse_size_normal_cases",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        },
+        {
+          "nodeid": "generated_tests/repetitions/parse_size/baseline/run_5.py::test_parse_size_edge_cases",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        },
+        {
+          "nodeid": "generated_tests/repetitions/parse_size/baseline/run_5.py::test_parse_size_invalid_cases",
+          "passed": false,
+          "returncode": 1,
+          "output": "F                                                                        [100%]\n=================================== FAILURES ===================================\n________________________ test_parse_size_invalid_cases _________________________\n\n    def test_parse_size_invalid_cases():\n>       with pytest.raises(parse_size.InvalidSize):\n                           ^^^^^^^^^^^^^^^^^^^^^^\nE       AttributeError: 'function' object has no attribute 'InvalidSize'\n\ngenerated_tests/repetitions/parse_size/baseline/run_5.py:27: AttributeError\n=========================== short test summary info ============================\nFAILED generated_tests/repetitions/parse_size/baseline/run_5.py::test_parse_size_invalid_cases\n1 failed in 0.02s\n"
+        },
+        {
+          "nodeid": "generated_tests/repetitions/parse_size/baseline/run_5.py::test_parse_size_large_numbers",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        },
+        {
+          "nodeid": "generated_tests/repetitions/parse_size/baseline/run_5.py::test_parse_size_binary_option",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        }
+      ],
+      "raw_coverage": {
+        "covered_statements": 12,
+        "statements": 14,
+        "statement_percent": 85.71428571428571,
+        "covered_branches": 9,
+        "branches": 12,
+        "branch_percent": 75.0
+      },
+      "raw_coverage_output": "..F..                                                                    [100%]\n=================================== FAILURES ===================================\n________________________ test_parse_size_invalid_cases _________________________\n\n    def test_parse_size_invalid_cases():\n>       with pytest.raises(parse_size.InvalidSize):\n                           ^^^^^^^^^^^^^^^^^^^^^^\nE       AttributeError: 'function' object has no attribute 'InvalidSize'\n\ngenerated_tests/repetitions/parse_size/baseline/run_5.py:27: AttributeError\n================================ tests coverage ================================\n______________ coverage: platform darwin, python 3.13.14-final-0 _______________\n\nCoverage JSON written to file <temporary-coverage-file>\n=========================== short test summary info ============================\nFAILED generated_tests/repetitions/parse_size/baseline/run_5.py::test_parse_size_invalid_cases\n1 failed, 4 passed in 0.04s\n",
+      "correct_coverage": {
+        "covered_statements": 12,
+        "statements": 14,
+        "statement_percent": 85.71428571428571,
+        "covered_branches": 9,
+        "branches": 12,
+        "branch_percent": 75.0
+      },
+      "correct_coverage_output": "....                                                                     [100%]\n================================ tests coverage ================================\n______________ coverage: platform darwin, python 3.13.14-final-0 _______________\n\nCoverage JSON written to file <temporary-coverage-file>\n4 passed in 0.04s\n"
+    },
+    {
+      "strategy": "guided",
+      "file": "generated_tests/repetitions/parse_size/guided/run_1.py",
+      "collection_success": true,
+      "collection_output": "generated_tests/repetitions/parse_size/guided/run_1.py::test_basic_integer_input\ngenerated_tests/repetitions/parse_size/guided/run_1.py::test_input_with_bytes_unit\ngenerated_tests/repetitions/parse_size/guided/run_1.py::test_input_with_full_unit_name\ngenerated_tests/repetitions/parse_size/guided/run_1.py::test_input_with_kilobyte_unit\ngenerated_tests/repetitions/parse_size/guided/run_1.py::test_input_with_binary_kilobyte_unit\ngenerated_tests/repetitions/parse_size/guided/run_1.py::test_ambiguous_unit_with_decimal\ngenerated_tests/repetitions/parse_size/guided/run_1.py::test_ambiguous_unit_with_binary\ngenerated_tests/repetitions/parse_size/guided/run_1.py::test_fractional_input\ngenerated_tests/repetitions/parse_size/guided/run_1.py::test_fractional_input_with_binary\ngenerated_tests/repetitions/parse_size/guided/run_1.py::test_zero_input\ngenerated_tests/repetitions/parse_size/guided/run_1.py::test_large_size_input\ngenerated_tests/repetitions/parse_size/guided/run_1.py::test_invalid_format\ngenerated_tests/repetitions/parse_size/guided/run_1.py::test_special_characters\ngenerated_tests/repetitions/parse_size/guided/run_1.py::test_empty_input\ngenerated_tests/repetitions/parse_size/guided/run_1.py::test_duplicate_unit_specification\n\n15 tests collected in 0.01s\n",
+      "collected_tests": 15,
+      "passing_tests": 13,
+      "epr_percent": 86.66666666666667,
+      "method_results": [
+        {
+          "nodeid": "generated_tests/repetitions/parse_size/guided/run_1.py::test_basic_integer_input",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        },
+        {
+          "nodeid": "generated_tests/repetitions/parse_size/guided/run_1.py::test_input_with_bytes_unit",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        },
+        {
+          "nodeid": "generated_tests/repetitions/parse_size/guided/run_1.py::test_input_with_full_unit_name",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        },
+        {
+          "nodeid": "generated_tests/repetitions/parse_size/guided/run_1.py::test_input_with_kilobyte_unit",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        },
+        {
+          "nodeid": "generated_tests/repetitions/parse_size/guided/run_1.py::test_input_with_binary_kilobyte_unit",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        },
+        {
+          "nodeid": "generated_tests/repetitions/parse_size/guided/run_1.py::test_ambiguous_unit_with_decimal",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        },
+        {
+          "nodeid": "generated_tests/repetitions/parse_size/guided/run_1.py::test_ambiguous_unit_with_binary",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        },
+        {
+          "nodeid": "generated_tests/repetitions/parse_size/guided/run_1.py::test_fractional_input",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        },
+        {
+          "nodeid": "generated_tests/repetitions/parse_size/guided/run_1.py::test_fractional_input_with_binary",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        },
+        {
+          "nodeid": "generated_tests/repetitions/parse_size/guided/run_1.py::test_zero_input",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        },
+        {
+          "nodeid": "generated_tests/repetitions/parse_size/guided/run_1.py::test_large_size_input",
+          "passed": false,
+          "returncode": 1,
+          "output": "F                                                                        [100%]\n=================================== FAILURES ===================================\n____________________________ test_large_size_input _____________________________\n\n    def test_large_size_input():\n>       assert parse_size(\"1 YB\") == 1000000000000000000\nE       AssertionError: assert 1000000000000000000000000 == 1000000000000000000\nE        +  where 1000000000000000000000000 = parse_size('1 YB')\n\ngenerated_tests/repetitions/parse_size/guided/run_1.py:35: AssertionError\n=========================== short test summary info ============================\nFAILED generated_tests/repetitions/parse_size/guided/run_1.py::test_large_size_input\n1 failed in 0.02s\n"
+        },
+        {
+          "nodeid": "generated_tests/repetitions/parse_size/guided/run_1.py::test_invalid_format",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        },
+        {
+          "nodeid": "generated_tests/repetitions/parse_size/guided/run_1.py::test_special_characters",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        },
+        {
+          "nodeid": "generated_tests/repetitions/parse_size/guided/run_1.py::test_empty_input",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.02s\n"
+        },
+        {
+          "nodeid": "generated_tests/repetitions/parse_size/guided/run_1.py::test_duplicate_unit_specification",
+          "passed": false,
+          "returncode": 1,
+          "output": "F                                                                        [100%]\n=================================== FAILURES ===================================\n______________________ test_duplicate_unit_specification _______________________\n\n    def test_duplicate_unit_specification():\n>       with pytest.raises(Exception) as excinfo:\n             ^^^^^^^^^^^^^^^^^^^^^^^^\nE       Failed: DID NOT RAISE Exception\n\ngenerated_tests/repetitions/parse_size/guided/run_1.py:53: Failed\n=========================== short test summary info ============================\nFAILED generated_tests/repetitions/parse_size/guided/run_1.py::test_duplicate_unit_specification\n1 failed in 0.02s\n"
+        }
+      ],
+      "raw_coverage": {
+        "covered_statements": 14,
+        "statements": 14,
+        "statement_percent": 100.0,
+        "covered_branches": 11,
+        "branches": 12,
+        "branch_percent": 91.66666666666667
+      },
+      "raw_coverage_output": "..........F...F                                                          [100%]\n=================================== FAILURES ===================================\n____________________________ test_large_size_input _____________________________\n\n    def test_large_size_input():\n>       assert parse_size(\"1 YB\") == 1000000000000000000\nE       AssertionError: assert 1000000000000000000000000 == 1000000000000000000\nE        +  where 1000000000000000000000000 = parse_size('1 YB')\n\ngenerated_tests/repetitions/parse_size/guided/run_1.py:35: AssertionError\n______________________ test_duplicate_unit_specification _______________________\n\n    def test_duplicate_unit_specification():\n>       with pytest.raises(Exception) as excinfo:\n             ^^^^^^^^^^^^^^^^^^^^^^^^\nE       Failed: DID NOT RAISE Exception\n\ngenerated_tests/repetitions/parse_size/guided/run_1.py:53: Failed\n================================ tests coverage ================================\n______________ coverage: platform darwin, python 3.13.14-final-0 _______________\n\nCoverage JSON written to file <temporary-coverage-file>\n=========================== short test summary info ============================\nFAILED generated_tests/repetitions/parse_size/guided/run_1.py::test_large_size_input\nFAILED generated_tests/repetitions/parse_size/guided/run_1.py::test_duplicate_unit_specification\n2 failed, 13 passed in 0.05s\n",
+      "correct_coverage": {
+        "covered_statements": 14,
+        "statements": 14,
+        "statement_percent": 100.0,
+        "covered_branches": 11,
+        "branches": 12,
+        "branch_percent": 91.66666666666667
+      },
+      "correct_coverage_output": ".............                                                            [100%]\n================================ tests coverage ================================\n______________ coverage: platform darwin, python 3.13.14-final-0 _______________\n\nCoverage JSON written to file <temporary-coverage-file>\n13 passed in 0.05s\n"
+    },
+    {
+      "strategy": "guided",
+      "file": "generated_tests/repetitions/parse_size/guided/run_2.py",
+      "collection_success": true,
+      "collection_output": "generated_tests/repetitions/parse_size/guided/run_2.py::test_parse_integer_size_without_unit\ngenerated_tests/repetitions/parse_size/guided/run_2.py::test_parse_size_with_bytes_unit\ngenerated_tests/repetitions/parse_size/guided/run_2.py::test_parse_size_with_kilobyte_unit\ngenerated_tests/repetitions/parse_size/guided/run_2.py::test_parse_size_with_binary_kilobyte_unit\ngenerated_tests/repetitions/parse_size/guided/run_2.py::test_parse_size_with_megabyte_unit\ngenerated_tests/repetitions/parse_size/guided/run_2.py::test_parse_size_with_binary_megabyte_unit\ngenerated_tests/repetitions/parse_size/guided/run_2.py::test_parse_size_with_plural_unit\ngenerated_tests/repetitions/parse_size/guided/run_2.py::test_parse_size_with_mixed_case_unit\ngenerated_tests/repetitions/parse_size/guided/run_2.py::test_invalid_size_format_with_unsupported_characters\ngenerated_tests/repetitions/parse_size/guided/run_2.py::test_invalid_size_format_with_multiple_dots\ngenerated_tests/repetitions/parse_size/guided/run_2.py::test_parse_zero_size\ngenerated_tests/repetitions/parse_size/guided/run_2.py::test_parse_size_with_leading_trailing_spaces\ngenerated_tests/repetitions/parse_size/guided/run_2.py::test_parse_large_size_value\ngenerated_tests/repetitions/parse_size/guided/run_2.py::test_invalid_size_with_none_input\ngenerated_tests/repetitions/parse_size/guided/run_2.py::test_invalid_size_with_empty_string\n\n15 tests collected in 0.01s\n",
+      "collected_tests": 15,
+      "passing_tests": 8,
+      "epr_percent": 53.333333333333336,
+      "method_results": [
+        {
+          "nodeid": "generated_tests/repetitions/parse_size/guided/run_2.py::test_parse_integer_size_without_unit",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        },
+        {
+          "nodeid": "generated_tests/repetitions/parse_size/guided/run_2.py::test_parse_size_with_bytes_unit",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        },
+        {
+          "nodeid": "generated_tests/repetitions/parse_size/guided/run_2.py::test_parse_size_with_kilobyte_unit",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        },
+        {
+          "nodeid": "generated_tests/repetitions/parse_size/guided/run_2.py::test_parse_size_with_binary_kilobyte_unit",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        },
+        {
+          "nodeid": "generated_tests/repetitions/parse_size/guided/run_2.py::test_parse_size_with_megabyte_unit",
+          "passed": false,
+          "returncode": 1,
+          "output": "F                                                                        [100%]\n=================================== FAILURES ===================================\n______________________ test_parse_size_with_megabyte_unit ______________________\n\n    def test_parse_size_with_megabyte_unit():\n>       assert parse_size('1.5 MB') == 1500000000\nE       AssertionError: assert 1500000 == 1500000000\nE        +  where 1500000 = parse_size('1.5 MB')\n\ngenerated_tests/repetitions/parse_size/guided/run_2.py:17: AssertionError\n=========================== short test summary info ============================\nFAILED generated_tests/repetitions/parse_size/guided/run_2.py::test_parse_size_with_megabyte_unit\n1 failed in 0.02s\n"
+        },
+        {
+          "nodeid": "generated_tests/repetitions/parse_size/guided/run_2.py::test_parse_size_with_binary_megabyte_unit",
+          "passed": false,
+          "returncode": 1,
+          "output": "F                                                                        [100%]\n=================================== FAILURES ===================================\n__________________ test_parse_size_with_binary_megabyte_unit ___________________\n\n    def test_parse_size_with_binary_megabyte_unit():\n>       assert parse_size('1.5 MB', binary=True) == 1572864000\nE       AssertionError: assert 1572864 == 1572864000\nE        +  where 1572864 = parse_size('1.5 MB', binary=True)\n\ngenerated_tests/repetitions/parse_size/guided/run_2.py:20: AssertionError\n=========================== short test summary info ============================\nFAILED generated_tests/repetitions/parse_size/guided/run_2.py::test_parse_size_with_binary_megabyte_unit\n1 failed in 0.02s\n"
+        },
+        {
+          "nodeid": "generated_tests/repetitions/parse_size/guided/run_2.py::test_parse_size_with_plural_unit",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        },
+        {
+          "nodeid": "generated_tests/repetitions/parse_size/guided/run_2.py::test_parse_size_with_mixed_case_unit",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        },
+        {
+          "nodeid": "generated_tests/repetitions/parse_size/guided/run_2.py::test_invalid_size_format_with_unsupported_characters",
+          "passed": false,
+          "returncode": 1,
+          "output": "F                                                                        [100%]\n=================================== FAILURES ===================================\n_____________ test_invalid_size_format_with_unsupported_characters _____________\n\n    def test_invalid_size_format_with_unsupported_characters():\n>       with pytest.raises(parse_size.InvalidSize):\n                           ^^^^^^^^^^^^^^^^^^^^^^\nE       AttributeError: 'function' object has no attribute 'InvalidSize'\n\ngenerated_tests/repetitions/parse_size/guided/run_2.py:29: AttributeError\n=========================== short test summary info ============================\nFAILED generated_tests/repetitions/parse_size/guided/run_2.py::test_invalid_size_format_with_unsupported_characters\n1 failed in 0.02s\n"
+        },
+        {
+          "nodeid": "generated_tests/repetitions/parse_size/guided/run_2.py::test_invalid_size_format_with_multiple_dots",
+          "passed": false,
+          "returncode": 1,
+          "output": "F                                                                        [100%]\n=================================== FAILURES ===================================\n_________________ test_invalid_size_format_with_multiple_dots __________________\n\n    def test_invalid_size_format_with_multiple_dots():\n>       with pytest.raises(parse_size.InvalidSize):\n                           ^^^^^^^^^^^^^^^^^^^^^^\nE       AttributeError: 'function' object has no attribute 'InvalidSize'\n\ngenerated_tests/repetitions/parse_size/guided/run_2.py:33: AttributeError\n=========================== short test summary info ============================\nFAILED generated_tests/repetitions/parse_size/guided/run_2.py::test_invalid_size_format_with_multiple_dots\n1 failed in 0.02s\n"
+        },
+        {
+          "nodeid": "generated_tests/repetitions/parse_size/guided/run_2.py::test_parse_zero_size",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        },
+        {
+          "nodeid": "generated_tests/repetitions/parse_size/guided/run_2.py::test_parse_size_with_leading_trailing_spaces",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        },
+        {
+          "nodeid": "generated_tests/repetitions/parse_size/guided/run_2.py::test_parse_large_size_value",
+          "passed": false,
+          "returncode": 1,
+          "output": "F                                                                        [100%]\n=================================== FAILURES ===================================\n_________________________ test_parse_large_size_value __________________________\n\n    def test_parse_large_size_value():\n>       assert parse_size('1 YB') == 1000000000000000000\nE       AssertionError: assert 1000000000000000000000000 == 1000000000000000000\nE        +  where 1000000000000000000000000 = parse_size('1 YB')\n\ngenerated_tests/repetitions/parse_size/guided/run_2.py:43: AssertionError\n=========================== short test summary info ============================\nFAILED generated_tests/repetitions/parse_size/guided/run_2.py::test_parse_large_size_value\n1 failed in 0.02s\n"
+        },
+        {
+          "nodeid": "generated_tests/repetitions/parse_size/guided/run_2.py::test_invalid_size_with_none_input",
+          "passed": false,
+          "returncode": 1,
+          "output": "F                                                                        [100%]\n=================================== FAILURES ===================================\n______________________ test_invalid_size_with_none_input _______________________\n\n    def test_invalid_size_with_none_input():\n>       with pytest.raises(parse_size.InvalidSize):\n                           ^^^^^^^^^^^^^^^^^^^^^^\nE       AttributeError: 'function' object has no attribute 'InvalidSize'\n\ngenerated_tests/repetitions/parse_size/guided/run_2.py:46: AttributeError\n=========================== short test summary info ============================\nFAILED generated_tests/repetitions/parse_size/guided/run_2.py::test_invalid_size_with_none_input\n1 failed in 0.02s\n"
+        },
+        {
+          "nodeid": "generated_tests/repetitions/parse_size/guided/run_2.py::test_invalid_size_with_empty_string",
+          "passed": false,
+          "returncode": 1,
+          "output": "F                                                                        [100%]\n=================================== FAILURES ===================================\n_____________________ test_invalid_size_with_empty_string ______________________\n\n    def test_invalid_size_with_empty_string():\n>       with pytest.raises(parse_size.InvalidSize):\n                           ^^^^^^^^^^^^^^^^^^^^^^\nE       AttributeError: 'function' object has no attribute 'InvalidSize'\n\ngenerated_tests/repetitions/parse_size/guided/run_2.py:50: AttributeError\n=========================== short test summary info ============================\nFAILED generated_tests/repetitions/parse_size/guided/run_2.py::test_invalid_size_with_empty_string\n1 failed in 0.02s\n"
+        }
+      ],
+      "raw_coverage": {
+        "covered_statements": 12,
+        "statements": 14,
+        "statement_percent": 85.71428571428571,
+        "covered_branches": 9,
+        "branches": 12,
+        "branch_percent": 75.0
+      },
+      "raw_coverage_output": "....FF..FF..FFF                                                          [100%]\n=================================== FAILURES ===================================\n______________________ test_parse_size_with_megabyte_unit ______________________\n\n    def test_parse_size_with_megabyte_unit():\n>       assert parse_size('1.5 MB') == 1500000000\nE       AssertionError: assert 1500000 == 1500000000\nE        +  where 1500000 = parse_size('1.5 MB')\n\ngenerated_tests/repetitions/parse_size/guided/run_2.py:17: AssertionError\n__________________ test_parse_size_with_binary_megabyte_unit ___________________\n\n    def test_parse_size_with_binary_megabyte_unit():\n>       assert parse_size('1.5 MB', binary=True) == 1572864000\nE       AssertionError: assert 1572864 == 1572864000\nE        +  where 1572864 = parse_size('1.5 MB', binary=True)\n\ngenerated_tests/repetitions/parse_size/guided/run_2.py:20: AssertionError\n_____________ test_invalid_size_format_with_unsupported_characters _____________\n\n    def test_invalid_size_format_with_unsupported_characters():\n>       with pytest.raises(parse_size.InvalidSize):\n                           ^^^^^^^^^^^^^^^^^^^^^^\nE       AttributeError: 'function' object has no attribute 'InvalidSize'\n\ngenerated_tests/repetitions/parse_size/guided/run_2.py:29: AttributeError\n_________________ test_invalid_size_format_with_multiple_dots __________________\n\n    def test_invalid_size_format_with_multiple_dots():\n>       with pytest.raises(parse_size.InvalidSize):\n                           ^^^^^^^^^^^^^^^^^^^^^^\nE       AttributeError: 'function' object has no attribute 'InvalidSize'\n\ngenerated_tests/repetitions/parse_size/guided/run_2.py:33: AttributeError\n_________________________ test_parse_large_size_value __________________________\n\n    def test_parse_large_size_value():\n>       assert parse_size('1 YB') == 1000000000000000000\nE       AssertionError: assert 1000000000000000000000000 == 1000000000000000000\nE        +  where 1000000000000000000000000 = parse_size('1 YB')\n\ngenerated_tests/repetitions/parse_size/guided/run_2.py:43: AssertionError\n______________________ test_invalid_size_with_none_input _______________________\n\n    def test_invalid_size_with_none_input():\n>       with pytest.raises(parse_size.InvalidSize):\n                           ^^^^^^^^^^^^^^^^^^^^^^\nE       AttributeError: 'function' object has no attribute 'InvalidSize'\n\ngenerated_tests/repetitions/parse_size/guided/run_2.py:46: AttributeError\n_____________________ test_invalid_size_with_empty_string ______________________\n\n    def test_invalid_size_with_empty_string():\n>       with pytest.raises(parse_size.InvalidSize):\n                           ^^^^^^^^^^^^^^^^^^^^^^\nE       AttributeError: 'function' object has no attribute 'InvalidSize'\n\ngenerated_tests/repetitions/parse_size/guided/run_2.py:50: AttributeError\n================================ tests coverage ================================\n______________ coverage: platform darwin, python 3.13.14-final-0 _______________\n\nCoverage JSON written to file <temporary-coverage-file>\n=========================== short test summary info ============================\nFAILED generated_tests/repetitions/parse_size/guided/run_2.py::test_parse_size_with_megabyte_unit\nFAILED generated_tests/repetitions/parse_size/guided/run_2.py::test_parse_size_with_binary_megabyte_unit\nFAILED generated_tests/repetitions/parse_size/guided/run_2.py::test_invalid_size_format_with_unsupported_characters\nFAILED generated_tests/repetitions/parse_size/guided/run_2.py::test_invalid_size_format_with_multiple_dots\nFAILED generated_tests/repetitions/parse_size/guided/run_2.py::test_parse_large_size_value\nFAILED generated_tests/repetitions/parse_size/guided/run_2.py::test_invalid_size_with_none_input\nFAILED generated_tests/repetitions/parse_size/guided/run_2.py::test_invalid_size_with_empty_string\n7 failed, 8 passed in 0.06s\n",
+      "correct_coverage": {
+        "covered_statements": 12,
+        "statements": 14,
+        "statement_percent": 85.71428571428571,
+        "covered_branches": 9,
+        "branches": 12,
+        "branch_percent": 75.0
+      },
+      "correct_coverage_output": "........                                                                 [100%]\n================================ tests coverage ================================\n______________ coverage: platform darwin, python 3.13.14-final-0 _______________\n\nCoverage JSON written to file <temporary-coverage-file>\n8 passed in 0.04s\n"
+    },
+    {
+      "strategy": "guided",
+      "file": "generated_tests/repetitions/parse_size/guided/run_3.py",
+      "collection_success": true,
+      "collection_output": "generated_tests/repetitions/parse_size/guided/run_3.py::test_basic_size_parsing\ngenerated_tests/repetitions/parse_size/guided/run_3.py::test_size_with_unit_decimal\ngenerated_tests/repetitions/parse_size/guided/run_3.py::test_size_with_unit_binary\ngenerated_tests/repetitions/parse_size/guided/run_3.py::test_size_with_plural_unit_decimal\ngenerated_tests/repetitions/parse_size/guided/run_3.py::test_size_with_plural_unit_binary\ngenerated_tests/repetitions/parse_size/guided/run_3.py::test_floating_point_size\ngenerated_tests/repetitions/parse_size/guided/run_3.py::test_floating_point_size_binary\ngenerated_tests/repetitions/parse_size/guided/run_3.py::test_invalid_size_string\ngenerated_tests/repetitions/parse_size/guided/run_3.py::test_empty_input\ngenerated_tests/repetitions/parse_size/guided/run_3.py::test_invalid_format\ngenerated_tests/repetitions/parse_size/guided/run_3.py::test_large_size_value\ngenerated_tests/repetitions/parse_size/guided/run_3.py::test_mixed_case_units\ngenerated_tests/repetitions/parse_size/guided/run_3.py::test_tokenization_of_numbers_with_units\ngenerated_tests/repetitions/parse_size/guided/run_3.py::test_tokenization_with_extra_spaces\n\n14 tests collected in 0.01s\n",
+      "collected_tests": 14,
+      "passing_tests": 10,
+      "epr_percent": 71.42857142857143,
+      "method_results": [
+        {
+          "nodeid": "generated_tests/repetitions/parse_size/guided/run_3.py::test_basic_size_parsing",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        },
+        {
+          "nodeid": "generated_tests/repetitions/parse_size/guided/run_3.py::test_size_with_unit_decimal",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        },
+        {
+          "nodeid": "generated_tests/repetitions/parse_size/guided/run_3.py::test_size_with_unit_binary",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        },
+        {
+          "nodeid": "generated_tests/repetitions/parse_size/guided/run_3.py::test_size_with_plural_unit_decimal",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        },
+        {
+          "nodeid": "generated_tests/repetitions/parse_size/guided/run_3.py::test_size_with_plural_unit_binary",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        },
+        {
+          "nodeid": "generated_tests/repetitions/parse_size/guided/run_3.py::test_floating_point_size",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        },
+        {
+          "nodeid": "generated_tests/repetitions/parse_size/guided/run_3.py::test_floating_point_size_binary",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        },
+        {
+          "nodeid": "generated_tests/repetitions/parse_size/guided/run_3.py::test_invalid_size_string",
+          "passed": false,
+          "returncode": 1,
+          "output": "F                                                                        [100%]\n=================================== FAILURES ===================================\n___________________________ test_invalid_size_string ___________________________\n\n    def test_invalid_size_string():\n>       with pytest.raises(parse_size.InvalidSize):\n                           ^^^^^^^^^^^^^^^^^^^^^^\nE       AttributeError: 'function' object has no attribute 'InvalidSize'\n\ngenerated_tests/repetitions/parse_size/guided/run_3.py:26: AttributeError\n=========================== short test summary info ============================\nFAILED generated_tests/repetitions/parse_size/guided/run_3.py::test_invalid_size_string\n1 failed in 0.02s\n"
+        },
+        {
+          "nodeid": "generated_tests/repetitions/parse_size/guided/run_3.py::test_empty_input",
+          "passed": false,
+          "returncode": 1,
+          "output": "F                                                                        [100%]\n=================================== FAILURES ===================================\n_______________________________ test_empty_input _______________________________\n\n    def test_empty_input():\n>       with pytest.raises(parse_size.InvalidSize):\n                           ^^^^^^^^^^^^^^^^^^^^^^\nE       AttributeError: 'function' object has no attribute 'InvalidSize'\n\ngenerated_tests/repetitions/parse_size/guided/run_3.py:30: AttributeError\n=========================== short test summary info ============================\nFAILED generated_tests/repetitions/parse_size/guided/run_3.py::test_empty_input\n1 failed in 0.02s\n"
+        },
+        {
+          "nodeid": "generated_tests/repetitions/parse_size/guided/run_3.py::test_invalid_format",
+          "passed": false,
+          "returncode": 1,
+          "output": "F                                                                        [100%]\n=================================== FAILURES ===================================\n_____________________________ test_invalid_format ______________________________\n\n    def test_invalid_format():\n>       with pytest.raises(parse_size.InvalidSize):\n                           ^^^^^^^^^^^^^^^^^^^^^^\nE       AttributeError: 'function' object has no attribute 'InvalidSize'\n\ngenerated_tests/repetitions/parse_size/guided/run_3.py:34: AttributeError\n=========================== short test summary info ============================\nFAILED generated_tests/repetitions/parse_size/guided/run_3.py::test_invalid_format\n1 failed in 0.02s\n"
+        },
+        {
+          "nodeid": "generated_tests/repetitions/parse_size/guided/run_3.py::test_large_size_value",
+          "passed": false,
+          "returncode": 1,
+          "output": "F                                                                        [100%]\n=================================== FAILURES ===================================\n____________________________ test_large_size_value _____________________________\n\n    def test_large_size_value():\n>       assert parse_size('1 YB') == 1000000000000000000\nE       AssertionError: assert 1000000000000000000000000 == 1000000000000000000\nE        +  where 1000000000000000000000000 = parse_size('1 YB')\n\ngenerated_tests/repetitions/parse_size/guided/run_3.py:38: AssertionError\n=========================== short test summary info ============================\nFAILED generated_tests/repetitions/parse_size/guided/run_3.py::test_large_size_value\n1 failed in 0.02s\n"
+        },
+        {
+          "nodeid": "generated_tests/repetitions/parse_size/guided/run_3.py::test_mixed_case_units",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        },
+        {
+          "nodeid": "generated_tests/repetitions/parse_size/guided/run_3.py::test_tokenization_of_numbers_with_units",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        },
+        {
+          "nodeid": "generated_tests/repetitions/parse_size/guided/run_3.py::test_tokenization_with_extra_spaces",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        }
+      ],
+      "raw_coverage": {
+        "covered_statements": 12,
+        "statements": 14,
+        "statement_percent": 85.71428571428571,
+        "covered_branches": 9,
+        "branches": 12,
+        "branch_percent": 75.0
+      },
+      "raw_coverage_output": ".......FFFF...                                                           [100%]\n=================================== FAILURES ===================================\n___________________________ test_invalid_size_string ___________________________\n\n    def test_invalid_size_string():\n>       with pytest.raises(parse_size.InvalidSize):\n                           ^^^^^^^^^^^^^^^^^^^^^^\nE       AttributeError: 'function' object has no attribute 'InvalidSize'\n\ngenerated_tests/repetitions/parse_size/guided/run_3.py:26: AttributeError\n_______________________________ test_empty_input _______________________________\n\n    def test_empty_input():\n>       with pytest.raises(parse_size.InvalidSize):\n                           ^^^^^^^^^^^^^^^^^^^^^^\nE       AttributeError: 'function' object has no attribute 'InvalidSize'\n\ngenerated_tests/repetitions/parse_size/guided/run_3.py:30: AttributeError\n_____________________________ test_invalid_format ______________________________\n\n    def test_invalid_format():\n>       with pytest.raises(parse_size.InvalidSize):\n                           ^^^^^^^^^^^^^^^^^^^^^^\nE       AttributeError: 'function' object has no attribute 'InvalidSize'\n\ngenerated_tests/repetitions/parse_size/guided/run_3.py:34: AttributeError\n____________________________ test_large_size_value _____________________________\n\n    def test_large_size_value():\n>       assert parse_size('1 YB') == 1000000000000000000\nE       AssertionError: assert 1000000000000000000000000 == 1000000000000000000\nE        +  where 1000000000000000000000000 = parse_size('1 YB')\n\ngenerated_tests/repetitions/parse_size/guided/run_3.py:38: AssertionError\n================================ tests coverage ================================\n______________ coverage: platform darwin, python 3.13.14-final-0 _______________\n\nCoverage JSON written to file <temporary-coverage-file>\n=========================== short test summary info ============================\nFAILED generated_tests/repetitions/parse_size/guided/run_3.py::test_invalid_size_string\nFAILED generated_tests/repetitions/parse_size/guided/run_3.py::test_empty_input\nFAILED generated_tests/repetitions/parse_size/guided/run_3.py::test_invalid_format\nFAILED generated_tests/repetitions/parse_size/guided/run_3.py::test_large_size_value\n4 failed, 10 passed in 0.05s\n",
+      "correct_coverage": {
+        "covered_statements": 12,
+        "statements": 14,
+        "statement_percent": 85.71428571428571,
+        "covered_branches": 9,
+        "branches": 12,
+        "branch_percent": 75.0
+      },
+      "correct_coverage_output": "..........                                                               [100%]\n================================ tests coverage ================================\n______________ coverage: platform darwin, python 3.13.14-final-0 _______________\n\nCoverage JSON written to file <temporary-coverage-file>\n10 passed in 0.04s\n"
+    },
+    {
+      "strategy": "guided",
+      "file": "generated_tests/repetitions/parse_size/guided/run_4.py",
+      "collection_success": true,
+      "collection_output": "generated_tests/repetitions/parse_size/guided/run_4.py::test_basic_integer_input\ngenerated_tests/repetitions/parse_size/guided/run_4.py::test_input_with_bytes_unit\ngenerated_tests/repetitions/parse_size/guided/run_4.py::test_input_with_singular_unit\ngenerated_tests/repetitions/parse_size/guided/run_4.py::test_input_with_plural_unit\ngenerated_tests/repetitions/parse_size/guided/run_4.py::test_input_with_binary_unit\ngenerated_tests/repetitions/parse_size/guided/run_4.py::test_input_with_decimal_value\ngenerated_tests/repetitions/parse_size/guided/run_4.py::test_input_with_ambiguous_unit_binary\ngenerated_tests/repetitions/parse_size/guided/run_4.py::test_input_with_extremely_large_size\ngenerated_tests/repetitions/parse_size/guided/run_4.py::test_input_with_invalid_format\ngenerated_tests/repetitions/parse_size/guided/run_4.py::test_input_with_multiple_decimal_points\ngenerated_tests/repetitions/parse_size/guided/run_4.py::test_input_with_singular_and_plural_units\ngenerated_tests/repetitions/parse_size/guided/run_4.py::test_input_with_ambiguous_unit_decimal\n\n12 tests collected in 0.01s\n",
+      "collected_tests": 12,
+      "passing_tests": 9,
+      "epr_percent": 75.0,
+      "method_results": [
+        {
+          "nodeid": "generated_tests/repetitions/parse_size/guided/run_4.py::test_basic_integer_input",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        },
+        {
+          "nodeid": "generated_tests/repetitions/parse_size/guided/run_4.py::test_input_with_bytes_unit",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        },
+        {
+          "nodeid": "generated_tests/repetitions/parse_size/guided/run_4.py::test_input_with_singular_unit",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        },
+        {
+          "nodeid": "generated_tests/repetitions/parse_size/guided/run_4.py::test_input_with_plural_unit",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        },
+        {
+          "nodeid": "generated_tests/repetitions/parse_size/guided/run_4.py::test_input_with_binary_unit",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        },
+        {
+          "nodeid": "generated_tests/repetitions/parse_size/guided/run_4.py::test_input_with_decimal_value",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        },
+        {
+          "nodeid": "generated_tests/repetitions/parse_size/guided/run_4.py::test_input_with_ambiguous_unit_binary",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        },
+        {
+          "nodeid": "generated_tests/repetitions/parse_size/guided/run_4.py::test_input_with_extremely_large_size",
+          "passed": false,
+          "returncode": 1,
+          "output": "F                                                                        [100%]\n=================================== FAILURES ===================================\n_____________________ test_input_with_extremely_large_size _____________________\n\n    def test_input_with_extremely_large_size():\n>       assert parse_size('1 YB') == 1000000000000000000\nE       AssertionError: assert 1000000000000000000000000 == 1000000000000000000\nE        +  where 1000000000000000000000000 = parse_size('1 YB')\n\ngenerated_tests/repetitions/parse_size/guided/run_4.py:26: AssertionError\n=========================== short test summary info ============================\nFAILED generated_tests/repetitions/parse_size/guided/run_4.py::test_input_with_extremely_large_size\n1 failed in 0.02s\n"
+        },
+        {
+          "nodeid": "generated_tests/repetitions/parse_size/guided/run_4.py::test_input_with_invalid_format",
+          "passed": false,
+          "returncode": 1,
+          "output": "F                                                                        [100%]\n=================================== FAILURES ===================================\n________________________ test_input_with_invalid_format ________________________\n\n    def test_input_with_invalid_format():\n>       with pytest.raises(parse_size.InvalidSize):\n                           ^^^^^^^^^^^^^^^^^^^^^^\nE       AttributeError: 'function' object has no attribute 'InvalidSize'\n\ngenerated_tests/repetitions/parse_size/guided/run_4.py:29: AttributeError\n=========================== short test summary info ============================\nFAILED generated_tests/repetitions/parse_size/guided/run_4.py::test_input_with_invalid_format\n1 failed in 0.02s\n"
+        },
+        {
+          "nodeid": "generated_tests/repetitions/parse_size/guided/run_4.py::test_input_with_multiple_decimal_points",
+          "passed": false,
+          "returncode": 1,
+          "output": "F                                                                        [100%]\n=================================== FAILURES ===================================\n___________________ test_input_with_multiple_decimal_points ____________________\n\n    def test_input_with_multiple_decimal_points():\n>       with pytest.raises(parse_size.InvalidSize):\n                           ^^^^^^^^^^^^^^^^^^^^^^\nE       AttributeError: 'function' object has no attribute 'InvalidSize'\n\ngenerated_tests/repetitions/parse_size/guided/run_4.py:33: AttributeError\n=========================== short test summary info ============================\nFAILED generated_tests/repetitions/parse_size/guided/run_4.py::test_input_with_multiple_decimal_points\n1 failed in 0.02s\n"
+        },
+        {
+          "nodeid": "generated_tests/repetitions/parse_size/guided/run_4.py::test_input_with_singular_and_plural_units",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        },
+        {
+          "nodeid": "generated_tests/repetitions/parse_size/guided/run_4.py::test_input_with_ambiguous_unit_decimal",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        }
+      ],
+      "raw_coverage": {
+        "covered_statements": 12,
+        "statements": 14,
+        "statement_percent": 85.71428571428571,
+        "covered_branches": 9,
+        "branches": 12,
+        "branch_percent": 75.0
+      },
+      "raw_coverage_output": ".......FFF..                                                             [100%]\n=================================== FAILURES ===================================\n_____________________ test_input_with_extremely_large_size _____________________\n\n    def test_input_with_extremely_large_size():\n>       assert parse_size('1 YB') == 1000000000000000000\nE       AssertionError: assert 1000000000000000000000000 == 1000000000000000000\nE        +  where 1000000000000000000000000 = parse_size('1 YB')\n\ngenerated_tests/repetitions/parse_size/guided/run_4.py:26: AssertionError\n________________________ test_input_with_invalid_format ________________________\n\n    def test_input_with_invalid_format():\n>       with pytest.raises(parse_size.InvalidSize):\n                           ^^^^^^^^^^^^^^^^^^^^^^\nE       AttributeError: 'function' object has no attribute 'InvalidSize'\n\ngenerated_tests/repetitions/parse_size/guided/run_4.py:29: AttributeError\n___________________ test_input_with_multiple_decimal_points ____________________\n\n    def test_input_with_multiple_decimal_points():\n>       with pytest.raises(parse_size.InvalidSize):\n                           ^^^^^^^^^^^^^^^^^^^^^^\nE       AttributeError: 'function' object has no attribute 'InvalidSize'\n\ngenerated_tests/repetitions/parse_size/guided/run_4.py:33: AttributeError\n================================ tests coverage ================================\n______________ coverage: platform darwin, python 3.13.14-final-0 _______________\n\nCoverage JSON written to file <temporary-coverage-file>\n=========================== short test summary info ============================\nFAILED generated_tests/repetitions/parse_size/guided/run_4.py::test_input_with_extremely_large_size\nFAILED generated_tests/repetitions/parse_size/guided/run_4.py::test_input_with_invalid_format\nFAILED generated_tests/repetitions/parse_size/guided/run_4.py::test_input_with_multiple_decimal_points\n3 failed, 9 passed in 0.05s\n",
+      "correct_coverage": {
+        "covered_statements": 12,
+        "statements": 14,
+        "statement_percent": 85.71428571428571,
+        "covered_branches": 9,
+        "branches": 12,
+        "branch_percent": 75.0
+      },
+      "correct_coverage_output": ".........                                                                [100%]\n================================ tests coverage ================================\n______________ coverage: platform darwin, python 3.13.14-final-0 _______________\n\nCoverage JSON written to file <temporary-coverage-file>\n9 passed in 0.04s\n"
+    },
+    {
+      "strategy": "guided",
+      "file": "generated_tests/repetitions/parse_size/guided/run_5.py",
+      "collection_success": true,
+      "collection_output": "generated_tests/repetitions/parse_size/guided/run_5.py::test_parse_simple_size\ngenerated_tests/repetitions/parse_size/guided/run_5.py::test_parse_size_in_bytes\ngenerated_tests/repetitions/parse_size/guided/run_5.py::test_parse_size_with_unit\ngenerated_tests/repetitions/parse_size/guided/run_5.py::test_parse_ambiguous_size_decimal\ngenerated_tests/repetitions/parse_size/guided/run_5.py::test_parse_ambiguous_size_binary\ngenerated_tests/repetitions/parse_size/guided/run_5.py::test_parse_plural_unit\ngenerated_tests/repetitions/parse_size/guided/run_5.py::test_parse_decimal_size\ngenerated_tests/repetitions/parse_size/guided/run_5.py::test_parse_decimal_size_binary\ngenerated_tests/repetitions/parse_size/guided/run_5.py::test_parse_zero_value\ngenerated_tests/repetitions/parse_size/guided/run_5.py::test_parse_empty_input\ngenerated_tests/repetitions/parse_size/guided/run_5.py::test_parse_invalid_format\ngenerated_tests/repetitions/parse_size/guided/run_5.py::test_parse_unsupported_unit\ngenerated_tests/repetitions/parse_size/guided/run_5.py::test_parse_non_string_input\ngenerated_tests/repetitions/parse_size/guided/run_5.py::test_parse_large_size\ngenerated_tests/repetitions/parse_size/guided/run_5.py::test_parse_complex_size\n\n15 tests collected in 0.01s\n",
+      "collected_tests": 15,
+      "passing_tests": 9,
+      "epr_percent": 60.0,
+      "method_results": [
+        {
+          "nodeid": "generated_tests/repetitions/parse_size/guided/run_5.py::test_parse_simple_size",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        },
+        {
+          "nodeid": "generated_tests/repetitions/parse_size/guided/run_5.py::test_parse_size_in_bytes",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        },
+        {
+          "nodeid": "generated_tests/repetitions/parse_size/guided/run_5.py::test_parse_size_with_unit",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        },
+        {
+          "nodeid": "generated_tests/repetitions/parse_size/guided/run_5.py::test_parse_ambiguous_size_decimal",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        },
+        {
+          "nodeid": "generated_tests/repetitions/parse_size/guided/run_5.py::test_parse_ambiguous_size_binary",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        },
+        {
+          "nodeid": "generated_tests/repetitions/parse_size/guided/run_5.py::test_parse_plural_unit",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        },
+        {
+          "nodeid": "generated_tests/repetitions/parse_size/guided/run_5.py::test_parse_decimal_size",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        },
+        {
+          "nodeid": "generated_tests/repetitions/parse_size/guided/run_5.py::test_parse_decimal_size_binary",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        },
+        {
+          "nodeid": "generated_tests/repetitions/parse_size/guided/run_5.py::test_parse_zero_value",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        },
+        {
+          "nodeid": "generated_tests/repetitions/parse_size/guided/run_5.py::test_parse_empty_input",
+          "passed": false,
+          "returncode": 1,
+          "output": "F                                                                        [100%]\n=================================== FAILURES ===================================\n____________________________ test_parse_empty_input ____________________________\n\n    def test_parse_empty_input():\n>       with pytest.raises(parse_size.InvalidSize):\n                           ^^^^^^^^^^^^^^^^^^^^^^\nE       AttributeError: 'function' object has no attribute 'InvalidSize'\n\ngenerated_tests/repetitions/parse_size/guided/run_5.py:32: AttributeError\n=========================== short test summary info ============================\nFAILED generated_tests/repetitions/parse_size/guided/run_5.py::test_parse_empty_input\n1 failed in 0.02s\n"
+        },
+        {
+          "nodeid": "generated_tests/repetitions/parse_size/guided/run_5.py::test_parse_invalid_format",
+          "passed": false,
+          "returncode": 1,
+          "output": "F                                                                        [100%]\n=================================== FAILURES ===================================\n__________________________ test_parse_invalid_format ___________________________\n\n    def test_parse_invalid_format():\n>       with pytest.raises(parse_size.InvalidSize):\n                           ^^^^^^^^^^^^^^^^^^^^^^\nE       AttributeError: 'function' object has no attribute 'InvalidSize'\n\ngenerated_tests/repetitions/parse_size/guided/run_5.py:36: AttributeError\n=========================== short test summary info ============================\nFAILED generated_tests/repetitions/parse_size/guided/run_5.py::test_parse_invalid_format\n1 failed in 0.02s\n"
+        },
+        {
+          "nodeid": "generated_tests/repetitions/parse_size/guided/run_5.py::test_parse_unsupported_unit",
+          "passed": false,
+          "returncode": 1,
+          "output": "F                                                                        [100%]\n=================================== FAILURES ===================================\n_________________________ test_parse_unsupported_unit __________________________\n\n    def test_parse_unsupported_unit():\n>       with pytest.raises(parse_size.InvalidSize):\n                           ^^^^^^^^^^^^^^^^^^^^^^\nE       AttributeError: 'function' object has no attribute 'InvalidSize'\n\ngenerated_tests/repetitions/parse_size/guided/run_5.py:40: AttributeError\n=========================== short test summary info ============================\nFAILED generated_tests/repetitions/parse_size/guided/run_5.py::test_parse_unsupported_unit\n1 failed in 0.02s\n"
+        },
+        {
+          "nodeid": "generated_tests/repetitions/parse_size/guided/run_5.py::test_parse_non_string_input",
+          "passed": false,
+          "returncode": 1,
+          "output": "F                                                                        [100%]\n=================================== FAILURES ===================================\n_________________________ test_parse_non_string_input __________________________\n\n    def test_parse_non_string_input():\n>       with pytest.raises(parse_size.InvalidSize):\n                           ^^^^^^^^^^^^^^^^^^^^^^\nE       AttributeError: 'function' object has no attribute 'InvalidSize'\n\ngenerated_tests/repetitions/parse_size/guided/run_5.py:44: AttributeError\n=========================== short test summary info ============================\nFAILED generated_tests/repetitions/parse_size/guided/run_5.py::test_parse_non_string_input\n1 failed in 0.02s\n"
+        },
+        {
+          "nodeid": "generated_tests/repetitions/parse_size/guided/run_5.py::test_parse_large_size",
+          "passed": false,
+          "returncode": 1,
+          "output": "F                                                                        [100%]\n=================================== FAILURES ===================================\n____________________________ test_parse_large_size _____________________________\n\n    def test_parse_large_size():\n>       assert parse_size('1 YB') == 1000000000000000000\nE       AssertionError: assert 1000000000000000000000000 == 1000000000000000000\nE        +  where 1000000000000000000000000 = parse_size('1 YB')\n\ngenerated_tests/repetitions/parse_size/guided/run_5.py:48: AssertionError\n=========================== short test summary info ============================\nFAILED generated_tests/repetitions/parse_size/guided/run_5.py::test_parse_large_size\n1 failed in 0.02s\n"
+        },
+        {
+          "nodeid": "generated_tests/repetitions/parse_size/guided/run_5.py::test_parse_complex_size",
+          "passed": false,
+          "returncode": 1,
+          "output": "F                                                                        [100%]\n=================================== FAILURES ===================================\n___________________________ test_parse_complex_size ____________________________\n\n    def test_parse_complex_size():\n>       with pytest.raises(parse_size.InvalidSize):\n                           ^^^^^^^^^^^^^^^^^^^^^^\nE       AttributeError: 'function' object has no attribute 'InvalidSize'\n\ngenerated_tests/repetitions/parse_size/guided/run_5.py:51: AttributeError\n=========================== short test summary info ============================\nFAILED generated_tests/repetitions/parse_size/guided/run_5.py::test_parse_complex_size\n1 failed in 0.02s\n"
+        }
+      ],
+      "raw_coverage": {
+        "covered_statements": 11,
+        "statements": 14,
+        "statement_percent": 78.57142857142857,
+        "covered_branches": 8,
+        "branches": 12,
+        "branch_percent": 66.66666666666667
+      },
+      "raw_coverage_output": ".........FFFFFF                                                          [100%]\n=================================== FAILURES ===================================\n____________________________ test_parse_empty_input ____________________________\n\n    def test_parse_empty_input():\n>       with pytest.raises(parse_size.InvalidSize):\n                           ^^^^^^^^^^^^^^^^^^^^^^\nE       AttributeError: 'function' object has no attribute 'InvalidSize'\n\ngenerated_tests/repetitions/parse_size/guided/run_5.py:32: AttributeError\n__________________________ test_parse_invalid_format ___________________________\n\n    def test_parse_invalid_format():\n>       with pytest.raises(parse_size.InvalidSize):\n                           ^^^^^^^^^^^^^^^^^^^^^^\nE       AttributeError: 'function' object has no attribute 'InvalidSize'\n\ngenerated_tests/repetitions/parse_size/guided/run_5.py:36: AttributeError\n_________________________ test_parse_unsupported_unit __________________________\n\n    def test_parse_unsupported_unit():\n>       with pytest.raises(parse_size.InvalidSize):\n                           ^^^^^^^^^^^^^^^^^^^^^^\nE       AttributeError: 'function' object has no attribute 'InvalidSize'\n\ngenerated_tests/repetitions/parse_size/guided/run_5.py:40: AttributeError\n_________________________ test_parse_non_string_input __________________________\n\n    def test_parse_non_string_input():\n>       with pytest.raises(parse_size.InvalidSize):\n                           ^^^^^^^^^^^^^^^^^^^^^^\nE       AttributeError: 'function' object has no attribute 'InvalidSize'\n\ngenerated_tests/repetitions/parse_size/guided/run_5.py:44: AttributeError\n____________________________ test_parse_large_size _____________________________\n\n    def test_parse_large_size():\n>       assert parse_size('1 YB') == 1000000000000000000\nE       AssertionError: assert 1000000000000000000000000 == 1000000000000000000\nE        +  where 1000000000000000000000000 = parse_size('1 YB')\n\ngenerated_tests/repetitions/parse_size/guided/run_5.py:48: AssertionError\n___________________________ test_parse_complex_size ____________________________\n\n    def test_parse_complex_size():\n>       with pytest.raises(parse_size.InvalidSize):\n                           ^^^^^^^^^^^^^^^^^^^^^^\nE       AttributeError: 'function' object has no attribute 'InvalidSize'\n\ngenerated_tests/repetitions/parse_size/guided/run_5.py:51: AttributeError\n================================ tests coverage ================================\n______________ coverage: platform darwin, python 3.13.14-final-0 _______________\n\nCoverage JSON written to file <temporary-coverage-file>\n=========================== short test summary info ============================\nFAILED generated_tests/repetitions/parse_size/guided/run_5.py::test_parse_empty_input\nFAILED generated_tests/repetitions/parse_size/guided/run_5.py::test_parse_invalid_format\nFAILED generated_tests/repetitions/parse_size/guided/run_5.py::test_parse_unsupported_unit\nFAILED generated_tests/repetitions/parse_size/guided/run_5.py::test_parse_non_string_input\nFAILED generated_tests/repetitions/parse_size/guided/run_5.py::test_parse_large_size\nFAILED generated_tests/repetitions/parse_size/guided/run_5.py::test_parse_complex_size\n6 failed, 9 passed in 0.06s\n",
+      "correct_coverage": {
+        "covered_statements": 11,
+        "statements": 14,
+        "statement_percent": 78.57142857142857,
+        "covered_branches": 8,
+        "branches": 12,
+        "branch_percent": 66.66666666666667
+      },
+      "correct_coverage_output": ".........                                                                [100%]\n================================ tests coverage ================================\n______________ coverage: platform darwin, python 3.13.14-final-0 _______________\n\nCoverage JSON written to file <temporary-coverage-file>\n9 passed in 0.04s\n"
+    }
+  ]
+}

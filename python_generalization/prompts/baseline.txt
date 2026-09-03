@@ -1,0 +1,18 @@
+You are a Python testing expert.
+
+Generate pytest unit tests for the following Python function.
+
+Requirements:
+1. Use pytest.
+2. Include meaningful assertions.
+3. Cover normal cases and edge cases.
+4. Use exactly this import statement:
+   from {target_module} import {target_function}
+5. Do NOT redefine or copy the target function.
+6. Return ONLY executable Python code.
+7. Do NOT include Markdown code fences.
+8. Do NOT include explanations before or after the code.
+
+Function:
+
+{function_code}

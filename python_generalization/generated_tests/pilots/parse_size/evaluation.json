@@ -1,0 +1,211 @@
+{
+  "target": "parse_size",
+  "module": "target_functions.parse_size_target",
+  "function": "parse_size",
+  "mode": "pilot",
+  "python": "<python-environment>/bin/python",
+  "summary": {
+    "baseline": {
+      "files": 1,
+      "collection_successes": 1,
+      "collected_tests": 4,
+      "passing_tests": 3,
+      "test_method_epr_percent": 75.0,
+      "average_raw_statement_percent": 100.0,
+      "average_raw_branch_percent": 91.66666666666667,
+      "average_correct_statement_percent": 85.71428571428571,
+      "average_correct_branch_percent": 75.0
+    },
+    "guided": {
+      "files": 1,
+      "collection_successes": 1,
+      "collected_tests": 16,
+      "passing_tests": 14,
+      "test_method_epr_percent": 87.5,
+      "average_raw_statement_percent": 92.85714285714286,
+      "average_raw_branch_percent": 91.66666666666667,
+      "average_correct_statement_percent": 92.85714285714286,
+      "average_correct_branch_percent": 91.66666666666667
+    }
+  },
+  "results": [
+    {
+      "strategy": "baseline",
+      "file": "generated_tests/pilots/parse_size/baseline.py",
+      "collection_success": true,
+      "collection_output": "generated_tests/pilots/parse_size/baseline.py::test_parse_size_normal_cases\ngenerated_tests/pilots/parse_size/baseline.py::test_parse_size_binary_cases\ngenerated_tests/pilots/parse_size/baseline.py::test_parse_size_edge_cases\ngenerated_tests/pilots/parse_size/baseline.py::test_parse_size_invalid_cases\n\n4 tests collected in 0.04s\n",
+      "collected_tests": 4,
+      "passing_tests": 3,
+      "epr_percent": 75.0,
+      "method_results": [
+        {
+          "nodeid": "generated_tests/pilots/parse_size/baseline.py::test_parse_size_normal_cases",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        },
+        {
+          "nodeid": "generated_tests/pilots/parse_size/baseline.py::test_parse_size_binary_cases",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        },
+        {
+          "nodeid": "generated_tests/pilots/parse_size/baseline.py::test_parse_size_edge_cases",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        },
+        {
+          "nodeid": "generated_tests/pilots/parse_size/baseline.py::test_parse_size_invalid_cases",
+          "passed": false,
+          "returncode": 1,
+          "output": "F                                                                        [100%]\n=================================== FAILURES ===================================\n________________________ test_parse_size_invalid_cases _________________________\n\n    def test_parse_size_invalid_cases():\n        with pytest.raises(Exception) as excinfo:\n            parse_size('invalid size')\n        assert \"Failed to parse size!\" in str(excinfo.value)\n    \n        with pytest.raises(Exception) as excinfo:\n            parse_size('1.5 invalid')\n        assert \"Failed to parse size!\" in str(excinfo.value)\n    \n>       with pytest.raises(Exception) as excinfo:\n             ^^^^^^^^^^^^^^^^^^^^^^^^\nE       Failed: DID NOT RAISE Exception\n\ngenerated_tests/pilots/parse_size/baseline.py:35: Failed\n=========================== short test summary info ============================\nFAILED generated_tests/pilots/parse_size/baseline.py::test_parse_size_invalid_cases\n1 failed in 0.05s\n"
+        }
+      ],
+      "raw_coverage": {
+        "covered_statements": 14,
+        "statements": 14,
+        "statement_percent": 100.0,
+        "covered_branches": 11,
+        "branches": 12,
+        "branch_percent": 91.66666666666667
+      },
+      "raw_coverage_output": "...F                                                                     [100%]\n=================================== FAILURES ===================================\n________________________ test_parse_size_invalid_cases _________________________\n\n    def test_parse_size_invalid_cases():\n        with pytest.raises(Exception) as excinfo:\n            parse_size('invalid size')\n        assert \"Failed to parse size!\" in str(excinfo.value)\n    \n        with pytest.raises(Exception) as excinfo:\n            parse_size('1.5 invalid')\n        assert \"Failed to parse size!\" in str(excinfo.value)\n    \n>       with pytest.raises(Exception) as excinfo:\n             ^^^^^^^^^^^^^^^^^^^^^^^^\nE       Failed: DID NOT RAISE Exception\n\ngenerated_tests/pilots/parse_size/baseline.py:35: Failed\n================================ tests coverage ================================\n______________ coverage: platform darwin, python 3.13.14-final-0 _______________\n\nCoverage JSON written to file <temporary-coverage-file>\n=========================== short test summary info ============================\nFAILED generated_tests/pilots/parse_size/baseline.py::test_parse_size_invalid_cases\n1 failed, 3 passed in 0.04s\n",
+      "correct_coverage": {
+        "covered_statements": 12,
+        "statements": 14,
+        "statement_percent": 85.71428571428571,
+        "covered_branches": 9,
+        "branches": 12,
+        "branch_percent": 75.0
+      },
+      "correct_coverage_output": "...                                                                      [100%]\n================================ tests coverage ================================\n______________ coverage: platform darwin, python 3.13.14-final-0 _______________\n\nCoverage JSON written to file <temporary-coverage-file>\n3 passed in 0.04s\n"
+    },
+    {
+      "strategy": "guided",
+      "file": "generated_tests/pilots/parse_size/guided.py",
+      "collection_success": true,
+      "collection_output": "generated_tests/pilots/parse_size/guided.py::test_standard_size_parsing\ngenerated_tests/pilots/parse_size/guided.py::test_size_with_unit_in_bytes\ngenerated_tests/pilots/parse_size/guided.py::test_size_with_singular_unit\ngenerated_tests/pilots/parse_size/guided.py::test_size_with_plural_unit\ngenerated_tests/pilots/parse_size/guided.py::test_zero_size\ngenerated_tests/pilots/parse_size/guided.py::test_large_value_size\ngenerated_tests/pilots/parse_size/guided.py::test_ambiguous_unit_without_binary_flag\ngenerated_tests/pilots/parse_size/guided.py::test_ambiguous_unit_with_binary_flag\ngenerated_tests/pilots/parse_size/guided.py::test_multiple_units\ngenerated_tests/pilots/parse_size/guided.py::test_multiple_units_with_binary_flag\ngenerated_tests/pilots/parse_size/guided.py::test_duplicate_units\ngenerated_tests/pilots/parse_size/guided.py::test_invalid_format\ngenerated_tests/pilots/parse_size/guided.py::test_unsupported_units\ngenerated_tests/pilots/parse_size/guided.py::test_negative_values\ngenerated_tests/pilots/parse_size/guided.py::test_empty_input\ngenerated_tests/pilots/parse_size/guided.py::test_invalid_decimal_format\n\n16 tests collected in 0.01s\n",
+      "collected_tests": 16,
+      "passing_tests": 14,
+      "epr_percent": 87.5,
+      "method_results": [
+        {
+          "nodeid": "generated_tests/pilots/parse_size/guided.py::test_standard_size_parsing",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        },
+        {
+          "nodeid": "generated_tests/pilots/parse_size/guided.py::test_size_with_unit_in_bytes",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        },
+        {
+          "nodeid": "generated_tests/pilots/parse_size/guided.py::test_size_with_singular_unit",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        },
+        {
+          "nodeid": "generated_tests/pilots/parse_size/guided.py::test_size_with_plural_unit",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        },
+        {
+          "nodeid": "generated_tests/pilots/parse_size/guided.py::test_zero_size",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        },
+        {
+          "nodeid": "generated_tests/pilots/parse_size/guided.py::test_large_value_size",
+          "passed": false,
+          "returncode": 1,
+          "output": "F                                                                        [100%]\n=================================== FAILURES ===================================\n____________________________ test_large_value_size _____________________________\n\n    def test_large_value_size():\n>       assert parse_size('1 YB') == 1000000000000000000\nE       AssertionError: assert 1000000000000000000000000 == 1000000000000000000\nE        +  where 1000000000000000000000000 = parse_size('1 YB')\n\ngenerated_tests/pilots/parse_size/guided.py:20: AssertionError\n=========================== short test summary info ============================\nFAILED generated_tests/pilots/parse_size/guided.py::test_large_value_size - A...\n1 failed in 0.11s\n"
+        },
+        {
+          "nodeid": "generated_tests/pilots/parse_size/guided.py::test_ambiguous_unit_without_binary_flag",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        },
+        {
+          "nodeid": "generated_tests/pilots/parse_size/guided.py::test_ambiguous_unit_with_binary_flag",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        },
+        {
+          "nodeid": "generated_tests/pilots/parse_size/guided.py::test_multiple_units",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        },
+        {
+          "nodeid": "generated_tests/pilots/parse_size/guided.py::test_multiple_units_with_binary_flag",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        },
+        {
+          "nodeid": "generated_tests/pilots/parse_size/guided.py::test_duplicate_units",
+          "passed": false,
+          "returncode": 1,
+          "output": "F                                                                        [100%]\n=================================== FAILURES ===================================\n_____________________________ test_duplicate_units _____________________________\n\n    def test_duplicate_units():\n>       assert parse_size('1.5 GB 1.5 GB') == 1500000000\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\ngenerated_tests/pilots/parse_size/guided.py:35: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nsize = '1.5 GB 1.5 GB', binary = False\n\n    def parse_size(size, binary=False):\n        \"\"\"\n        Parse a human readable data size and return the number of bytes.\n    \n        :param size: The human readable file size to parse (a string).\n        :param binary: :data:`True` to use binary multiples of bytes (base-2) for\n                       ambiguous unit symbols and names, :data:`False` to use\n                       decimal multiples of bytes (base-10).\n        :returns: The corresponding size in bytes (an integer).\n        :raises: :exc:`InvalidSize` when the input can't be parsed.\n    \n        This function knows how to parse sizes in bytes, kilobytes, megabytes,\n        gigabytes, terabytes and petabytes. Some examples:\n    \n        >>> from humanfriendly import parse_size\n        >>> parse_size('42')\n        42\n        >>> parse_size('13b')\n        13\n        >>> parse_size('5 bytes')\n        5\n        >>> parse_size('1 KB')\n        1000\n        >>> parse_size('1 kilobyte')\n        1000\n        >>> parse_size('1 KiB')\n        1024\n        >>> parse_size('1 KB', binary=True)\n        1024\n        >>> parse_size('1.5 GB')\n        1500000000\n        >>> parse_size('1.5 GB', binary=True)\n        1610612736\n        \"\"\"\n        tokens = tokenize(size)\n        if tokens and isinstance(tokens[0], numbers.Number):\n            # Get the normalized unit (if any) from the tokenized input.\n            normalized_unit = tokens[1].lower() if len(tokens) == 2 and is_string(tokens[1]) else ''\n            # If the input contains only a number, it's assumed to be the number of\n            # bytes. The second token can also explicitly reference the unit bytes.\n            if len(tokens) == 1 or normalized_unit.startswith('b'):\n                return int(tokens[0])\n            # Otherwise we expect two tokens: A number and a unit.\n            if normalized_unit:\n                # Convert plural units to singular units, for details:\n                # https://github.com/xolox/python-humanfriendly/issues/26\n                normalized_unit = normalized_unit.rstrip('s')\n                for unit in disk_size_units:\n                    # First we check for unambiguous symbols (KiB, MiB, GiB, etc)\n                    # and names (kibibyte, mebibyte, gibibyte, etc) because their\n                    # handling is always the same.\n                    if normalized_unit in (unit.binary.symbol.lower(), unit.binary.name.lower()):\n                        return int(tokens[0] * unit.binary.divider)\n                    # Now we will deal with ambiguous prefixes (K, M, G, etc),\n                    # symbols (KB, MB, GB, etc) and names (kilobyte, megabyte,\n                    # gigabyte, etc) according to the caller's preference.\n                    if (normalized_unit in (unit.decimal.symbol.lower(), unit.decimal.name.lower()) or\n                            normalized_unit.startswith(unit.decimal.symbol[0].lower())):\n                        return int(tokens[0] * (unit.binary.divider if binary else unit.decimal.divider))\n        # We failed to parse the size specification.\n        msg = \"Failed to parse size! (input %r was tokenized as %r)\"\n>       raise InvalidSize(format(msg, size, tokens))\nE       target_functions.parse_size_target.InvalidSize: Failed to parse size! (input '1.5 GB 1.5 GB' was tokenized as [1.5, 'GB', 1.5, 'GB'])\n\ntarget_functions/parse_size_target.py:111: InvalidSize\n=========================== short test summary info ============================\nFAILED generated_tests/pilots/parse_size/guided.py::test_duplicate_units - ta...\n1 failed in 0.03s\n"
+        },
+        {
+          "nodeid": "generated_tests/pilots/parse_size/guided.py::test_invalid_format",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        },
+        {
+          "nodeid": "generated_tests/pilots/parse_size/guided.py::test_unsupported_units",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        },
+        {
+          "nodeid": "generated_tests/pilots/parse_size/guided.py::test_negative_values",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        },
+        {
+          "nodeid": "generated_tests/pilots/parse_size/guided.py::test_empty_input",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        },
+        {
+          "nodeid": "generated_tests/pilots/parse_size/guided.py::test_invalid_decimal_format",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        }
+      ],
+      "raw_coverage": {
+        "covered_statements": 13,
+        "statements": 14,
+        "statement_percent": 92.85714285714286,
+        "covered_branches": 11,
+        "branches": 12,
+        "branch_percent": 91.66666666666667
+      },
+      "raw_coverage_output": ".....F....F.....                                                         [100%]\n=================================== FAILURES ===================================\n____________________________ test_large_value_size _____________________________\n\n    def test_large_value_size():\n>       assert parse_size('1 YB') == 1000000000000000000\nE       AssertionError: assert 1000000000000000000000000 == 1000000000000000000\nE        +  where 1000000000000000000000000 = parse_size('1 YB')\n\ngenerated_tests/pilots/parse_size/guided.py:20: AssertionError\n_____________________________ test_duplicate_units _____________________________\n\n    def test_duplicate_units():\n>       assert parse_size('1.5 GB 1.5 GB') == 1500000000\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\ngenerated_tests/pilots/parse_size/guided.py:35: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nsize = '1.5 GB 1.5 GB', binary = False\n\n    def parse_size(size, binary=False):\n        \"\"\"\n        Parse a human readable data size and return the number of bytes.\n    \n        :param size: The human readable file size to parse (a string).\n        :param binary: :data:`True` to use binary multiples of bytes (base-2) for\n                       ambiguous unit symbols and names, :data:`False` to use\n                       decimal multiples of bytes (base-10).\n        :returns: The corresponding size in bytes (an integer).\n        :raises: :exc:`InvalidSize` when the input can't be parsed.\n    \n        This function knows how to parse sizes in bytes, kilobytes, megabytes,\n        gigabytes, terabytes and petabytes. Some examples:\n    \n        >>> from humanfriendly import parse_size\n        >>> parse_size('42')\n        42\n        >>> parse_size('13b')\n        13\n        >>> parse_size('5 bytes')\n        5\n        >>> parse_size('1 KB')\n        1000\n        >>> parse_size('1 kilobyte')\n        1000\n        >>> parse_size('1 KiB')\n        1024\n        >>> parse_size('1 KB', binary=True)\n        1024\n        >>> parse_size('1.5 GB')\n        1500000000\n        >>> parse_size('1.5 GB', binary=True)\n        1610612736\n        \"\"\"\n        tokens = tokenize(size)\n        if tokens and isinstance(tokens[0], numbers.Number):\n            # Get the normalized unit (if any) from the tokenized input.\n            normalized_unit = tokens[1].lower() if len(tokens) == 2 and is_string(tokens[1]) else ''\n            # If the input contains only a number, it's assumed to be the number of\n            # bytes. The second token can also explicitly reference the unit bytes.\n            if len(tokens) == 1 or normalized_unit.startswith('b'):\n                return int(tokens[0])\n            # Otherwise we expect two tokens: A number and a unit.\n            if normalized_unit:\n                # Convert plural units to singular units, for details:\n                # https://github.com/xolox/python-humanfriendly/issues/26\n                normalized_unit = normalized_unit.rstrip('s')\n                for unit in disk_size_units:\n                    # First we check for unambiguous symbols (KiB, MiB, GiB, etc)\n                    # and names (kibibyte, mebibyte, gibibyte, etc) because their\n                    # handling is always the same.\n                    if normalized_unit in (unit.binary.symbol.lower(), unit.binary.name.lower()):\n                        return int(tokens[0] * unit.binary.divider)\n                    # Now we will deal with ambiguous prefixes (K, M, G, etc),\n                    # symbols (KB, MB, GB, etc) and names (kilobyte, megabyte,\n                    # gigabyte, etc) according to the caller's preference.\n                    if (normalized_unit in (unit.decimal.symbol.lower(), unit.decimal.name.lower()) or\n                            normalized_unit.startswith(unit.decimal.symbol[0].lower())):\n                        return int(tokens[0] * (unit.binary.divider if binary else unit.decimal.divider))\n        # We failed to parse the size specification.\n        msg = \"Failed to parse size! (input %r was tokenized as %r)\"\n>       raise InvalidSize(format(msg, size, tokens))\nE       target_functions.parse_size_target.InvalidSize: Failed to parse size! (input '1.5 GB 1.5 GB' was tokenized as [1.5, 'GB', 1.5, 'GB'])\n\ntarget_functions/parse_size_target.py:111: InvalidSize\n================================ tests coverage ================================\n______________ coverage: platform darwin, python 3.13.14-final-0 _______________\n\nCoverage JSON written to file <temporary-coverage-file>\n=========================== short test summary info ============================\nFAILED generated_tests/pilots/parse_size/guided.py::test_large_value_size - A...\nFAILED generated_tests/pilots/parse_size/guided.py::test_duplicate_units - ta...\n2 failed, 14 passed in 0.10s\n",
+      "correct_coverage": {
+        "covered_statements": 13,
+        "statements": 14,
+        "statement_percent": 92.85714285714286,
+        "covered_branches": 11,
+        "branches": 12,
+        "branch_percent": 91.66666666666667
+      },
+      "correct_coverage_output": "..............                                                           [100%]\n================================ tests coverage ================================\n______________ coverage: platform darwin, python 3.13.14-final-0 _______________\n\nCoverage JSON written to file <temporary-coverage-file>\n14 passed in 0.05s\n"
+    }
+  ]
+}

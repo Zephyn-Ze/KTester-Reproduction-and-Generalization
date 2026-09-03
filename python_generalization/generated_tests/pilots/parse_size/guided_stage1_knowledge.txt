@@ -1,0 +1,41 @@
+### Function Analysis
+
+#### 1. Input Structure and Constraints
+- **Input Type**: The function `parse_size` accepts a single argument `size`, which is a string representing a human-readable data size.
+- **Format**: The string can include:
+  - Numeric values (e.g., '42', '1.5')
+  - Units of measurement (e.g., 'KB', 'MB', 'GiB', 'kilobyte')
+  - Optional suffixes (e.g., 'b', 'bytes')
+- **Binary Flag**: The function accepts a second argument, `binary`, which is a boolean indicating whether to use binary (base-2) or decimal (base-10) unit conversions.
+
+#### 2. Output Structure
+- **Output Type**: The function returns an integer representing the size in bytes.
+- **Return Value**: The integer value corresponds to the parsed size based on the input string and unit.
+
+#### 3. Important Branches and Conditions
+- **Tokenization**: The function tokenizes the input string and checks:
+  - If the first token is a number.
+  - If the second token is a recognized unit or an ambiguous unit.
+- **Unit Handling**:
+  - It distinguishes between binary and decimal units based on the `binary` flag.
+  - It handles both plural and singular forms of units.
+- **Error Handling**: If parsing fails, the function raises an `InvalidSize` exception.
+
+#### 4. Boundary and Edge Cases
+- **Empty Input**: An empty string should raise an `InvalidSize` exception.
+- **Single Number**: Inputs like '0' or '42' should return 0 or 42 respectively.
+- **No Unit Specified**: Strings like '13b' or '5 bytes' should return their respective values in bytes.
+- **Ambiguous Units**: Inputs like '1 KB' and '1 KiB' should yield different results based on the `binary` flag.
+- **Large Values**: Inputs representing very large sizes (e.g., '1 YB') should be tested to ensure they are parsed correctly.
+
+#### 5. Possible Exception Cases
+- **Invalid Formats**: Inputs that do not conform to expected formats (e.g., 'abc', '1.5.5 GB') should raise `InvalidSize`.
+- **Unsupported Units**: Using unrecognized units (e.g., '1 XYZ') should also raise `InvalidSize`.
+- **Negative Values**: Although not explicitly mentioned, the function should be tested for handling negative values if they are included in the input.
+
+#### 6. Important Semantic Behaviors that Should Be Tested
+- **Correctness of Conversion**: Ensure that various inputs yield the correct byte values, especially for both binary and decimal conversions.
+- **Plural vs. Singular Handling**: Test that plural units are correctly interpreted as their singular counterparts.
+- **Tokenization**: Verify that the tokenization process accurately splits the input string into valid tokens.
+- **Error Messages**: Ensure that the error messages raised by `InvalidSize` are informative and include the original input and tokenized output for debugging.
+- **Handling of Float Values**: Inputs with decimal values (e.g., '1.5 GB') should be accurately converted to the corresponding byte values.

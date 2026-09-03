@@ -1,0 +1,187 @@
+{
+  "target": "generate_manifest_template",
+  "module": "target_functions.generate_manifest_template_target",
+  "function": "generate_manifest_template",
+  "mode": "pilot",
+  "python": "<python-environment>/bin/python",
+  "summary": {
+    "baseline": {
+      "files": 1,
+      "collection_successes": 1,
+      "collected_tests": 6,
+      "passing_tests": 6,
+      "test_method_epr_percent": 100.0,
+      "average_raw_statement_percent": 100.0,
+      "average_raw_branch_percent": 100.0,
+      "average_correct_statement_percent": 100.0,
+      "average_correct_branch_percent": 100.0
+    },
+    "guided": {
+      "files": 1,
+      "collection_successes": 1,
+      "collected_tests": 10,
+      "passing_tests": 10,
+      "test_method_epr_percent": 100.0,
+      "average_raw_statement_percent": 100.0,
+      "average_raw_branch_percent": 100.0,
+      "average_correct_statement_percent": 100.0,
+      "average_correct_branch_percent": 100.0
+    }
+  },
+  "results": [
+    {
+      "strategy": "baseline",
+      "file": "generated_tests/pilots/generate_manifest_template/baseline.py",
+      "collection_success": true,
+      "collection_output": "generated_tests/pilots/generate_manifest_template/baseline.py::test_generate_manifest_template_normal_cases\ngenerated_tests/pilots/generate_manifest_template/baseline.py::test_generate_manifest_template_empty_inventory\ngenerated_tests/pilots/generate_manifest_template/baseline.py::test_generate_manifest_template_single_record\ngenerated_tests/pilots/generate_manifest_template/baseline.py::test_generate_manifest_template_multiple_years\ngenerated_tests/pilots/generate_manifest_template/baseline.py::test_generate_manifest_template_edge_case_years\ngenerated_tests/pilots/generate_manifest_template/baseline.py::test_generate_manifest_template_varied_kinds\n\n6 tests collected in 0.01s\n",
+      "collected_tests": 6,
+      "passing_tests": 6,
+      "epr_percent": 100.0,
+      "method_results": [
+        {
+          "nodeid": "generated_tests/pilots/generate_manifest_template/baseline.py::test_generate_manifest_template_normal_cases",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        },
+        {
+          "nodeid": "generated_tests/pilots/generate_manifest_template/baseline.py::test_generate_manifest_template_empty_inventory",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        },
+        {
+          "nodeid": "generated_tests/pilots/generate_manifest_template/baseline.py::test_generate_manifest_template_single_record",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        },
+        {
+          "nodeid": "generated_tests/pilots/generate_manifest_template/baseline.py::test_generate_manifest_template_multiple_years",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        },
+        {
+          "nodeid": "generated_tests/pilots/generate_manifest_template/baseline.py::test_generate_manifest_template_edge_case_years",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        },
+        {
+          "nodeid": "generated_tests/pilots/generate_manifest_template/baseline.py::test_generate_manifest_template_varied_kinds",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        }
+      ],
+      "raw_coverage": {
+        "covered_statements": 11,
+        "statements": 11,
+        "statement_percent": 100.0,
+        "covered_branches": 6,
+        "branches": 6,
+        "branch_percent": 100.0
+      },
+      "raw_coverage_output": "......                                                                   [100%]\n================================ tests coverage ================================\n______________ coverage: platform darwin, python 3.13.14-final-0 _______________\n\nCoverage JSON written to file <temporary-coverage-file>\n6 passed in 0.05s\n",
+      "correct_coverage": {
+        "covered_statements": 11,
+        "statements": 11,
+        "statement_percent": 100.0,
+        "covered_branches": 6,
+        "branches": 6,
+        "branch_percent": 100.0
+      },
+      "correct_coverage_output": "......                                                                   [100%]\n================================ tests coverage ================================\n______________ coverage: platform darwin, python 3.13.14-final-0 _______________\n\nCoverage JSON written to file <temporary-coverage-file>\n6 passed in 0.03s\n"
+    },
+    {
+      "strategy": "guided",
+      "file": "generated_tests/pilots/generate_manifest_template/guided.py",
+      "collection_success": true,
+      "collection_output": "generated_tests/pilots/generate_manifest_template/guided.py::test_empty_inventory\ngenerated_tests/pilots/generate_manifest_template/guided.py::test_single_proceedings_record\ngenerated_tests/pilots/generate_manifest_template/guided.py::test_single_journal_record\ngenerated_tests/pilots/generate_manifest_template/guided.py::test_multiple_records_same_year\ngenerated_tests/pilots/generate_manifest_template/guided.py::test_multiple_years_in_inventory\ngenerated_tests/pilots/generate_manifest_template/guided.py::test_duplicate_records_same_year\ngenerated_tests/pilots/generate_manifest_template/guided.py::test_non_standard_year_type\ngenerated_tests/pilots/generate_manifest_template/guided.py::test_missing_required_fields\ngenerated_tests/pilots/generate_manifest_template/guided.py::test_invalid_inventory_type\ngenerated_tests/pilots/generate_manifest_template/guided.py::test_mixed_record_types\n\n10 tests collected in 0.01s\n",
+      "collected_tests": 10,
+      "passing_tests": 10,
+      "epr_percent": 100.0,
+      "method_results": [
+        {
+          "nodeid": "generated_tests/pilots/generate_manifest_template/guided.py::test_empty_inventory",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        },
+        {
+          "nodeid": "generated_tests/pilots/generate_manifest_template/guided.py::test_single_proceedings_record",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        },
+        {
+          "nodeid": "generated_tests/pilots/generate_manifest_template/guided.py::test_single_journal_record",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        },
+        {
+          "nodeid": "generated_tests/pilots/generate_manifest_template/guided.py::test_multiple_records_same_year",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        },
+        {
+          "nodeid": "generated_tests/pilots/generate_manifest_template/guided.py::test_multiple_years_in_inventory",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        },
+        {
+          "nodeid": "generated_tests/pilots/generate_manifest_template/guided.py::test_duplicate_records_same_year",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        },
+        {
+          "nodeid": "generated_tests/pilots/generate_manifest_template/guided.py::test_non_standard_year_type",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        },
+        {
+          "nodeid": "generated_tests/pilots/generate_manifest_template/guided.py::test_missing_required_fields",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        },
+        {
+          "nodeid": "generated_tests/pilots/generate_manifest_template/guided.py::test_invalid_inventory_type",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        },
+        {
+          "nodeid": "generated_tests/pilots/generate_manifest_template/guided.py::test_mixed_record_types",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        }
+      ],
+      "raw_coverage": {
+        "covered_statements": 11,
+        "statements": 11,
+        "statement_percent": 100.0,
+        "covered_branches": 6,
+        "branches": 6,
+        "branch_percent": 100.0
+      },
+      "raw_coverage_output": "..........                                                               [100%]\n================================ tests coverage ================================\n______________ coverage: platform darwin, python 3.13.14-final-0 _______________\n\nCoverage JSON written to file <temporary-coverage-file>\n10 passed in 0.04s\n",
+      "correct_coverage": {
+        "covered_statements": 11,
+        "statements": 11,
+        "statement_percent": 100.0,
+        "covered_branches": 6,
+        "branches": 6,
+        "branch_percent": 100.0
+      },
+      "correct_coverage_output": "..........                                                               [100%]\n================================ tests coverage ================================\n______________ coverage: platform darwin, python 3.13.14-final-0 _______________\n\nCoverage JSON written to file <temporary-coverage-file>\n10 passed in 0.06s\n"
+    }
+  ]
+}

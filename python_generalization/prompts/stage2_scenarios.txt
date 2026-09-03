@@ -1,0 +1,23 @@
+You are designing unit test scenarios for a Python function.
+
+Based on the source code and the extracted knowledge below, design concrete test scenarios.
+
+For each scenario, provide:
+1. Scenario name
+2. Input
+3. Expected behavior or expected output
+4. Why this scenario matters
+
+Important:
+- Base expected behavior strictly on the provided source code.
+- Do not invent validation or error-handling behavior that is not implemented.
+- Include normal, boundary, branch, aggregation, duplicate, and exception scenarios where supported by the source code.
+- Do NOT generate pytest code yet.
+
+Function:
+
+{function_code}
+
+Extracted knowledge:
+
+{knowledge}

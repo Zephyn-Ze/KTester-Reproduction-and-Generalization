@@ -1,0 +1,18 @@
+You are analyzing a Python function for unit test generation.
+
+Do NOT generate test code yet.
+
+Analyze the function and identify:
+
+1. Input structure and constraints
+2. Output structure
+3. Important branches and conditions
+4. Boundary and edge cases
+5. Possible exception cases
+6. Important semantic behaviors that should be tested
+
+Return a concise structured analysis.
+
+Function:
+
+{function_code}

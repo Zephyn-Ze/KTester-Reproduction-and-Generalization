@@ -1,0 +1,93 @@
+Here are the designed unit test scenarios for the `parse_size` function:
+
+### Scenario 1: Valid Integer Size with No Unit
+1. **Scenario name:** Parse integer size without unit
+2. **Input:** `'42'`
+3. **Expected behavior or expected output:** Returns `42`
+4. **Why this scenario matters:** This tests the basic functionality of the function, ensuring it correctly interprets a plain integer as a size in bytes.
+
+### Scenario 2: Valid Size with Bytes Unit
+1. **Scenario name:** Parse size with bytes unit
+2. **Input:** `'13b'`
+3. **Expected behavior or expected output:** Returns `13`
+4. **Why this scenario matters:** This checks if the function can correctly parse sizes expressed in bytes, ensuring it handles the unit correctly.
+
+### Scenario 3: Valid Size with KB Unit
+1. **Scenario name:** Parse size with kilobyte unit
+2. **Input:** `'1 KB'`
+3. **Expected behavior or expected output:** Returns `1000`
+4. **Why this scenario matters:** This tests the function's ability to convert kilobytes to bytes, validating the correct handling of decimal sizes.
+
+### Scenario 4: Valid Size with Binary KB Unit
+1. **Scenario name:** Parse size with binary kilobyte unit
+2. **Input:** `'1 KB', binary=True`
+3. **Expected behavior or expected output:** Returns `1024`
+4. **Why this scenario matters:** This checks that the binary flag works correctly for ambiguous units, ensuring that it returns the expected result based on binary conversion.
+
+### Scenario 5: Valid Size with Megabyte Unit
+1. **Scenario name:** Parse size with megabyte unit
+2. **Input:** `'1.5 MB'`
+3. **Expected behavior or expected output:** Returns `1500000000`
+4. **Why this scenario matters:** This tests the function's ability to convert decimal megabytes to bytes, verifying that it can handle floating-point values.
+
+### Scenario 6: Valid Size with Binary Megabyte Unit
+1. **Scenario name:** Parse size with binary megabyte unit
+2. **Input:** `'1.5 MB', binary=True`
+3. **Expected behavior or expected output:** Returns `1572864000`
+4. **Why this scenario matters:** This checks that the function correctly applies the binary conversion for megabytes, ensuring accurate size calculations.
+
+### Scenario 7: Valid Size with Plural Unit
+1. **Scenario name:** Parse size with plural unit
+2. **Input:** `'2 kilobytes'`
+3. **Expected behavior or expected output:** Returns `2000`
+4. **Why this scenario matters:** This tests the function's ability to handle plural forms of units, ensuring it normalizes them correctly.
+
+### Scenario 8: Valid Size with Mixed Case Unit
+1. **Scenario name:** Parse size with mixed case unit
+2. **Input:** `'3 GiB'`
+3. **Expected behavior or expected output:** Returns `3221225472`
+4. **Why this scenario matters:** This checks if the function is case-insensitive when parsing unit names, which is important for user flexibility.
+
+### Scenario 9: Invalid Format with Unsupported Characters
+1. **Scenario name:** Invalid size format with unsupported characters
+2. **Input:** `'abc'`
+3. **Expected behavior or expected output:** Raises `InvalidSize`
+4. **Why this scenario matters:** This tests the function's error handling for completely invalid inputs, ensuring it raises the appropriate exception.
+
+### Scenario 10: Invalid Size Format with Multiple Dots
+1. **Scenario name:** Invalid size format with multiple decimal points
+2. **Input:** `'1.5.5 GB'`
+3. **Expected behavior or expected output:** Raises `InvalidSize`
+4. **Why this scenario matters:** This checks if the function correctly identifies and raises an exception for improperly formatted numbers.
+
+### Scenario 11: Boundary Case with Zero Size
+1. **Scenario name:** Parse zero size
+2. **Input:** `'0'`
+3. **Expected behavior or expected output:** Returns `0`
+4. **Why this scenario matters:** This tests the edge case of zero, ensuring that the function correctly interprets it as a valid size.
+
+### Scenario 12: Boundary Case with Leading/Trailing Spaces
+1. **Scenario name:** Parse size with leading/trailing spaces
+2. **Input:** `' 1 TB '`
+3. **Expected behavior or expected output:** Returns `1000000000000`
+4. **Why this scenario matters:** This checks if the function can handle inputs with unnecessary whitespace, ensuring it trims spaces correctly.
+
+### Scenario 13: Large Size Value
+1. **Scenario name:** Parse large size value
+2. **Input:** `'1 YB'`
+3. **Expected behavior or expected output:** Returns `1000000000000000000`
+4. **Why this scenario matters:** This tests the function's ability to handle very large sizes, ensuring it can accurately compute large values.
+
+### Scenario 14: Invalid Size with None Input
+1. **Scenario name:** Invalid size with None input
+2. **Input:** `None`
+3. **Expected behavior or expected output:** Raises `InvalidSize`
+4. **Why this scenario matters:** This checks the function's robustness against `None` input, ensuring it raises an exception for unsupported types.
+
+### Scenario 15: Invalid Size with Empty String
+1. **Scenario name:** Invalid size with empty string
+2. **Input:** `''`
+3. **Expected behavior or expected output:** Raises `InvalidSize`
+4. **Why this scenario matters:** This tests the function's behavior with an empty string, ensuring it correctly raises an exception for invalid input.
+
+These scenarios cover a wide range of expected behaviors, including normal cases, edge cases, and error handling, ensuring comprehensive testing of the `parse_size` function.

@@ -1,0 +1,41 @@
+### Function Analysis
+
+#### 1. Input Structure and Constraints
+- **Input Type**: The function `parse_size` expects a single argument `size`, which must be a string representing a human-readable file size (e.g., '1 KB', '5 bytes', '13b').
+- **Binary Flag**: The second argument `binary` is a boolean that indicates whether to use binary (base-2) or decimal (base-10) multiples for ambiguous unit symbols.
+- **Constraints**: 
+  - The string can contain a number followed by a unit (e.g., '1.5 GB').
+  - Units can be in decimal (KB, MB, etc.) or binary (KiB, MiB, etc.).
+  - The string may also include variations in spacing and casing.
+
+#### 2. Output Structure
+- **Output Type**: The function returns an integer, which represents the size in bytes.
+- **Output Value**: The output is derived from the parsed input size and unit, converted to bytes based on the specified unit.
+
+#### 3. Important Branches and Conditions
+- **Tokenization**: The input string is tokenized into numbers and strings.
+- **Number of Tokens**: 
+  - If there is only one token (a number), it's treated as bytes.
+  - If there are two tokens (number and unit), it checks the unit type.
+- **Unit Normalization**: The function normalizes the unit by removing plural forms and checking against known units.
+- **Unit Handling**: The function differentiates between binary and decimal units based on the `binary` argument and the unit type.
+
+#### 4. Boundary and Edge Cases
+- **Single Number**: Inputs like '0' or '42' should return 0 and 42 respectively.
+- **Units with Different Cases**: Input variations such as 'Kb', 'MB', or 'GiB' should be handled correctly.
+- **Empty Strings**: An empty string should raise an exception.
+- **Invalid Units**: Inputs with unrecognized units (e.g., '1 XYZ') should raise an exception.
+- **Large Values**: Extremely large values (e.g., '1 YB') should be tested to ensure they are handled correctly.
+
+#### 5. Possible Exception Cases
+- **InvalidSize Exception**: This is raised when the input cannot be parsed. Scenarios include:
+  - Non-numeric strings that do not conform to size formats.
+  - Strings with invalid unit symbols or names.
+  - Incorrectly formatted input (e.g., '1.5.2 GB').
+
+#### 6. Important Semantic Behaviors that Should Be Tested
+- **Correctness of Parsing**: Ensure that various valid inputs return the expected byte values.
+- **Ambiguous Units**: Check the behavior when ambiguous units are provided (e.g., '1 K' should return different values based on the `binary` flag).
+- **Handling of Plurals and Variations**: Validate that both plural and singular forms of units are correctly interpreted.
+- **Robustness Against Invalid Inputs**: Test how the function responds to malformed input, ensuring it raises the appropriate exceptions.
+- **Performance with Large Inputs**: Assess performance and correctness when parsing very large sizes, ensuring no overflow or precision errors occur.

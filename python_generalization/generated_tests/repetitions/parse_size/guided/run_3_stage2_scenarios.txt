@@ -1,0 +1,115 @@
+Here are the designed unit test scenarios for the `parse_size` function:
+
+### Scenario 1: Basic Size Parsing (Bytes)
+1. **Scenario Name**: Basic Size Parsing (Bytes)
+2. **Input**: `'42'`
+3. **Expected Behavior/Output**: `42`
+4. **Why This Scenario Matters**: This tests the function's ability to correctly interpret a plain integer as a size in bytes.
+
+---
+
+### Scenario 2: Size with Unit (Decimal)
+1. **Scenario Name**: Size with Unit (Decimal)
+2. **Input**: `'1 KB'`
+3. **Expected Behavior/Output**: `1000`
+4. **Why This Scenario Matters**: This scenario verifies the function's ability to parse a size with a standard decimal unit.
+
+---
+
+### Scenario 3: Size with Unit (Binary)
+1. **Scenario Name**: Size with Unit (Binary)
+2. **Input**: `'1 KB', binary=True`
+3. **Expected Behavior/Output**: `1024`
+4. **Why This Scenario Matters**: This tests the function's behavior with the binary flag, ensuring it correctly interprets ambiguous units.
+
+---
+
+### Scenario 4: Size with Plural Unit (Decimal)
+1. **Scenario Name**: Size with Plural Unit (Decimal)
+2. **Input**: `'1 kilobyte'`
+3. **Expected Behavior/Output**: `1000`
+4. **Why This Scenario Matters**: This checks if the function can handle plural forms of units.
+
+---
+
+### Scenario 5: Size with Plural Unit (Binary)
+1. **Scenario Name**: Size with Plural Unit (Binary)
+2. **Input**: `'1 kibibyte', binary=True`
+3. **Expected Behavior/Output**: `1024`
+4. **Why This Scenario Matters**: This ensures that the function processes plural unit names correctly in binary mode.
+
+---
+
+### Scenario 6: Floating Point Size
+1. **Scenario Name**: Floating Point Size
+2. **Input**: `'1.5 GB'`
+3. **Expected Behavior/Output**: `1500000000`
+4. **Why This Scenario Matters**: This tests the function's ability to handle floating-point numbers.
+
+---
+
+### Scenario 7: Floating Point Size (Binary)
+1. **Scenario Name**: Floating Point Size (Binary)
+2. **Input**: `'1.5 GB', binary=True`
+3. **Expected Behavior/Output**: `1610612736`
+4. **Why This Scenario Matters**: This checks the function's accuracy with floating-point sizes when the binary flag is set.
+
+---
+
+### Scenario 8: Invalid Size String
+1. **Scenario Name**: Invalid Size String
+2. **Input**: `'1 XYZ'`
+3. **Expected Behavior/Output**: Raises `InvalidSize`
+4. **Why This Scenario Matters**: This tests the function's ability to handle unrecognized units and raise the appropriate exception.
+
+---
+
+### Scenario 9: Empty Input
+1. **Scenario Name**: Empty Input
+2. **Input**: `''`
+3. **Expected Behavior/Output**: Raises `InvalidSize`
+4. **Why This Scenario Matters**: This checks if the function can gracefully handle an empty string input.
+
+---
+
+### Scenario 10: Invalid Format
+1. **Scenario Name**: Invalid Format
+2. **Input**: `'1.5.2 GB'`
+3. **Expected Behavior/Output**: Raises `InvalidSize`
+4. **Why This Scenario Matters**: This tests the robustness of the function against malformed input.
+
+---
+
+### Scenario 11: Large Size Value
+1. **Scenario Name**: Large Size Value
+2. **Input**: `'1 YB'`
+3. **Expected Behavior/Output**: `1000000000000000000`
+4. **Why This Scenario Matters**: This scenario tests the function's ability to handle extremely large size inputs without overflow or precision errors.
+
+---
+
+### Scenario 12: Mixed Case Units
+1. **Scenario Name**: Mixed Case Units
+2. **Input**: `'1 Mb'`
+3. **Expected Behavior/Output**: `1000000`
+4. **Why This Scenario Matters**: This tests the function's ability to handle units with mixed casing, ensuring case insensitivity in unit recognition.
+
+---
+
+### Scenario 13: Tokenization of Numbers with Units
+1. **Scenario Name**: Tokenization of Numbers with Units
+2. **Input**: `'5 bytes'`
+3. **Expected Behavior/Output**: `5`
+4. **Why This Scenario Matters**: This checks if the function correctly identifies and processes the 'bytes' unit.
+
+---
+
+### Scenario 14: Tokenization with Extra Spaces
+1. **Scenario Name**: Tokenization with Extra Spaces
+2. **Input**: `'   3   MB   '`
+3. **Expected Behavior/Output**: `3000000`
+4. **Why This Scenario Matters**: This tests the function's ability to handle inputs with irregular spacing.
+
+---
+
+These scenarios cover a variety of cases including normal inputs, boundary conditions, invalid inputs, and edge cases to ensure comprehensive testing of the `parse_size` function's behavior.

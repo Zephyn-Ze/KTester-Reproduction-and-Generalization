@@ -1,0 +1,51 @@
+Here are the unit test scenarios designed for the `generate_manifest_template` function based on the provided source code and extracted knowledge:
+
+### Scenario 1: Empty Inventory
+1. **Scenario name**: Empty Inventory
+2. **Input**: `inventory = []`, `venue = "Conference A"`
+3. **Expected behavior or expected output**: `{"Conference A": {}}`
+4. **Why this scenario matters**: This scenario tests the function's ability to handle an empty input list, ensuring it returns a valid structure without errors.
+
+### Scenario 2: Single Proceedings Record
+1. **Scenario name**: Single Proceedings Record
+2. **Input**: `inventory = [{"year": 2023, "kind": "proceedings", "part": "Part A", "part_title": "Title A", "paper_count": 10}]`, `venue = "Conference A"`
+3. **Expected behavior or expected output**: `{"Conference A": {2023: [{"kind": "proceedings", "part": "Part A", "display_name": "Title A", "paper_count": 10}]}}`
+4. **Why this scenario matters**: This scenario checks the correct handling of a single proceedings record, ensuring the function properly structures the output.
+
+### Scenario 3: Single Journal Record
+1. **Scenario name**: Single Journal Record
+2. **Input**: `inventory = [{"year": 2023, "kind": "journal", "journal": "Journal A", "volume": "1", "issue": "1", "paper_count": 5}]`, `venue = "Journal Venue"`
+3. **Expected behavior or expected output**: `{"Journal Venue": {2023: [{"kind": "journal", "journal": "Journal A", "display_name": "Journal A volume 1 issue 1", "volume": "1", "issue": "1", "paper_count": 5}]}}`
+4. **Why this scenario matters**: This scenario verifies that a single journal record is processed correctly, including the formatting of the `display_name`.
+
+### Scenario 4: Multiple Records in the Same Year
+1. **Scenario name**: Multiple Records in the Same Year
+2. **Input**: `inventory = [{"year": 2023, "kind": "proceedings", "part": "Part A", "part_title": "Title A", "paper_count": 10}, {"year": 2023, "kind": "journal", "journal": "Journal A", "volume": "1", "issue": "1", "paper_count": 5}]`, `venue = "Conference A"`
+3. **Expected behavior or expected output**: `{"Conference A": {2023: [{"kind": "proceedings", "part": "Part A", "display_name": "Title A", "paper_count": 10}, {"kind": "journal", "journal": "Journal A", "display_name": "Journal A volume 1 issue 1", "volume": "1", "issue": "1", "paper_count": 5}]}}`
+4. **Why this scenario matters**: This scenario tests the function's ability to aggregate multiple records under the same year, ensuring it can handle different `kind` values correctly.
+
+### Scenario 5: Different Years
+1. **Scenario name**: Different Years
+2. **Input**: `inventory = [{"year": 2022, "kind": "journal", "journal": "Journal B", "volume": "2", "issue": "1", "paper_count": 3}, {"year": 2023, "kind": "proceedings", "part": "Part B", "part_title": "Title B", "paper_count": 7}]`, `venue = "Conference B"`
+3. **Expected behavior or expected output**: `{"Conference B": {2022: [{"kind": "journal", "journal": "Journal B", "display_name": "Journal B volume 2 issue 1", "volume": "2", "issue": "1", "paper_count": 3}], 2023: [{"kind": "proceedings", "part": "Part B", "display_name": "Title B", "paper_count": 7}]}}`
+4. **Why this scenario matters**: This scenario verifies that the function correctly handles records from different years, ensuring proper separation in the output.
+
+### Scenario 6: Duplicate Records in the Same Year
+1. **Scenario name**: Duplicate Records in the Same Year
+2. **Input**: `inventory = [{"year": 2023, "kind": "journal", "journal": "Journal C", "volume": "3", "issue": "2", "paper_count": 4}, {"year": 2023, "kind": "journal", "journal": "Journal C", "volume": "3", "issue": "2", "paper_count": 4}]`, `venue = "Journal Venue"`
+3. **Expected behavior or expected output**: `{"Journal Venue": {2023: [{"kind": "journal", "journal": "Journal C", "display_name": "Journal C volume 3 issue 2", "volume": "3", "issue": "2", "paper_count": 4}, {"kind": "journal", "journal": "Journal C", "display_name": "Journal C volume 3 issue 2", "volume": "3", "issue": "2", "paper_count": 4}]}}`
+4. **Why this scenario matters**: This scenario tests how the function handles duplicate records, ensuring they are included in the output without any filtering.
+
+### Scenario 7: Handling Missing Required Fields
+1. **Scenario name**: Handling Missing Required Fields
+2. **Input**: `inventory = [{"year": 2023, "kind": "proceedings", "part": "Part C", "paper_count": 8}]`, `venue = "Conference C"`
+3. **Expected behavior or expected output**: The function will raise a KeyError due to the missing `part_title` field.
+4. **Why this scenario matters**: This scenario checks the function's behavior when required fields are missing, ensuring it behaves as expected according to the source code.
+
+### Scenario 8: Invalid Year Format
+1. **Scenario name**: Invalid Year Format
+2. **Input**: `inventory = [{"year": "2023a", "kind": "journal", "journal": "Journal D", "volume": "4", "issue": "3", "paper_count": 6}]`, `venue = "Journal Venue"`
+3. **Expected behavior or expected output**: The function will raise a KeyError due to the invalid year format.
+4. **Why this scenario matters**: This scenario tests the function's handling of invalid data types for the `year` field, ensuring it adheres to expected behavior.
+
+These scenarios cover a range of normal, boundary, branch, aggregation, duplicate, and exception cases, providing a comprehensive test suite for the `generate_manifest_template` function.

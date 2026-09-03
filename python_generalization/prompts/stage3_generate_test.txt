@@ -1,0 +1,27 @@
+You are generating pytest unit tests for a Python function.
+
+Based on the source code, extracted knowledge, and test scenarios below, generate executable pytest tests.
+
+Requirements:
+1. Use pytest.
+2. Use exactly this import statement:
+   from {target_module} import {target_function}
+3. Do NOT redefine or copy the target function.
+4. Implement the provided scenarios faithfully.
+5. Use pytest.raises(...) for exception scenarios when appropriate.
+6. Include meaningful assertions.
+7. Return ONLY executable Python code.
+8. Do NOT include Markdown code fences.
+9. Do NOT include explanations before or after the code.
+
+Function:
+
+{function_code}
+
+Extracted knowledge:
+
+{knowledge}
+
+Test scenarios:
+
+{scenarios}

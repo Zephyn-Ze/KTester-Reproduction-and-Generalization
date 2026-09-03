@@ -1,0 +1,171 @@
+Here are the unit test scenarios based on the provided function `generate_manifest_template`:
+
+### Scenario 1: Normal Case with Mixed Records
+1. **Scenario name**: Normal Case with Mixed Records
+2. **Input**:
+   ```python
+   inventory = [
+       {"year": 2021, "kind": "proceedings", "part": "1", "part_title": "Opening", "paper_count": 5},
+       {"year": 2021, "kind": "journal", "journal": "Journal A", "volume": "10", "issue": "1", "paper_count": 3},
+       {"year": 2022, "kind": "proceedings", "part": "2", "part_title": "Closing", "paper_count": 4}
+   ]
+   venue = "Conference XYZ"
+   ```
+3. **Expected behavior**:
+   ```python
+   {
+       "Conference XYZ": {
+           2021: [
+               {
+                   "kind": "proceedings",
+                   "part": "1",
+                   "display_name": "Opening",
+                   "paper_count": 5
+               },
+               {
+                   "kind": "journal",
+                   "journal": "Journal A",
+                   "display_name": "Journal A volume 10 issue 1",
+                   "volume": "10",
+                   "issue": "1",
+                   "paper_count": 3
+               }
+           ],
+           2022: [
+               {
+                   "kind": "proceedings",
+                   "part": "2",
+                   "display_name": "Closing",
+                   "paper_count": 4
+               }
+           ]
+       }
+   }
+   ```
+4. **Why this scenario matters**: This scenario tests the function's ability to handle a mixture of record types and years, ensuring that it aggregates and categorizes data correctly.
+
+---
+
+### Scenario 2: Empty Inventory
+1. **Scenario name**: Empty Inventory
+2. **Input**:
+   ```python
+   inventory = []
+   venue = "Conference XYZ"
+   ```
+3. **Expected behavior**:
+   ```python
+   {
+       "Conference XYZ": {}
+   }
+   ```
+4. **Why this scenario matters**: This scenario verifies that the function can handle an empty input list gracefully, returning a structure that contains only the venue with no entries.
+
+---
+
+### Scenario 3: All Records in Same Year
+1. **Scenario name**: All Records in Same Year
+2. **Input**:
+   ```python
+   inventory = [
+       {"year": 2021, "kind": "journal", "journal": "Journal B", "volume": "5", "issue": "2", "paper_count": 10},
+       {"year": 2021, "kind": "proceedings", "part": "3", "part_title": "Session A", "paper_count": 2}
+   ]
+   venue = "Conference ABC"
+   ```
+3. **Expected behavior**:
+   ```python
+   {
+       "Conference ABC": {
+           2021: [
+               {
+                   "kind": "journal",
+                   "journal": "Journal B",
+                   "display_name": "Journal B volume 5 issue 2",
+                   "volume": "5",
+                   "issue": "2",
+                   "paper_count": 10
+               },
+               {
+                   "kind": "proceedings",
+                   "part": "3",
+                   "display_name": "Session A",
+                   "paper_count": 2
+               }
+           ]
+       }
+   }
+   ```
+4. **Why this scenario matters**: This scenario checks the function's ability to aggregate multiple records within the same year, ensuring that it correctly categorizes them under the appropriate year.
+
+---
+
+### Scenario 4: Duplicate Records
+1. **Scenario name**: Duplicate Records
+2. **Input**:
+   ```python
+   inventory = [
+       {"year": 2021, "kind": "journal", "journal": "Journal C", "volume": "1", "issue": "1", "paper_count": 5},
+       {"year": 2021, "kind": "journal", "journal": "Journal C", "volume": "1", "issue": "1", "paper_count": 5}
+   ]
+   venue = "Conference DEF"
+   ```
+3. **Expected behavior**:
+   ```python
+   {
+       "Conference DEF": {
+           2021: [
+               {
+                   "kind": "journal",
+                   "journal": "Journal C",
+                   "display_name": "Journal C volume 1 issue 1",
+                   "volume": "1",
+                   "issue": "1",
+                   "paper_count": 5
+               },
+               {
+                   "kind": "journal",
+                   "journal": "Journal C",
+                   "display_name": "Journal C volume 1 issue 1",
+                   "volume": "1",
+                   "issue": "1",
+                   "paper_count": 5
+               }
+           ]
+       }
+   }
+   ```
+4. **Why this scenario matters**: This scenario tests how the function handles duplicate entries in the inventory, ensuring that it retains all entries and does not filter them out.
+
+---
+
+### Scenario 5: Boundary Case with Missing Keys
+1. **Scenario name**: Boundary Case with Missing Keys
+2. **Input**:
+   ```python
+   inventory = [
+       {"year": 2021, "kind": "journal", "volume": "1", "issue": "1", "paper_count": 5},  # Missing journal
+       {"year": 2021, "kind": "proceedings", "part": "1", "part_title": "Intro", "paper_count": 2}  # Valid
+   ]
+   venue = "Conference GHI"
+   ```
+3. **Expected behavior**: This scenario is expected to raise a `KeyError` due to the missing `journal` key in the first record.
+4. **Why this scenario matters**: This scenario is important for testing the function's robustness against incomplete records, ensuring that it behaves as expected when required keys are missing.
+
+---
+
+### Scenario 6: Invalid `kind` Value
+1. **Scenario name**: Invalid `kind` Value
+2. **Input**:
+   ```python
+   inventory = [
+       {"year": 2021, "kind": "invalid_kind", "journal": "Journal D", "volume": "2", "issue": "1", "paper_count": 5}
+   ]
+   venue = "Conference JKL"
+   ```
+3. **Expected behavior**: The function will add the invalid record as a journal type, leading to an entry that does not conform to expected behavior.
+4. **Why this scenario matters**: This scenario tests how the function handles unexpected `kind` values. It checks if the function can gracefully process records that do not meet the expected criteria without explicit error handling.
+
+---
+
+These scenarios cover a range of important cases, including normal operations, edge cases, and expected failure modes, ensuring a comprehensive test suite for the `generate_manifest_template` function.

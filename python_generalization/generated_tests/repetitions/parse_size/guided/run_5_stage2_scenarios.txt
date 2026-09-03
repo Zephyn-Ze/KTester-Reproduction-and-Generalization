@@ -1,0 +1,93 @@
+Here are the designed unit test scenarios for the `parse_size` function based on the provided source code and extracted knowledge:
+
+### Scenario 1: Valid Simple Size
+1. **Scenario Name**: Parse Simple Size
+2. **Input**: `'42'`
+3. **Expected Behavior**: Returns `42`
+4. **Why This Scenario Matters**: This tests the basic functionality of parsing a simple numeric input without any units, ensuring that the function can handle straightforward cases.
+
+### Scenario 2: Valid Size with Bytes
+1. **Scenario Name**: Parse Size in Bytes
+2. **Input**: `'13b'`
+3. **Expected Behavior**: Returns `13`
+4. **Why This Scenario Matters**: This checks if the function correctly interprets the input as bytes when the unit is explicitly specified.
+
+### Scenario 3: Valid Size with Unit
+1. **Scenario Name**: Parse Size with Unit
+2. **Input**: `'1 KB'`
+3. **Expected Behavior**: Returns `1000`
+4. **Why This Scenario Matters**: This verifies that the function can correctly convert a size with a common unit (kilobyte) to bytes.
+
+### Scenario 4: Valid Size with Ambiguous Unit (Decimal)
+1. **Scenario Name**: Parse Ambiguous Size Decimal
+2. **Input**: `'1 K'`
+3. **Expected Behavior**: Returns `1000`
+4. **Why This Scenario Matters**: This tests how the function handles ambiguous units (K) by defaulting to decimal interpretation.
+
+### Scenario 5: Valid Size with Ambiguous Unit (Binary)
+1. **Scenario Name**: Parse Ambiguous Size Binary
+2. **Input**: `'1 K'`, `binary=True`
+3. **Expected Behavior**: Returns `1024`
+4. **Why This Scenario Matters**: This checks that the function correctly interprets ambiguous units using binary multipliers when the binary flag is set to True.
+
+### Scenario 6: Valid Size with Plural Unit
+1. **Scenario Name**: Parse Plural Unit
+2. **Input**: `'1 kilobyte'`
+3. **Expected Behavior**: Returns `1000`
+4. **Why This Scenario Matters**: This ensures that the function can handle plural forms of units correctly, interpreting them as their singular counterparts.
+
+### Scenario 7: Valid Size with Decimal Value
+1. **Scenario Name**: Parse Decimal Size
+2. **Input**: `'1.5 GB'`
+3. **Expected Behavior**: Returns `1500000000`
+4. **Why This Scenario Matters**: This tests the function's ability to handle decimal values in the input and convert them accurately.
+
+### Scenario 8: Valid Size with Decimal Value (Binary)
+1. **Scenario Name**: Parse Decimal Size Binary
+2. **Input**: `'1.5 GB'`, `binary=True`
+3. **Expected Behavior**: Returns `1610612736`
+4. **Why This Scenario Matters**: This checks the function's handling of binary interpretation for decimal values.
+
+### Scenario 9: Zero Value
+1. **Scenario Name**: Parse Zero Value
+2. **Input**: `'0 KB'`
+3. **Expected Behavior**: Returns `0`
+4. **Why This Scenario Matters**: This tests the function's handling of zero values, ensuring it returns 0 bytes correctly.
+
+### Scenario 10: Empty Input
+1. **Scenario Name**: Parse Empty Input
+2. **Input**: `''`
+3. **Expected Behavior**: Raises `InvalidSize` exception
+4. **Why This Scenario Matters**: This checks how the function handles an empty string, which should not be a valid input.
+
+### Scenario 11: Invalid Format
+1. **Scenario Name**: Parse Invalid Format
+2. **Input**: `'abc'`
+3. **Expected Behavior**: Raises `InvalidSize` exception
+4. **Why This Scenario Matters**: This tests the function's robustness against completely invalid formats that cannot be parsed.
+
+### Scenario 12: Unsupported Unit
+1. **Scenario Name**: Parse Unsupported Unit
+2. **Input**: `'1 XYZ'`
+3. **Expected Behavior**: Raises `InvalidSize` exception
+4. **Why This Scenario Matters**: This ensures that the function correctly identifies unsupported units and raises an appropriate exception.
+
+### Scenario 13: Non-String Input
+1. **Scenario Name**: Parse Non-String Input
+2. **Input**: `42`
+3. **Expected Behavior**: Raises `InvalidSize` exception
+4. **Why This Scenario Matters**: This tests the function's ability to handle input types that are not strings, ensuring type safety.
+
+### Scenario 14: Large Size Value
+1. **Scenario Name**: Parse Large Size
+2. **Input**: `'1 YB'`
+3. **Expected Behavior**: Returns `1000000000000000000`
+4. **Why This Scenario Matters**: This tests the function's capability to handle very large values without overflow or errors.
+
+### Scenario 15: Complex Size with Mixed Units
+1. **Scenario Name**: Parse Complex Size
+2. **Input**: `'2.5 TB and 500 MB'`
+3. **Expected Behavior**: Raises `InvalidSize` exception
+4. **Why This Scenario Matters**: This checks how the function handles complex inputs that are not supported by the parsing logic.
+
+These scenarios comprehensively cover various aspects of the `parse_size` function, including normal cases, boundary conditions, and error handling.

@@ -1,0 +1,75 @@
+Here are the designed unit test scenarios for the `normalize_string_quotes` function based on the provided source code and extracted knowledge:
+
+### Scenario 1: Normal Case - Single Quotes to Double Quotes
+1. **Scenario Name**: Single Quote Normalization
+2. **Input**: `s = "'Hello, World!'"`
+3. **Expected Behavior**: The output should be `"Hello, World!"`.
+4. **Why This Scenario Matters**: This tests the primary functionality of the function, ensuring it correctly converts single quotes to double quotes when appropriate.
+
+### Scenario 2: Already Normalized Double Quotes
+1. **Scenario Name**: Already Normalized
+2. **Input**: `s = '"Hello, World!"'`
+3. **Expected Behavior**: The output should remain as `"Hello, World!"`.
+4. **Why This Scenario Matters**: This tests that the function does not alter strings that are already in the desired format, ensuring it maintains the integrity of the input.
+
+### Scenario 3: Raw String with Unescaped Quotes
+1. **Scenario Name**: Raw String with Unescaped Quotes
+2. **Input**: `s = r"'Hello, 'World'"`
+3. **Expected Behavior**: The output should remain as `r"'Hello, 'World'"`.
+4. **Why This Scenario Matters**: This tests the function's handling of raw strings, ensuring that it does not introduce backslashes or alter the string inappropriately.
+
+### Scenario 4: Raw String with Escaped Quotes
+1. **Scenario Name**: Raw String with Escaped Quotes
+2. **Input**: `s = r"'Hello, \'World'"`
+3. **Expected Behavior**: The output should remain as `r"'Hello, \'World'"`.
+4. **Why This Scenario Matters**: This checks that the function preserves the escape sequences in raw strings.
+
+### Scenario 5: Formatted String with Interpolated Expressions
+1. **Scenario Name**: Formatted String with Interpolation
+2. **Input**: `s = r"f'Hello, {name}'"`
+3. **Expected Behavior**: The output should remain as `r"f'Hello, {name}'"`.
+4. **Why This Scenario Matters**: This ensures that the function does not alter formatted strings with interpolated expressions, maintaining their integrity.
+
+### Scenario 6: Edge Case - Ending with a Quote
+1. **Scenario Name**: Ending with Quote
+2. **Input**: `s = '"Hello, World!"'`
+3. **Expected Behavior**: The output should be `"Hello, World!"`.
+4. **Why This Scenario Matters**: This tests the edge case where the string ends with a quote, ensuring the function handles this scenario correctly.
+
+### Scenario 7: String with No Quotes
+1. **Scenario Name**: No Quotes Present
+2. **Input**: `s = "Hello, World!"`
+3. **Expected Behavior**: The output should remain as `"Hello, World!"`.
+4. **Why This Scenario Matters**: This checks that the function can handle strings that do not contain any quotes without altering them.
+
+### Scenario 8: String with Escaped Quotes
+1. **Scenario Name**: String with Escaped Quotes
+2. **Input**: `s = "'Hello, \\'World'"`
+3. **Expected Behavior**: The output should be `"Hello, \\"World"`.
+4. **Why This Scenario Matters**: This tests how the function deals with escape sequences, ensuring it does not introduce unnecessary escaping.
+
+### Scenario 9: Multiple Quotes
+1. **Scenario Name**: Multiple Quotes
+2. **Input**: `s = "'Hello, 'World' and 'Universe'"`
+3. **Expected Behavior**: The output should be `"Hello, "World" and "Universe""`.
+4. **Why This Scenario Matters**: This tests the function's ability to handle strings with multiple quoted sections, ensuring consistent normalization.
+
+### Scenario 10: Escaped Quotes in Raw String
+1. **Scenario Name**: Escaped Quotes in Raw String
+2. **Input**: `s = r"'Hello, \\'World'"`
+3. **Expected Behavior**: The output should remain as `r"'Hello, \\'World'"`.
+4. **Why This Scenario Matters**: This ensures that the function does not alter the escape sequences in a raw string, preserving its original format.
+
+### Scenario 11: Mixed Quotes with Escaping
+1. **Scenario Name**: Mixed Quotes with Escaping
+2. **Input**: `s = "'Hello, \\"World\\"'"`
+3. **Expected Behavior**: The output should be `"Hello, \\"World\\""`
+4. **Why This Scenario Matters**: This tests the function's ability to correctly handle mixed quotes and escape sequences, ensuring it does not introduce additional complexity.
+
+### Scenario 12: Multiple Escapes
+1. **Scenario Name**: Multiple Escapes
+2. **Input**: `s = "'Hello, \\\\World'"`
+3. **Expected Behavior**: The output should be `"Hello, \\\\World"`.
+4. **Why This Scenario Matters**: This checks how the function handles multiple escape characters, ensuring it maintains the correct number of backslashes without adding or removing unnecessary ones.
+
+These scenarios cover a variety of cases, including normal, boundary, edge, and exception scenarios, ensuring comprehensive testing of the `normalize_string_quotes` function.

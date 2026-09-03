@@ -1,0 +1,131 @@
+{
+  "selected_cases": {
+    "XPathHelper_getSingleStep": "org.jdom2.xpath.XPathHelper#getSingleStep(NamespaceAware, StringBuilder)",
+    "Verifier_isXMLPublicIDCharacter": "org.jdom2.Verifier#isXMLPublicIDCharacter(char)",
+    "Rule_pattern": "org.apache.commons.codec.language.bm.Rule#pattern(String)"
+  },
+  "case_results": {
+    "run3_reference": {
+      "XPathHelper_getSingleStep": {
+        "compile_passed": false,
+        "execution_passed": false,
+        "error_type": "compile error",
+        "test_cases": 5,
+        "passed_cases": 0
+      },
+      "Verifier_isXMLPublicIDCharacter": {
+        "compile_passed": true,
+        "execution_passed": true,
+        "test_cases": 6,
+        "passed_cases": 6,
+        "line_cov": 0.0,
+        "bran_cov": 0.0,
+        "correct_line_cov": 0.0,
+        "correct_bran_cov": 0.0
+      },
+      "Rule_pattern": {
+        "compile_passed": true,
+        "execution_passed": false,
+        "test_cases": 31,
+        "passed_cases": 0,
+        "correct_line_cov": 0.0,
+        "correct_bran_cov": 0.0,
+        "line_cov": 0.0,
+        "bran_cov": 0.0
+      }
+    },
+    "group_a_baseline": {
+      "XPathHelper_getSingleStep": {
+        "compile_passed": false,
+        "execution_passed": false,
+        "error_type": "compile error",
+        "test_cases": 9,
+        "passed_cases": 0
+      },
+      "Verifier_isXMLPublicIDCharacter": {
+        "compile_passed": true,
+        "execution_passed": false,
+        "test_cases": 3,
+        "passed_cases": 3,
+        "line_cov": 0.97,
+        "bran_cov": 0.93,
+        "correct_line_cov": 0.97,
+        "correct_bran_cov": 0.93
+      },
+      "Rule_pattern": {
+        "compile_passed": true,
+        "execution_passed": false,
+        "test_cases": 5,
+        "passed_cases": 0,
+        "correct_line_cov": 0.0,
+        "correct_bran_cov": 0.0,
+        "line_cov": 1.0,
+        "bran_cov": 0.92
+      }
+    },
+    "group_b_enhanced": {
+      "XPathHelper_getSingleStep": {
+        "compile_passed": true,
+        "execution_passed": false,
+        "test_cases": 5,
+        "passed_cases": 5,
+        "line_cov": 0.35,
+        "bran_cov": 0.36,
+        "correct_line_cov": 0.35,
+        "correct_bran_cov": 0.36
+      },
+      "Verifier_isXMLPublicIDCharacter": {
+        "compile_passed": true,
+        "execution_passed": false,
+        "test_cases": 3,
+        "passed_cases": 3,
+        "line_cov": 0.97,
+        "bran_cov": 0.93,
+        "correct_line_cov": 0.97,
+        "correct_bran_cov": 0.93
+      },
+      "Rule_pattern": {
+        "compile_passed": true,
+        "execution_passed": false,
+        "test_cases": 5,
+        "passed_cases": 0,
+        "correct_line_cov": 0.0,
+        "correct_bran_cov": 0.0,
+        "line_cov": 1.0,
+        "bran_cov": 0.92
+      }
+    }
+  },
+  "aggregate_results": {
+    "run3_reference": {
+      "compile_pass_rate": 0.6666666666666666,
+      "execution_pass_rate": 0.14285714285714285,
+      "average_instruction_coverage": 0.0,
+      "average_branch_coverage": 0.0,
+      "average_correct_instruction_coverage": 0.0,
+      "average_correct_branch_coverage": 0.0,
+      "test_cases": 42,
+      "passed_cases": 6
+    },
+    "group_a_baseline": {
+      "compile_pass_rate": 0.6666666666666666,
+      "execution_pass_rate": 0.17647058823529413,
+      "average_instruction_coverage": 0.6566666666666666,
+      "average_branch_coverage": 0.6166666666666667,
+      "average_correct_instruction_coverage": 0.3233333333333333,
+      "average_correct_branch_coverage": 0.31,
+      "test_cases": 17,
+      "passed_cases": 3
+    },
+    "group_b_enhanced": {
+      "compile_pass_rate": 1.0,
+      "execution_pass_rate": 0.6153846153846154,
+      "average_instruction_coverage": 0.7733333333333333,
+      "average_branch_coverage": 0.7366666666666667,
+      "average_correct_instruction_coverage": 0.43999999999999995,
+      "average_correct_branch_coverage": 0.43,
+      "test_cases": 13,
+      "passed_cases": 8
+    }
+  }
+}

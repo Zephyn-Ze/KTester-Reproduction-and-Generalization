@@ -1,0 +1,39 @@
+### Analysis of the `parse_size` Function
+
+1. **Input Structure and Constraints**:
+   - **Type**: The input `size` must be a string representing a human-readable data size.
+   - **Valid Formats**: The string can contain:
+     - A plain number (e.g., "42")
+     - A number followed by a unit (e.g., "1 KB", "5 bytes", "1.5 GB")
+     - Variations of units (e.g., "KiB", "kilobyte", "GB", "MB", etc.)
+   - **Binary Parameter**: The second parameter `binary` is a boolean that indicates whether to use binary (base-2) or decimal (base-10) multipliers for ambiguous units.
+
+2. **Output Structure**:
+   - The function returns an integer representing the size in bytes.
+
+3. **Important Branches and Conditions**:
+   - The function checks if the input can be tokenized into valid components (numbers and optional units).
+   - It distinguishes between:
+     - Pure numbers (interpreted as bytes)
+     - Numbers with explicit units (to convert to bytes)
+   - It handles both binary and decimal unit conversions based on the `binary` flag.
+   - The function raises an `InvalidSize` exception if the input cannot be parsed.
+
+4. **Boundary and Edge Cases**:
+   - Input of "0" should return 0 bytes.
+   - Inputs with very large sizes (e.g., "1 YB") to test handling of maximum values.
+   - Inputs with fractional sizes (e.g., "1.5 GB") to ensure proper conversion.
+   - Inputs with ambiguous units (e.g., "1 K") when `binary` is set to both True and False.
+   - Empty strings or strings without valid tokens (e.g., " ") should raise an exception.
+
+5. **Possible Exception Cases**:
+   - Invalid formats that cannot be tokenized (e.g., "invalid input").
+   - Strings that do not represent valid sizes or units (e.g., "abc").
+   - Special characters or malformed strings (e.g., "5#MB", "1.0.0 GB").
+
+6. **Important Semantic Behaviors that Should Be Tested**:
+   - Correct conversion of various units to bytes, both in binary and decimal contexts.
+   - Handling of plural forms and variations of unit names.
+   - Correct handling of edge cases like zero, negative numbers (if applicable), and very large numbers.
+   - Proper raising of the `InvalidSize` exception with the correct message for invalid inputs.
+   - Ensuring that the function behaves consistently across different input formats and edge cases.

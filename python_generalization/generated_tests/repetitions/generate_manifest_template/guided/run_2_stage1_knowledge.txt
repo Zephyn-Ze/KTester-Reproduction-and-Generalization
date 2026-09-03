@@ -1,0 +1,48 @@
+### Analysis of the `generate_manifest_template` Function
+
+1. **Input Structure and Constraints**
+   - **Parameters:**
+     - `inventory`: A list of dictionaries, where each dictionary represents a record with the following expected keys:
+       - `year`: An integer or string representing the year.
+       - `kind`: A string that can either be "proceedings" or "journal".
+       - `part`: A string representing the part of the proceedings (only relevant if `kind` is "proceedings").
+       - `part_title`: A string representing the title of the part (only relevant if `kind` is "proceedings").
+       - `journal`: A string representing the name of the journal (only relevant if `kind` is "journal").
+       - `volume`: A string or number representing the volume of the journal (only relevant if `kind` is "journal").
+       - `issue`: A string or number representing the issue of the journal (only relevant if `kind` is "journal").
+       - `paper_count`: An integer representing the number of papers.
+   - **Constraints:**
+     - `inventory` must be a list.
+     - Each record in `inventory` must contain the required keys.
+     - `kind` must be either "proceedings" or "journal".
+
+2. **Output Structure**
+   - The function returns a dictionary (`manifest`) structured as follows:
+     - The top-level key is the `venue` (a string).
+     - The value is another dictionary where:
+       - Keys are years (from `inventory`).
+       - Values are lists of dictionaries, each representing either a "proceedings" or "journal" entry with corresponding fields.
+
+3. **Important Branches and Conditions**
+   - The function checks if `year` is already a key in `manifest[venue]` and initializes it if not.
+   - It distinguishes between two types of records based on the value of `kind`:
+     - If `kind` is "proceedings", it creates a specific structure for that type.
+     - If `kind` is "journal", it creates a different structure with additional fields.
+
+4. **Boundary and Edge Cases**
+   - An empty `inventory` list should return a manifest with just the venue and an empty dictionary.
+   - All records in `inventory` could potentially have the same year, testing the aggregation of records.
+   - Records with the same year but different `kind` values should be handled correctly.
+   - The function should handle cases where `part_title`, `journal`, `volume`, or `issue` might be empty strings or null values.
+
+5. **Possible Exception Cases**
+   - When `inventory` is not a list, the function may raise a TypeError.
+   - Missing keys in any record (e.g., if `year` is not present) may raise a KeyError.
+   - If `kind` has a value other than "proceedings" or "journal", the function does not handle it explicitly, which could lead to unexpected behavior.
+
+6. **Important Semantic Behaviors that Should Be Tested**
+   - The function should correctly categorize records into the appropriate year and kind.
+   - The output structure must match the expected format, with correct fields included for both kinds of records.
+   - The function should maintain the order of records as they appear in the input list.
+   - The function should handle multiple records with the same year and kind gracefully, aggregating them correctly.
+   - The function should ensure that the `paper_count` is accurately reflected in the output for each entry.

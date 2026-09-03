@@ -1,0 +1,146 @@
+{
+  "target": "normalize_string_quotes",
+  "module": "target_functions.normalize_string_quotes_target",
+  "function": "normalize_string_quotes",
+  "mode": "pilot",
+  "python": "<python-environment>/bin/python",
+  "summary": {
+    "baseline": {
+      "files": 1,
+      "collection_successes": 0,
+      "collected_tests": 0,
+      "passing_tests": 0,
+      "test_method_epr_percent": null,
+      "average_raw_statement_percent": null,
+      "average_raw_branch_percent": null,
+      "average_correct_statement_percent": null,
+      "average_correct_branch_percent": null
+    },
+    "guided": {
+      "files": 1,
+      "collection_successes": 1,
+      "collected_tests": 12,
+      "passing_tests": 3,
+      "test_method_epr_percent": 25.0,
+      "average_raw_statement_percent": 69.04761904761905,
+      "average_raw_branch_percent": 50.0,
+      "average_correct_statement_percent": 66.66666666666667,
+      "average_correct_branch_percent": 45.833333333333336
+    }
+  },
+  "results": [
+    {
+      "strategy": "baseline",
+      "file": "generated_tests/pilots/normalize_string_quotes/baseline.py",
+      "collection_success": false,
+      "collection_output": "\n==================================== ERRORS ====================================\n_ ERROR collecting generated_tests/pilots/normalize_string_quotes/baseline.py __\n<python-environment>/lib/python3.13/site-packages/_pytest/python.py:508: in importtestmodule\n    mod = import_path(\n<python-environment>/lib/python3.13/site-packages/_pytest/pathlib.py:596: in import_path\n    importlib.import_module(module_name)\n<python-environment>/lib/python3.13/importlib/__init__.py:88: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n<frozen importlib._bootstrap>:1395: in _gcd_import\n    ???\n<frozen importlib._bootstrap>:1360: in _find_and_load\n    ???\n<frozen importlib._bootstrap>:1331: in _find_and_load_unlocked\n    ???\n<frozen importlib._bootstrap>:935: in _load_unlocked\n    ???\n<python-environment>/lib/python3.13/site-packages/_pytest/assertion/rewrite.py:179: in exec_module\n    source_stat, co = _rewrite_test(fn, self.config)\n                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n<python-environment>/lib/python3.13/site-packages/_pytest/assertion/rewrite.py:348: in _rewrite_test\n    tree = ast.parse(source, filename=strfn)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n<python-environment>/lib/python3.13/ast.py:50: in parse\n    return compile(source, filename, mode, flags,\nE     File \"<local-workspace>/generated_tests/pilots/normalize_string_quotes/baseline.py\", line 8\nE       assert normalize_string_quotes('\"Hello \\\\\"World\\\\\"\"') == \"'Hello \\\\\"World\\\\\"'\"\nE                                                                                 ^\nE   SyntaxError: unexpected character after line continuation character\n=========================== short test summary info ============================\nERROR generated_tests/pilots/normalize_string_quotes/baseline.py\n!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!\nno tests collected, 1 error in 0.18s\n",
+      "collected_tests": 0,
+      "passing_tests": 0,
+      "epr_percent": null,
+      "method_results": [],
+      "raw_coverage": null,
+      "correct_coverage": null
+    },
+    {
+      "strategy": "guided",
+      "file": "generated_tests/pilots/normalize_string_quotes/guided.py",
+      "collection_success": true,
+      "collection_output": "generated_tests/pilots/normalize_string_quotes/guided.py::test_no_quotes\ngenerated_tests/pilots/normalize_string_quotes/guided.py::test_already_normalized_double_quotes\ngenerated_tests/pilots/normalize_string_quotes/guided.py::test_already_normalized_single_quotes\ngenerated_tests/pilots/normalize_string_quotes/guided.py::test_convert_single_to_double_quotes\ngenerated_tests/pilots/normalize_string_quotes/guided.py::test_convert_double_to_single_quotes\ngenerated_tests/pilots/normalize_string_quotes/guided.py::test_raw_string_with_escaped_quotes\ngenerated_tests/pilots/normalize_string_quotes/guided.py::test_mixed_quotes_and_escapes\ngenerated_tests/pilots/normalize_string_quotes/guided.py::test_edge_case_ending_with_unescaped_quote\ngenerated_tests/pilots/normalize_string_quotes/guided.py::test_nested_escapes\ngenerated_tests/pilots/normalize_string_quotes/guided.py::test_malformed_string\ngenerated_tests/pilots/normalize_string_quotes/guided.py::test_empty_string\ngenerated_tests/pilots/normalize_string_quotes/guided.py::test_multiple_quotes\n\n12 tests collected in 0.01s\n",
+      "collected_tests": 12,
+      "passing_tests": 3,
+      "epr_percent": 25.0,
+      "method_results": [
+        {
+          "nodeid": "generated_tests/pilots/normalize_string_quotes/guided.py::test_no_quotes",
+          "passed": false,
+          "returncode": 1,
+          "output": "F                                                                        [100%]\n=================================== FAILURES ===================================\n________________________________ test_no_quotes ________________________________\n\n    def test_no_quotes():\n        s = \"This is a plain string.\"\n>       assert normalize_string_quotes(s) == s\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^\n\ngenerated_tests/pilots/normalize_string_quotes/guided.py:6: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\ns = 'This is a plain string.'\n\n    def normalize_string_quotes(s: str) -> str:\n        \"\"\"Prefer double quotes but only if it doesn't cause more escaping.\n    \n        Adds or removes backslashes as appropriate.\n        \"\"\"\n        value = s.lstrip(STRING_PREFIX_CHARS)\n        if value[:3] == '\"\"\"':\n            return s\n    \n        elif value[:3] == \"'''\":\n            orig_quote = \"'''\"\n            new_quote = '\"\"\"'\n        elif value[0] == '\"':\n            orig_quote = '\"'\n            new_quote = \"'\"\n        else:\n            orig_quote = \"'\"\n            new_quote = '\"'\n        first_quote_pos = s.find(orig_quote)\n>       assert first_quote_pos != -1, f\"INTERNAL ERROR: Malformed string {s!r}\"\n               ^^^^^^^^^^^^^^^^^^^^^\nE       AssertionError: INTERNAL ERROR: Malformed string 'This is a plain string.'\n\ntarget_functions/normalize_string_quotes_target.py:46: AssertionError\n=========================== short test summary info ============================\nFAILED generated_tests/pilots/normalize_string_quotes/guided.py::test_no_quotes\n1 failed in 0.02s\n"
+        },
+        {
+          "nodeid": "generated_tests/pilots/normalize_string_quotes/guided.py::test_already_normalized_double_quotes",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        },
+        {
+          "nodeid": "generated_tests/pilots/normalize_string_quotes/guided.py::test_already_normalized_single_quotes",
+          "passed": false,
+          "returncode": 1,
+          "output": "F                                                                        [100%]\n=================================== FAILURES ===================================\n____________________ test_already_normalized_single_quotes _____________________\n\n    def test_already_normalized_single_quotes():\n        s = \"'This is a single quoted string.'\"\n>       assert normalize_string_quotes(s) == s\nE       assert '\"This is a s...oted string.\"' == \"'This is a s...oted string.'\"\nE         \nE         - 'This is a single quoted string.'\nE         ? ^                               ^\nE         + \"This is a single quoted string.\"\nE         ? ^                               ^\n\ngenerated_tests/pilots/normalize_string_quotes/guided.py:14: AssertionError\n=========================== short test summary info ============================\nFAILED generated_tests/pilots/normalize_string_quotes/guided.py::test_already_normalized_single_quotes\n1 failed in 0.02s\n"
+        },
+        {
+          "nodeid": "generated_tests/pilots/normalize_string_quotes/guided.py::test_convert_single_to_double_quotes",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        },
+        {
+          "nodeid": "generated_tests/pilots/normalize_string_quotes/guided.py::test_convert_double_to_single_quotes",
+          "passed": false,
+          "returncode": 1,
+          "output": "F                                                                        [100%]\n=================================== FAILURES ===================================\n_____________________ test_convert_double_to_single_quotes _____________________\n\n    def test_convert_double_to_single_quotes():\n        s = '\"This is a test string.\"'\n        expected = \"'This is a test string.'\"\n>       assert normalize_string_quotes(s) == expected\nE       assert '\"This is a test string.\"' == \"'This is a test string.'\"\nE         \nE         - 'This is a test string.'\nE         ? ^                      ^\nE         + \"This is a test string.\"\nE         ? ^                      ^\n\ngenerated_tests/pilots/normalize_string_quotes/guided.py:24: AssertionError\n=========================== short test summary info ============================\nFAILED generated_tests/pilots/normalize_string_quotes/guided.py::test_convert_double_to_single_quotes\n1 failed in 0.02s\n"
+        },
+        {
+          "nodeid": "generated_tests/pilots/normalize_string_quotes/guided.py::test_raw_string_with_escaped_quotes",
+          "passed": false,
+          "returncode": 1,
+          "output": "F                                                                        [100%]\n=================================== FAILURES ===================================\n_____________________ test_raw_string_with_escaped_quotes ______________________\n\n    def test_raw_string_with_escaped_quotes():\n        s = r\"'This is a raw string with an escaped quote: \\'.\"\n>       assert normalize_string_quotes(s) == s\nE       assert '\"This is a r...ed quote: \\'\"' == \"'This is a r...d quote: \\\\'.\"\nE         \nE         - 'This is a raw string with an escaped quote: \\'.\nE         ? ^                                            - ^\nE         + \"This is a raw string with an escaped quote: '\"\nE         ? ^                                             ^\n\ngenerated_tests/pilots/normalize_string_quotes/guided.py:28: AssertionError\n=========================== short test summary info ============================\nFAILED generated_tests/pilots/normalize_string_quotes/guided.py::test_raw_string_with_escaped_quotes\n1 failed in 0.02s\n"
+        },
+        {
+          "nodeid": "generated_tests/pilots/normalize_string_quotes/guided.py::test_mixed_quotes_and_escapes",
+          "passed": false,
+          "returncode": 1,
+          "output": "F                                                                        [100%]\n=================================== FAILURES ===================================\n________________________ test_mixed_quotes_and_escapes _________________________\n\n    def test_mixed_quotes_and_escapes():\n        s = '\"This is a test with an escaped quote: \\\\\" and more text.'\n        expected = '\"This is a test with an escaped quote: \\\\\" and more text.\"'\n>       assert normalize_string_quotes(s) == expected\nE       assert \"'This is a t...nd more text'\" == '\"This is a t...d more text.\"'\nE         \nE         - \"This is a test with an escaped quote: \\\" and more text.\"\nE         ? ^                                      -               ^^\nE         + 'This is a test with an escaped quote: \" and more text'\nE         ? ^                                                     ^\n\ngenerated_tests/pilots/normalize_string_quotes/guided.py:33: AssertionError\n=========================== short test summary info ============================\nFAILED generated_tests/pilots/normalize_string_quotes/guided.py::test_mixed_quotes_and_escapes\n1 failed in 0.02s\n"
+        },
+        {
+          "nodeid": "generated_tests/pilots/normalize_string_quotes/guided.py::test_edge_case_ending_with_unescaped_quote",
+          "passed": false,
+          "returncode": 1,
+          "output": "F                                                                        [100%]\n=================================== FAILURES ===================================\n__________________ test_edge_case_ending_with_unescaped_quote __________________\n\n    def test_edge_case_ending_with_unescaped_quote():\n        s = '\"This is a test string without closing quote'\n        expected = '\"This is a test string without closing quote\"'\n>       assert normalize_string_quotes(s) == expected\nE       assert '\"This is a t...closing quote' == '\"This is a t...losing quote\"'\nE         \nE         Skipping 33 identical leading characters in diff, use -v to show\nE         - osing quote\"\nE         ?            -\nE         + osing quote\n\ngenerated_tests/pilots/normalize_string_quotes/guided.py:38: AssertionError\n=========================== short test summary info ============================\nFAILED generated_tests/pilots/normalize_string_quotes/guided.py::test_edge_case_ending_with_unescaped_quote\n1 failed in 0.02s\n"
+        },
+        {
+          "nodeid": "generated_tests/pilots/normalize_string_quotes/guided.py::test_nested_escapes",
+          "passed": false,
+          "returncode": 1,
+          "output": "F                                                                        [100%]\n=================================== FAILURES ===================================\n_____________________________ test_nested_escapes ______________________________\n\n    def test_nested_escapes():\n        s = r\"'This is a test with nested escapes: \\\\\\'\"\n>       assert normalize_string_quotes(s) == s\nE       assert '\"This is a t...apes: \\\\\\\\\\\\\"' == \"'This is a t...apes: \\\\\\\\\\\\'\"\nE         \nE         - 'This is a test with nested escapes: \\\\\\'\nE         ? ^                                       ^\nE         + \"This is a test with nested escapes: \\\\\\\"\nE         ? ^                                       ^\n\ngenerated_tests/pilots/normalize_string_quotes/guided.py:42: AssertionError\n=========================== short test summary info ============================\nFAILED generated_tests/pilots/normalize_string_quotes/guided.py::test_nested_escapes\n1 failed in 0.02s\n"
+        },
+        {
+          "nodeid": "generated_tests/pilots/normalize_string_quotes/guided.py::test_malformed_string",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        },
+        {
+          "nodeid": "generated_tests/pilots/normalize_string_quotes/guided.py::test_empty_string",
+          "passed": false,
+          "returncode": 1,
+          "output": "F                                                                        [100%]\n=================================== FAILURES ===================================\n______________________________ test_empty_string _______________________________\n\n    def test_empty_string():\n        s = \"\"\n>       assert normalize_string_quotes(s) == s\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^\n\ngenerated_tests/pilots/normalize_string_quotes/guided.py:51: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\ns = ''\n\n    def normalize_string_quotes(s: str) -> str:\n        \"\"\"Prefer double quotes but only if it doesn't cause more escaping.\n    \n        Adds or removes backslashes as appropriate.\n        \"\"\"\n        value = s.lstrip(STRING_PREFIX_CHARS)\n        if value[:3] == '\"\"\"':\n            return s\n    \n        elif value[:3] == \"'''\":\n            orig_quote = \"'''\"\n            new_quote = '\"\"\"'\n>       elif value[0] == '\"':\n             ^^^^^^^^\nE       IndexError: string index out of range\n\ntarget_functions/normalize_string_quotes_target.py:39: IndexError\n=========================== short test summary info ============================\nFAILED generated_tests/pilots/normalize_string_quotes/guided.py::test_empty_string\n1 failed in 0.02s\n"
+        },
+        {
+          "nodeid": "generated_tests/pilots/normalize_string_quotes/guided.py::test_multiple_quotes",
+          "passed": false,
+          "returncode": 1,
+          "output": "F                                                                        [100%]\n=================================== FAILURES ===================================\n_____________________________ test_multiple_quotes _____________________________\n\n    def test_multiple_quotes():\n        s = \"'This is a string with 'single' and \\\"double\\\" quotes.'\"\n        expected = '\"This is a string with \\'single\\' and \"double\" quotes.\"'\n>       assert normalize_string_quotes(s) == expected\nE       assert '\\'This is a ...le\" quotes.\\'' == '\"This is a s...ble\" quotes.\"'\nE         \nE         - \"This is a string with 'single' and \"double\" quotes.\"\nE         ? ^                                                   ^\nE         + 'This is a string with 'single' and \"double\" quotes.'\nE         ? ^                                                   ^\n\ngenerated_tests/pilots/normalize_string_quotes/guided.py:56: AssertionError\n=========================== short test summary info ============================\nFAILED generated_tests/pilots/normalize_string_quotes/guided.py::test_multiple_quotes\n1 failed in 0.02s\n"
+        }
+      ],
+      "raw_coverage": {
+        "covered_statements": 29,
+        "statements": 42,
+        "statement_percent": 69.04761904761905,
+        "covered_branches": 12,
+        "branches": 24,
+        "branch_percent": 50.0
+      },
+      "raw_coverage_output": "F.F.FFFFF.FF                                                             [100%]\n=================================== FAILURES ===================================\n________________________________ test_no_quotes ________________________________\n\n    def test_no_quotes():\n        s = \"This is a plain string.\"\n>       assert normalize_string_quotes(s) == s\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^\n\ngenerated_tests/pilots/normalize_string_quotes/guided.py:6: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\ns = 'This is a plain string.'\n\n    def normalize_string_quotes(s: str) -> str:\n        \"\"\"Prefer double quotes but only if it doesn't cause more escaping.\n    \n        Adds or removes backslashes as appropriate.\n        \"\"\"\n        value = s.lstrip(STRING_PREFIX_CHARS)\n        if value[:3] == '\"\"\"':\n            return s\n    \n        elif value[:3] == \"'''\":\n            orig_quote = \"'''\"\n            new_quote = '\"\"\"'\n        elif value[0] == '\"':\n            orig_quote = '\"'\n            new_quote = \"'\"\n        else:\n            orig_quote = \"'\"\n            new_quote = '\"'\n        first_quote_pos = s.find(orig_quote)\n>       assert first_quote_pos != -1, f\"INTERNAL ERROR: Malformed string {s!r}\"\n               ^^^^^^^^^^^^^^^^^^^^^\nE       AssertionError: INTERNAL ERROR: Malformed string 'This is a plain string.'\n\ntarget_functions/normalize_string_quotes_target.py:46: AssertionError\n____________________ test_already_normalized_single_quotes _____________________\n\n    def test_already_normalized_single_quotes():\n        s = \"'This is a single quoted string.'\"\n>       assert normalize_string_quotes(s) == s\nE       assert '\"This is a s...oted string.\"' == \"'This is a s...oted string.'\"\nE         \nE         - 'This is a single quoted string.'\nE         ? ^                               ^\nE         + \"This is a single quoted string.\"\nE         ? ^                               ^\n\ngenerated_tests/pilots/normalize_string_quotes/guided.py:14: AssertionError\n_____________________ test_convert_double_to_single_quotes _____________________\n\n    def test_convert_double_to_single_quotes():\n        s = '\"This is a test string.\"'\n        expected = \"'This is a test string.'\"\n>       assert normalize_string_quotes(s) == expected\nE       assert '\"This is a test string.\"' == \"'This is a test string.'\"\nE         \nE         - 'This is a test string.'\nE         ? ^                      ^\nE         + \"This is a test string.\"\nE         ? ^                      ^\n\ngenerated_tests/pilots/normalize_string_quotes/guided.py:24: AssertionError\n_____________________ test_raw_string_with_escaped_quotes ______________________\n\n    def test_raw_string_with_escaped_quotes():\n        s = r\"'This is a raw string with an escaped quote: \\'.\"\n>       assert normalize_string_quotes(s) == s\nE       assert '\"This is a r...ed quote: \\'\"' == \"'This is a r...d quote: \\\\'.\"\nE         \nE         - 'This is a raw string with an escaped quote: \\'.\nE         ? ^                                            - ^\nE         + \"This is a raw string with an escaped quote: '\"\nE         ? ^                                             ^\n\ngenerated_tests/pilots/normalize_string_quotes/guided.py:28: AssertionError\n________________________ test_mixed_quotes_and_escapes _________________________\n\n    def test_mixed_quotes_and_escapes():\n        s = '\"This is a test with an escaped quote: \\\\\" and more text.'\n        expected = '\"This is a test with an escaped quote: \\\\\" and more text.\"'\n>       assert normalize_string_quotes(s) == expected\nE       assert \"'This is a t...nd more text'\" == '\"This is a t...d more text.\"'\nE         \nE         - \"This is a test with an escaped quote: \\\" and more text.\"\nE         ? ^                                      -               ^^\nE         + 'This is a test with an escaped quote: \" and more text'\nE         ? ^                                                     ^\n\ngenerated_tests/pilots/normalize_string_quotes/guided.py:33: AssertionError\n__________________ test_edge_case_ending_with_unescaped_quote __________________\n\n    def test_edge_case_ending_with_unescaped_quote():\n        s = '\"This is a test string without closing quote'\n        expected = '\"This is a test string without closing quote\"'\n>       assert normalize_string_quotes(s) == expected\nE       assert '\"This is a t...closing quote' == '\"This is a t...losing quote\"'\nE         \nE         Skipping 33 identical leading characters in diff, use -v to show\nE         - osing quote\"\nE         ?            -\nE         + osing quote\n\ngenerated_tests/pilots/normalize_string_quotes/guided.py:38: AssertionError\n_____________________________ test_nested_escapes ______________________________\n\n    def test_nested_escapes():\n        s = r\"'This is a test with nested escapes: \\\\\\'\"\n>       assert normalize_string_quotes(s) == s\nE       assert '\"This is a t...apes: \\\\\\\\\\\\\"' == \"'This is a t...apes: \\\\\\\\\\\\'\"\nE         \nE         - 'This is a test with nested escapes: \\\\\\'\nE         ? ^                                       ^\nE         + \"This is a test with nested escapes: \\\\\\\"\nE         ? ^                                       ^\n\ngenerated_tests/pilots/normalize_string_quotes/guided.py:42: AssertionError\n______________________________ test_empty_string _______________________________\n\n    def test_empty_string():\n        s = \"\"\n>       assert normalize_string_quotes(s) == s\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^\n\ngenerated_tests/pilots/normalize_string_quotes/guided.py:51: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\ns = ''\n\n    def normalize_string_quotes(s: str) -> str:\n        \"\"\"Prefer double quotes but only if it doesn't cause more escaping.\n    \n        Adds or removes backslashes as appropriate.\n        \"\"\"\n        value = s.lstrip(STRING_PREFIX_CHARS)\n        if value[:3] == '\"\"\"':\n            return s\n    \n        elif value[:3] == \"'''\":\n            orig_quote = \"'''\"\n            new_quote = '\"\"\"'\n>       elif value[0] == '\"':\n             ^^^^^^^^\nE       IndexError: string index out of range\n\ntarget_functions/normalize_string_quotes_target.py:39: IndexError\n_____________________________ test_multiple_quotes _____________________________\n\n    def test_multiple_quotes():\n        s = \"'This is a string with 'single' and \\\"double\\\" quotes.'\"\n        expected = '\"This is a string with \\'single\\' and \"double\" quotes.\"'\n>       assert normalize_string_quotes(s) == expected\nE       assert '\\'This is a ...le\" quotes.\\'' == '\"This is a s...ble\" quotes.\"'\nE         \nE         - \"This is a string with 'single' and \"double\" quotes.\"\nE         ? ^                                                   ^\nE         + 'This is a string with 'single' and \"double\" quotes.'\nE         ? ^                                                   ^\n\ngenerated_tests/pilots/normalize_string_quotes/guided.py:56: AssertionError\n================================ tests coverage ================================\n______________ coverage: platform darwin, python 3.13.14-final-0 _______________\n\nCoverage JSON written to file <temporary-coverage-file>\n=========================== short test summary info ============================\nFAILED generated_tests/pilots/normalize_string_quotes/guided.py::test_no_quotes\nFAILED generated_tests/pilots/normalize_string_quotes/guided.py::test_already_normalized_single_quotes\nFAILED generated_tests/pilots/normalize_string_quotes/guided.py::test_convert_double_to_single_quotes\nFAILED generated_tests/pilots/normalize_string_quotes/guided.py::test_raw_string_with_escaped_quotes\nFAILED generated_tests/pilots/normalize_string_quotes/guided.py::test_mixed_quotes_and_escapes\nFAILED generated_tests/pilots/normalize_string_quotes/guided.py::test_edge_case_ending_with_unescaped_quote\nFAILED generated_tests/pilots/normalize_string_quotes/guided.py::test_nested_escapes\nFAILED generated_tests/pilots/normalize_string_quotes/guided.py::test_empty_string\nFAILED generated_tests/pilots/normalize_string_quotes/guided.py::test_multiple_quotes\n9 failed, 3 passed in 0.08s\n",
+      "correct_coverage": {
+        "covered_statements": 28,
+        "statements": 42,
+        "statement_percent": 66.66666666666667,
+        "covered_branches": 11,
+        "branches": 24,
+        "branch_percent": 45.833333333333336
+      },
+      "correct_coverage_output": "...                                                                      [100%]\n================================ tests coverage ================================\n______________ coverage: platform darwin, python 3.13.14-final-0 _______________\n\nCoverage JSON written to file <temporary-coverage-file>\n3 passed in 0.04s\n"
+    }
+  ]
+}

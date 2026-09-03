@@ -1,0 +1,53 @@
+Based on the provided source code and extracted knowledge, here are the designed unit test scenarios for the `generate_manifest_template` function:
+
+### 1. Scenario Name: Empty Inventory
+- **Input**: `inventory = []`, `venue = "Conference 2023"`
+- **Expected Behavior**: `{"Conference 2023": {}}`
+- **Why This Scenario Matters**: This scenario tests the function's ability to handle an empty input list, ensuring it returns a valid structure without any errors.
+
+### 2. Scenario Name: Single Proceedings Record
+- **Input**: `inventory = [{"year": 2023, "kind": "proceedings", "part": "Part A", "part_title": "Introduction to Testing", "paper_count": 5}]`, `venue = "Conference 2023"`
+- **Expected Behavior**: `{"Conference 2023": {2023: [{"kind": "proceedings", "part": "Part A", "display_name": "Introduction to Testing", "paper_count": 5}]}}`
+- **Why This Scenario Matters**: This scenario checks that a single proceedings record is correctly added to the manifest, validating the handling of "proceedings" entries.
+
+### 3. Scenario Name: Single Journal Record
+- **Input**: `inventory = [{"year": 2023, "kind": "journal", "journal": "Journal of Testing", "volume": 1, "issue": 1, "paper_count": 3}]`, `venue = "Conference 2023"`
+- **Expected Behavior**: `{"Conference 2023": {2023: [{"kind": "journal", "journal": "Journal of Testing", "display_name": "Journal of Testing volume 1 issue 1", "volume": 1, "issue": 1, "paper_count": 3}]}}`
+- **Why This Scenario Matters**: This scenario ensures that a single journal record is processed correctly, particularly testing the construction of the `display_name`.
+
+### 4. Scenario Name: Multiple Records for Same Year
+- **Input**: `inventory = [{"year": 2023, "kind": "proceedings", "part": "Part A", "part_title": "Introduction", "paper_count": 5}, {"year": 2023, "kind": "journal", "journal": "Journal A", "volume": 1, "issue": 1, "paper_count": 2}]`, `venue = "Conference 2023"`
+- **Expected Behavior**: `{"Conference 2023": {2023: [{"kind": "proceedings", "part": "Part A", "display_name": "Introduction", "paper_count": 5}, {"kind": "journal", "journal": "Journal A", "display_name": "Journal A volume 1 issue 1", "volume": 1, "issue": 1, "paper_count": 2}]}}`
+- **Why This Scenario Matters**: This tests the function's ability to aggregate multiple records for the same year, ensuring it does not overwrite data.
+
+### 5. Scenario Name: Multiple Years in Inventory
+- **Input**: `inventory = [{"year": 2022, "kind": "journal", "journal": "Journal B", "volume": 2, "issue": 1, "paper_count": 4}, {"year": 2023, "kind": "proceedings", "part": "Part B", "part_title": "Advanced Testing", "paper_count": 6}]`, `venue = "Conference 2023"`
+- **Expected Behavior**: `{"Conference 2023": {2022: [{"kind": "journal", "journal": "Journal B", "display_name": "Journal B volume 2 issue 1", "volume": 2, "issue": 1, "paper_count": 4}], 2023: [{"kind": "proceedings", "part": "Part B", "display_name": "Advanced Testing", "paper_count": 6}]}}`
+- **Why This Scenario Matters**: This scenario checks that the function can handle records from multiple years correctly, ensuring the manifest is structured appropriately.
+
+### 6. Scenario Name: Duplicate Records for Same Year
+- **Input**: `inventory = [{"year": 2023, "kind": "journal", "journal": "Journal C", "volume": 3, "issue": 2, "paper_count": 1}, {"year": 2023, "kind": "journal", "journal": "Journal C", "volume": 3, "issue": 2, "paper_count": 1}]`, `venue = "Conference 2023"`
+- **Expected Behavior**: `{"Conference 2023": {2023: [{"kind": "journal", "journal": "Journal C", "display_name": "Journal C volume 3 issue 2", "volume": 3, "issue": 2, "paper_count": 1}, {"kind": "journal", "journal": "Journal C", "display_name": "Journal C volume 3 issue 2", "volume": 3, "issue": 2, "paper_count": 1}]}}`
+- **Why This Scenario Matters**: This scenario tests how the function handles duplicate records for the same year and venue, ensuring that all entries are preserved.
+
+### 7. Scenario Name: Non-standard Year Type
+- **Input**: `inventory = [{"year": "2023", "kind": "journal", "journal": "Journal D", "volume": 4, "issue": 3, "paper_count": 5}]`, `venue = "Conference 2023"`
+- **Expected Behavior**: `{"Conference 2023": {"2023": [{"kind": "journal", "journal": "Journal D", "display_name": "Journal D volume 4 issue 3", "volume": 4, "issue": 3, "paper_count": 5}]}}`
+- **Why This Scenario Matters**: This scenario checks the function's handling of non-standard types for the year (string instead of integer), ensuring the manifest can accommodate such inputs.
+
+### 8. Scenario Name: Missing Required Fields
+- **Input**: `inventory = [{"year": 2023, "kind": "proceedings", "part": "Part C", "paper_count": 2}]`, `venue = "Conference 2023"`
+- **Expected Behavior**: The function will raise a `KeyError` when trying to access `part_title`.
+- **Why This Scenario Matters**: This scenario tests the function's behavior when required fields are missing, which is important for understanding robustness and error handling.
+
+### 9. Scenario Name: Invalid Inventory Type
+- **Input**: `inventory = None`, `venue = "Conference 2023"`
+- **Expected Behavior**: The function will raise a `TypeError` since `inventory` is not a list.
+- **Why This Scenario Matters**: This scenario checks the function's ability to handle invalid types for the inventory input, ensuring that it does not process unexpected data types.
+
+### 10. Scenario Name: Mixed Record Types
+- **Input**: `inventory = [{"year": 2023, "kind": "proceedings", "part": "Part D", "part_title": "Final Thoughts", "paper_count": 1}, {"year": 2023, "kind": "journal", "journal": "Journal E", "volume": 5, "issue": 4, "paper_count": 10}]`, `venue = "Conference 2023"`
+- **Expected Behavior**: `{"Conference 2023": {2023: [{"kind": "proceedings", "part": "Part D", "display_name": "Final Thoughts", "paper_count": 1}, {"kind": "journal", "journal": "Journal E", "display_name": "Journal E volume 5 issue 4", "volume": 5, "issue": 4, "paper_count": 10}]}}`
+- **Why This Scenario Matters**: This scenario ensures that the function can handle a mix of record types in a single year, validating its versatility in processing different kinds of entries. 
+
+These scenarios provide a comprehensive framework for testing the `generate_manifest_template` function, ensuring it behaves as expected across a variety of inputs and conditions.

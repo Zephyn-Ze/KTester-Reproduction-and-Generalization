@@ -1,0 +1,61 @@
+Here are the test scenarios designed for the `generate_manifest_template` function:
+
+### Scenario 1: Empty Inventory
+1. **Scenario Name**: Empty Inventory
+2. **Input**: `inventory = []`, `venue = "Conference"`
+3. **Expected Behavior**: `{"Conference": {}}`
+4. **Why This Scenario Matters**: This tests the function's ability to handle an empty input list, ensuring that it returns a valid structure without errors.
+
+### Scenario 2: Single Proceedings Record
+1. **Scenario Name**: Single Proceedings Record
+2. **Input**: `inventory = [{"year": 2023, "kind": "proceedings", "part": "Part A", "part_title": "Title A", "paper_count": 5}]`, `venue = "Conference"`
+3. **Expected Behavior**: `{"Conference": {2023: [{"kind": "proceedings", "part": "Part A", "display_name": "Title A", "paper_count": 5}]}}`
+4. **Why This Scenario Matters**: This tests the basic functionality of adding a single proceedings record and ensures the output structure is correct.
+
+### Scenario 3: Single Journal Record
+1. **Scenario Name**: Single Journal Record
+2. **Input**: `inventory = [{"year": 2023, "kind": "journal", "journal": "Journal A", "volume": "1", "issue": "1", "paper_count": 3}]`, `venue = "Journal Club"`
+3. **Expected Behavior**: `{"Journal Club": {2023: [{"kind": "journal", "journal": "Journal A", "display_name": "Journal A volume 1 issue 1", "volume": "1", "issue": "1", "paper_count": 3}]}}`
+4. **Why This Scenario Matters**: This tests the functionality of adding a single journal record and checks that the `display_name` is constructed correctly.
+
+### Scenario 4: Multiple Records in the Same Year
+1. **Scenario Name**: Multiple Records in the Same Year
+2. **Input**: `inventory = [{"year": 2023, "kind": "proceedings", "part": "Part A", "part_title": "Title A", "paper_count": 5}, {"year": 2023, "kind": "journal", "journal": "Journal B", "volume": "1", "issue": "1", "paper_count": 2}]`, `venue = "Conference"`
+3. **Expected Behavior**: `{"Conference": {2023: [{"kind": "proceedings", "part": "Part A", "display_name": "Title A", "paper_count": 5}, {"kind": "journal", "journal": "Journal B", "display_name": "Journal B volume 1 issue 1", "volume": "1", "issue": "1", "paper_count": 2}]}}`
+4. **Why This Scenario Matters**: This tests the function's ability to aggregate multiple records under the same year, ensuring that different types of records can coexist correctly.
+
+### Scenario 5: Multiple Records of the Same Kind
+1. **Scenario Name**: Multiple Proceedings Records
+2. **Input**: `inventory = [{"year": 2023, "kind": "proceedings", "part": "Part A", "part_title": "Title A", "paper_count": 5}, {"year": 2023, "kind": "proceedings", "part": "Part B", "part_title": "Title B", "paper_count": 10}]`, `venue = "Conference"`
+3. **Expected Behavior**: `{"Conference": {2023: [{"kind": "proceedings", "part": "Part A", "display_name": "Title A", "paper_count": 5}, {"kind": "proceedings", "part": "Part B", "display_name": "Title B", "paper_count": 10}]}}`
+4. **Why This Scenario Matters**: This tests the function's ability to handle multiple records of the same kind, ensuring that they are added correctly to the manifest.
+
+### Scenario 6: Different Year Types
+1. **Scenario Name**: Different Year Types
+2. **Input**: `inventory = [{"year": "2023", "kind": "journal", "journal": "Journal A", "volume": "1", "issue": "1", "paper_count": 3}, {"year": 2024, "kind": "proceedings", "part": "Part A", "part_title": "Title A", "paper_count": 5}]`, `venue = "Conference"`
+3. **Expected Behavior**: `{"Conference": {"2023": [{"kind": "journal", "journal": "Journal A", "display_name": "Journal A volume 1 issue 1", "volume": "1", "issue": "1", "paper_count": 3}], 2024: [{"kind": "proceedings", "part": "Part A", "display_name": "Title A", "paper_count": 5}]}}`
+4. **Why This Scenario Matters**: This tests the function's ability to handle different data types for the `year` key (string vs. integer) and ensures that they are treated as distinct keys.
+
+### Scenario 7: Duplicate Records
+1. **Scenario Name**: Duplicate Records
+2. **Input**: `inventory = [{"year": 2023, "kind": "journal", "journal": "Journal A", "volume": "1", "issue": "1", "paper_count": 3}, {"year": 2023, "kind": "journal", "journal": "Journal A", "volume": "1", "issue": "1", "paper_count": 3}]`, `venue = "Journal Club"`
+3. **Expected Behavior**: `{"Journal Club": {2023: [{"kind": "journal", "journal": "Journal A", "display_name": "Journal A volume 1 issue 1", "volume": "1", "issue": "1", "paper_count": 3}, {"kind": "journal", "journal": "Journal A", "display_name": "Journal A volume 1 issue 1", "volume": "1", "issue": "1", "paper_count": 3}]}}`
+4. **Why This Scenario Matters**: This tests how the function handles duplicate records, ensuring that they are added to the manifest without any filtering or aggregation.
+
+### Scenario 8: Missing Keys in Records
+1. **Scenario Name**: Missing Keys in Records
+2. **Input**: `inventory = [{"year": 2023, "kind": "proceedings", "part": "Part A", "paper_count": 5}]`, `venue = "Conference"`
+3. **Expected Behavior**: The function will raise a KeyError due to the missing `part_title`.
+4. **Why This Scenario Matters**: This tests the function's robustness against incomplete data, verifying that it behaves as expected when essential keys are missing.
+
+### Scenario 9: Incorrect Data Types
+1. **Scenario Name**: Incorrect Data Types
+2. **Input**: `inventory = [{"year": 2023, "kind": "journal", "journal": "Journal A", "volume": "1", "issue": "1", "paper_count": "three"}]`, `venue = "Journal Club"`
+3. **Expected Behavior**: The function will raise a TypeError due to the incorrect data type for `paper_count`.
+4. **Why This Scenario Matters**: This tests the function's handling of incorrect data types, ensuring that it does not fail silently and raises appropriate errors.
+
+### Scenario 10: Mixed Record Types
+1. **Scenario Name**: Mixed Record Types
+2. **Input**: `inventory = [{"year": 2023, "kind": "proceedings", "part": "Part A", "part_title": "Title A", "paper_count": 5}, {"year": 2023, "kind": "journal", "journal": "Journal B", "volume": "1", "issue": "1", "paper_count": 2}]`, `venue = "Mixed Venue"`
+3. **Expected Behavior**: `{"Mixed Venue": {2023: [{"kind": "proceedings", "part": "Part A", "display_name": "Title A", "paper_count": 5}, {"kind": "journal", "journal": "Journal B", "display_name": "Journal B volume 1 issue 1", "volume": "1", "issue": "1", "paper_count": 2}]}}`
+4. **Why This Scenario Matters**: This tests the function's ability to correctly handle and aggregate different types of records within the same year and venue, ensuring the output structure is maintained.

@@ -1,0 +1,78 @@
+Here are the designed test scenarios for the `parse_size` function based on the provided source code and extracted knowledge:
+
+### 1. Scenario Name: Basic Integer Input
+- **Input**: `"42"`
+- **Expected Behavior**: The function should return `42`.
+- **Why This Scenario Matters**: This tests the simplest valid case where the input is a plain integer, ensuring that the function correctly interprets it as bytes.
+
+### 2. Scenario Name: Input with Bytes Unit
+- **Input**: `"13b"`
+- **Expected Behavior**: The function should return `13`.
+- **Why This Scenario Matters**: This tests the function's ability to recognize and correctly parse the bytes unit, ensuring that it can handle various representations of bytes.
+
+### 3. Scenario Name: Input with Full Unit Name
+- **Input**: `"5 bytes"`
+- **Expected Behavior**: The function should return `5`.
+- **Why This Scenario Matters**: This checks that the function can handle full unit names, confirming its flexibility in parsing different formats.
+
+### 4. Scenario Name: Input with Kilobyte Unit
+- **Input**: `"1 KB"`
+- **Expected Behavior**: The function should return `1000`.
+- **Why This Scenario Matters**: This tests the conversion from kilobytes to bytes, ensuring the function accurately applies the decimal multiplier.
+
+### 5. Scenario Name: Input with Binary Kilobyte Unit
+- **Input**: `"1 KiB"`
+- **Expected Behavior**: The function should return `1024`.
+- **Why This Scenario Matters**: This scenario tests the binary conversion for kilobytes, confirming that the function correctly interprets binary units when specified.
+
+### 6. Scenario Name: Ambiguous Unit with Decimal
+- **Input**: `"1 KB", binary=False`
+- **Expected Behavior**: The function should return `1000`.
+- **Why This Scenario Matters**: This tests the handling of ambiguous units and confirms that the function defaults to decimal conversion when the `binary` flag is False.
+
+### 7. Scenario Name: Ambiguous Unit with Binary
+- **Input**: `"1 KB", binary=True`
+- **Expected Behavior**: The function should return `1024`.
+- **Why This Scenario Matters**: This checks the function's ability to handle ambiguous units correctly when the `binary` flag is set to True.
+
+### 8. Scenario Name: Fractional Input
+- **Input**: `"1.5 GB"`
+- **Expected Behavior**: The function should return `1500000000`.
+- **Why This Scenario Matters**: This tests the function's capability to handle fractional sizes and ensures accurate conversion from gigabytes to bytes.
+
+### 9. Scenario Name: Fractional Input with Binary
+- **Input**: `"1.5 GB", binary=True`
+- **Expected Behavior**: The function should return `1610612736`.
+- **Why This Scenario Matters**: This checks the function's handling of fractional sizes in binary context, ensuring accurate conversion.
+
+### 10. Scenario Name: Zero Input
+- **Input**: `"0"`
+- **Expected Behavior**: The function should return `0`.
+- **Why This Scenario Matters**: This tests the boundary case of zero, confirming that the function correctly handles the lower limit of valid input.
+
+### 11. Scenario Name: Large Size Input
+- **Input**: `"1 YB"`
+- **Expected Behavior**: The function should return `1000000000000000000`.
+- **Why This Scenario Matters**: This tests the function's ability to handle very large sizes, ensuring it can accurately compute large values.
+
+### 12. Scenario Name: Invalid Format
+- **Input**: `"invalid input"`
+- **Expected Behavior**: The function should raise an `InvalidSize` exception.
+- **Why This Scenario Matters**: This tests the function's error handling for completely invalid inputs, ensuring proper exception raising.
+
+### 13. Scenario Name: Special Characters
+- **Input**: `"5#MB"`
+- **Expected Behavior**: The function should raise an `InvalidSize` exception.
+- **Why This Scenario Matters**: This checks the function's robustness against malformed strings with special characters.
+
+### 14. Scenario Name: Empty Input
+- **Input**: `" "`
+- **Expected Behavior**: The function should raise an `InvalidSize` exception.
+- **Why This Scenario Matters**: This tests the function's behavior with empty or whitespace-only strings, ensuring it handles them gracefully.
+
+### 15. Scenario Name: Duplicate Unit Specification
+- **Input**: `"1 KB KB"`
+- **Expected Behavior**: The function should raise an `InvalidSize` exception.
+- **Why This Scenario Matters**: This tests how the function handles ambiguous or duplicate unit specifications, ensuring it raises an appropriate error. 
+
+These scenarios cover a variety of cases, including normal, boundary, branch, aggregation, duplicate, and exception scenarios, providing comprehensive test coverage for the `parse_size` function.

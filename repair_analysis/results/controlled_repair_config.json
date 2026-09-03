@@ -1,0 +1,32 @@
+{
+  "model": "openai/gpt-4o-mini-2024-07-18",
+  "temperature": 0.5,
+  "fix_tries": 5,
+  "selected_cases": {
+    "jdom2": [
+      "XPathHelper_getSingleStep",
+      "Verifier_isXMLPublicIDCharacter"
+    ],
+    "commons-codec": [
+      "Rule_pattern"
+    ]
+  },
+  "paired_configuration": [
+    {
+      "path": "code/settings.py",
+      "group_a_sha256": "5e425a58dfdc5a8d52e9238b6eafb9179889dfc8078d209a3b5ff236e5b13e8c",
+      "group_b_sha256": "5e425a58dfdc5a8d52e9238b6eafb9179889dfc8078d209a3b5ff236e5b13e8c",
+      "equal": true
+    },
+    {
+      "path": "data/projects/dataset_info.json",
+      "group_a_sha256": "aba78b7dcf40bc77f27a47ab029241a18f523ddf53b2288882842e44f2eb581a",
+      "group_b_sha256": "aba78b7dcf40bc77f27a47ab029241a18f523ddf53b2288882842e44f2eb581a",
+      "equal": true
+    }
+  ],
+  "controlled_difference": [
+    "code/procedure/post_process.py",
+    "code/templates/post_process.j2"
+  ]
+}

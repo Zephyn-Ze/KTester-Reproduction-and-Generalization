@@ -1,0 +1,4 @@
+source,cpr,epr,instruction_coverage,branch_coverage,correct_instruction_coverage,correct_branch_coverage
+paper_table_2,1.0,0.7641,0.6394,0.5546,0.5552,0.4721
+local_run3_111,0.9009009009009009,0.5373537353735374,0.4990090090090091,0.4484684684684685,0.4079279279279279,0.36090090090090066
+

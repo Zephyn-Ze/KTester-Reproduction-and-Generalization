@@ -1,0 +1,42 @@
+### Function Analysis
+
+#### 1. Input Structure and Constraints
+- **Inputs**:
+  - `s`: A string that represents the original string to be normalized.
+  - The string can contain various characters, including quotes and escape sequences.
+- **Constraints**:
+  - The string may start with prefix characters defined in `STRING_PREFIX_CHARS` ("fturbFTURB").
+  - The string must contain at least one quote character that matches either single or double quotes.
+  - The function relies on specific patterns and escape sequences in the input string.
+
+#### 2. Output Structure
+- **Output**:
+  - A string that represents the normalized version of the input string `s`, with quotes converted to double quotes if it does not introduce unnecessary escaping.
+
+#### 3. Important Branches and Conditions
+- **Branches**:
+  - The initial check for the type of quote used (`"""`, `'''`, `"`, or `'`).
+  - Handling of raw strings (prefix contains "r") and ensuring no backslashes are introduced.
+  - Handling of formatted strings (prefix contains "f") and ensuring no backslashes are introduced in interpolated expressions.
+  - Conditions checking the count of backslashes before and after normalization to prevent unnecessary escaping.
+
+#### 4. Boundary and Edge Cases
+- Strings that are already normalized with double quotes.
+- Strings that contain only one type of quote (either single or double).
+- Strings that are raw (`r"..."`) and contain unescaped quotes.
+- Strings that are formatted (`f"..."`) and contain interpolated expressions.
+- Strings that end with a quote character, which may require special handling.
+- Strings with no quotes at all.
+
+#### 5. Possible Exception Cases
+- Input strings that are malformed or do not contain any recognizable quotes.
+- Strings that lead to infinite loops or excessive recursion due to malformed escape sequences.
+- Inputs with unexpected characters or formats that do not match the expected patterns.
+
+#### 6. Important Semantic Behaviors that Should Be Tested
+- The function should correctly convert single quotes to double quotes when appropriate.
+- The function should not alter raw strings or formatted strings in a way that introduces backslashes.
+- The function should handle cases where the input string is already using double quotes correctly.
+- The function should maintain the integrity of escape sequences and ensure that no unnecessary escaping is introduced.
+- The function should return the original string if no changes are needed or if changes would lead to invalid escaping.
+- The function should handle edge cases where the string ends with the quote character properly.

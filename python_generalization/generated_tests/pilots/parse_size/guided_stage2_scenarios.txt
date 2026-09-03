@@ -1,0 +1,127 @@
+Here are the detailed unit test scenarios for the `parse_size` function based on the provided source code and extracted knowledge:
+
+### 1. Normal Scenarios
+
+**Scenario Name**: Standard Size Parsing  
+**Input**: `'42'`  
+**Expected Behavior**: Returns `42`  
+**Why This Scenario Matters**: Tests the simplest case of a size that is a plain integer without any units.
+
+---
+
+**Scenario Name**: Size with Unit in Bytes  
+**Input**: `'13b'`  
+**Expected Behavior**: Returns `13`  
+**Why This Scenario Matters**: Verifies that the function can correctly interpret sizes specified in bytes.
+
+---
+
+**Scenario Name**: Size with Singular Unit  
+**Input**: `'1 kilobyte'`  
+**Expected Behavior**: Returns `1000`  
+**Why This Scenario Matters**: Ensures that the function recognizes and converts a singular unit correctly.
+
+---
+
+**Scenario Name**: Size with Plural Unit  
+**Input**: `'2 megabytes'`  
+**Expected Behavior**: Returns `2000000`  
+**Why This Scenario Matters**: Tests that plural units are correctly interpreted as their singular counterparts.
+
+---
+
+### 2. Boundary Scenarios
+
+**Scenario Name**: Zero Size  
+**Input**: `'0'`  
+**Expected Behavior**: Returns `0`  
+**Why This Scenario Matters**: Checks the function's handling of zero as a valid size input.
+
+---
+
+**Scenario Name**: Large Value Size  
+**Input**: `'1 YB'`  
+**Expected Behavior**: Returns `1000000000000000000`  
+**Why This Scenario Matters**: Tests the function's ability to handle very large data sizes.
+
+---
+
+### 3. Branch Scenarios
+
+**Scenario Name**: Ambiguous Unit Without Binary Flag  
+**Input**: `'1 KB'`  
+**Expected Behavior**: Returns `1000`  
+**Why This Scenario Matters**: Verifies that the function correctly interprets the decimal unit when the binary flag is not set.
+
+---
+
+**Scenario Name**: Ambiguous Unit With Binary Flag  
+**Input**: `'1 KB', binary=True`  
+**Expected Behavior**: Returns `1024`  
+**Why This Scenario Matters**: Ensures that the function correctly interprets the binary unit when the binary flag is set.
+
+---
+
+### 4. Aggregation Scenarios
+
+**Scenario Name**: Multiple Units  
+**Input**: `'1.5 GB'`  
+**Expected Behavior**: Returns `1500000000`  
+**Why This Scenario Matters**: Tests the function's ability to handle decimal values with units.
+
+---
+
+**Scenario Name**: Multiple Units with Binary Flag  
+**Input**: `'1.5 GB', binary=True`  
+**Expected Behavior**: Returns `1610612736`  
+**Why This Scenario Matters**: Ensures the function correctly handles decimal values with binary units.
+
+---
+
+### 5. Duplicate Scenarios
+
+**Scenario Name**: Duplicate Units  
+**Input**: `'1.5 GB 1.5 GB'`  
+**Expected Behavior**: Returns `1500000000` (the first occurrence)  
+**Why This Scenario Matters**: Tests how the function handles duplicate units in a single input string.
+
+---
+
+### 6. Exception Scenarios
+
+**Scenario Name**: Invalid Format  
+**Input**: `'abc'`  
+**Expected Behavior**: Raises `InvalidSize`  
+**Why This Scenario Matters**: Verifies that the function correctly raises an exception for unrecognized formats.
+
+---
+
+**Scenario Name**: Unsupported Units  
+**Input**: `'1 XYZ'`  
+**Expected Behavior**: Raises `InvalidSize`  
+**Why This Scenario Matters**: Ensures that the function raises an exception for unsupported unit symbols.
+
+---
+
+**Scenario Name**: Negative Values  
+**Input**: `'-1 KB'`  
+**Expected Behavior**: Raises `InvalidSize`  
+**Why This Scenario Matters**: Tests the function's response to negative size values, which are not logically valid.
+
+---
+
+**Scenario Name**: Empty Input  
+**Input**: `''`  
+**Expected Behavior**: Raises `InvalidSize`  
+**Why This Scenario Matters**: Checks that the function raises an exception when provided with an empty string.
+
+---
+
+**Scenario Name**: Invalid Decimal Format  
+**Input**: `'1.5.5 GB'`  
+**Expected Behavior**: Raises `InvalidSize`  
+**Why This Scenario Matters**: Verifies that the function raises an exception for incorrectly formatted decimal numbers.
+
+---
+
+These scenarios cover a comprehensive range of normal, boundary, branch, aggregation, duplicate, and exception cases, ensuring that the `parse_size` function is thoroughly tested for its expected behavior.

@@ -1,0 +1,63 @@
+Here are the unit test scenarios designed for the `normalize_string_quotes` function based on the provided source code and extracted knowledge:
+
+### Test Scenario 1: Basic Single Quote to Double Quote Conversion
+1. **Scenario name**: Convert Single Quote to Double Quote
+2. **Input**: `s = "'Hello, World!'"`
+3. **Expected behavior or expected output**: The output should be `"Hello, World!"`.
+4. **Why this scenario matters**: This tests the basic functionality of converting single quotes to double quotes, which is a primary purpose of the function.
+
+### Test Scenario 2: Double Quote with Escaped Characters
+1. **Scenario name**: Double Quote with Escaped Characters
+2. **Input**: `s = '"Hello, \\"World!\\""'`
+3. **Expected behavior or expected output**: The output should be `'"Hello, \\"World!\\""'`.
+4. **Why this scenario matters**: This checks that the function correctly handles double quotes that are escaped and does not alter them unnecessarily.
+
+### Test Scenario 3: Raw String with Unescaped Quotes
+1. **Scenario name**: Raw String with Unescaped Quotes
+2. **Input**: `s = "r'Hello, \"World!\"'"`
+3. **Expected behavior or expected output**: The output should remain as `s = "r'Hello, \"World!\"'"`.
+4. **Why this scenario matters**: This tests the function's ability to detect and maintain raw strings without modifying the content.
+
+### Test Scenario 4: Edge Case with Ending Quote
+1. **Scenario name**: Edge Case with Ending Quote
+2. **Input**: `s = '"Hello, World!"'`
+3. **Expected behavior or expected output**: The output should be `'"Hello, World!"'`.
+4. **Why this scenario matters**: This checks the edge case where the string ends with a quote that needs to be escaped, ensuring the function processes it correctly.
+
+### Test Scenario 5: Multiple Prefix Characters
+1. **Scenario name**: Multiple Prefix Characters
+2. **Input**: `s = "ft'Hello, World!'"` 
+3. **Expected behavior or expected output**: The output should be `f"Hello, World!"`.
+4. **Why this scenario matters**: This tests the function's ability to handle strings that start with multiple prefix characters and correctly normalize the quotes.
+
+### Test Scenario 6: No Quotes Present
+1. **Scenario name**: No Quotes Present
+2. **Input**: `s = "Hello, World!"`
+3. **Expected behavior or expected output**: The output should remain as `"Hello, World!"`.
+4. **Why this scenario matters**: This tests the function's behavior when no quotes are present, ensuring it does not alter the string unnecessarily.
+
+### Test Scenario 7: Already Normalized String
+1. **Scenario name**: Already Normalized String
+2. **Input**: `s = '"Hello, World!"'`
+3. **Expected behavior or expected output**: The output should be `'"Hello, World!"'`.
+4. **Why this scenario matters**: This checks that the function recognizes when a string is already in the desired format and does not modify it.
+
+### Test Scenario 8: Escaped Quotes in Raw String
+1. **Scenario name**: Escaped Quotes in Raw String
+2. **Input**: `s = "r'Hello, \\'World!\\''"`
+3. **Expected behavior or expected output**: The output should remain as `s = "r'Hello, \\'World!\\''"`.
+4. **Why this scenario matters**: This tests the function's handling of raw strings with escaped characters, ensuring it does not modify them incorrectly.
+
+### Test Scenario 9: Formatted String with Interpolation
+1. **Scenario name**: Formatted String with Interpolation
+2. **Input**: `s = "f'Hello, {name}!'"` (assuming `name` is defined elsewhere)
+3. **Expected behavior or expected output**: The output should remain as `s = "f'Hello, {name}!'"`.
+4. **Why this scenario matters**: This tests that the function does not introduce backslashes in formatted strings, adhering to the intended behavior.
+
+### Test Scenario 10: Assertion Error for Malformed String
+1. **Scenario name**: Malformed String
+2. **Input**: `s = "Hello, World!"` (no quotes)
+3. **Expected behavior or expected output**: The function should raise an `AssertionError`.
+4. **Why this scenario matters**: This tests the assertion in the function to ensure that valid input is enforced, and it handles cases where the input does not meet the expected format.
+
+These scenarios cover a variety of cases including normal, boundary, edge, and exception cases, ensuring a comprehensive test suite for the `normalize_string_quotes` function.

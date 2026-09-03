@@ -1,0 +1,683 @@
+{
+  "target": "generate_manifest_template",
+  "module": "target_functions.generate_manifest_template_target",
+  "function": "generate_manifest_template",
+  "mode": "repetitions",
+  "python": "<python-environment>/bin/python",
+  "summary": {
+    "baseline": {
+      "files": 5,
+      "collection_successes": 5,
+      "collected_tests": 22,
+      "passing_tests": 22,
+      "test_method_epr_percent": 100.0,
+      "average_raw_statement_percent": 100.0,
+      "average_raw_branch_percent": 100.0,
+      "average_correct_statement_percent": 100.0,
+      "average_correct_branch_percent": 100.0
+    },
+    "guided": {
+      "files": 5,
+      "collection_successes": 5,
+      "collected_tests": 38,
+      "passing_tests": 32,
+      "test_method_epr_percent": 84.21052631578948,
+      "average_raw_statement_percent": 100.0,
+      "average_raw_branch_percent": 100.0,
+      "average_correct_statement_percent": 100.0,
+      "average_correct_branch_percent": 100.0
+    }
+  },
+  "results": [
+    {
+      "strategy": "baseline",
+      "file": "generated_tests/repetitions/generate_manifest_template/baseline/run_1.py",
+      "collection_success": true,
+      "collection_output": "generated_tests/repetitions/generate_manifest_template/baseline/run_1.py::test_generate_manifest_template_normal_cases\ngenerated_tests/repetitions/generate_manifest_template/baseline/run_1.py::test_generate_manifest_template_edge_case_empty_inventory\ngenerated_tests/repetitions/generate_manifest_template/baseline/run_1.py::test_generate_manifest_template_single_entry_proceedings\ngenerated_tests/repetitions/generate_manifest_template/baseline/run_1.py::test_generate_manifest_template_multiple_years\ngenerated_tests/repetitions/generate_manifest_template/baseline/run_1.py::test_generate_manifest_template_different_kinds_same_year\n\n5 tests collected in 0.01s\n",
+      "collected_tests": 5,
+      "passing_tests": 5,
+      "epr_percent": 100.0,
+      "method_results": [
+        {
+          "nodeid": "generated_tests/repetitions/generate_manifest_template/baseline/run_1.py::test_generate_manifest_template_normal_cases",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        },
+        {
+          "nodeid": "generated_tests/repetitions/generate_manifest_template/baseline/run_1.py::test_generate_manifest_template_edge_case_empty_inventory",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        },
+        {
+          "nodeid": "generated_tests/repetitions/generate_manifest_template/baseline/run_1.py::test_generate_manifest_template_single_entry_proceedings",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        },
+        {
+          "nodeid": "generated_tests/repetitions/generate_manifest_template/baseline/run_1.py::test_generate_manifest_template_multiple_years",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        },
+        {
+          "nodeid": "generated_tests/repetitions/generate_manifest_template/baseline/run_1.py::test_generate_manifest_template_different_kinds_same_year",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        }
+      ],
+      "raw_coverage": {
+        "covered_statements": 11,
+        "statements": 11,
+        "statement_percent": 100.0,
+        "covered_branches": 6,
+        "branches": 6,
+        "branch_percent": 100.0
+      },
+      "raw_coverage_output": ".....                                                                    [100%]\n================================ tests coverage ================================\n______________ coverage: platform darwin, python 3.13.14-final-0 _______________\n\nCoverage JSON written to file <temporary-coverage-file>\n5 passed in 0.03s\n",
+      "correct_coverage": {
+        "covered_statements": 11,
+        "statements": 11,
+        "statement_percent": 100.0,
+        "covered_branches": 6,
+        "branches": 6,
+        "branch_percent": 100.0
+      },
+      "correct_coverage_output": ".....                                                                    [100%]\n================================ tests coverage ================================\n______________ coverage: platform darwin, python 3.13.14-final-0 _______________\n\nCoverage JSON written to file <temporary-coverage-file>\n5 passed in 0.03s\n"
+    },
+    {
+      "strategy": "baseline",
+      "file": "generated_tests/repetitions/generate_manifest_template/baseline/run_2.py",
+      "collection_success": true,
+      "collection_output": "generated_tests/repetitions/generate_manifest_template/baseline/run_2.py::test_generate_manifest_template_normal_cases\ngenerated_tests/repetitions/generate_manifest_template/baseline/run_2.py::test_generate_manifest_template_edge_case_empty_inventory\ngenerated_tests/repetitions/generate_manifest_template/baseline/run_2.py::test_generate_manifest_template_edge_case_single_record\ngenerated_tests/repetitions/generate_manifest_template/baseline/run_2.py::test_generate_manifest_template_edge_case_years_out_of_order\ngenerated_tests/repetitions/generate_manifest_template/baseline/run_2.py::test_generate_manifest_template_edge_case_duplicate_years\n\n5 tests collected in 0.01s\n",
+      "collected_tests": 5,
+      "passing_tests": 5,
+      "epr_percent": 100.0,
+      "method_results": [
+        {
+          "nodeid": "generated_tests/repetitions/generate_manifest_template/baseline/run_2.py::test_generate_manifest_template_normal_cases",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        },
+        {
+          "nodeid": "generated_tests/repetitions/generate_manifest_template/baseline/run_2.py::test_generate_manifest_template_edge_case_empty_inventory",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        },
+        {
+          "nodeid": "generated_tests/repetitions/generate_manifest_template/baseline/run_2.py::test_generate_manifest_template_edge_case_single_record",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        },
+        {
+          "nodeid": "generated_tests/repetitions/generate_manifest_template/baseline/run_2.py::test_generate_manifest_template_edge_case_years_out_of_order",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        },
+        {
+          "nodeid": "generated_tests/repetitions/generate_manifest_template/baseline/run_2.py::test_generate_manifest_template_edge_case_duplicate_years",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        }
+      ],
+      "raw_coverage": {
+        "covered_statements": 11,
+        "statements": 11,
+        "statement_percent": 100.0,
+        "covered_branches": 6,
+        "branches": 6,
+        "branch_percent": 100.0
+      },
+      "raw_coverage_output": ".....                                                                    [100%]\n================================ tests coverage ================================\n______________ coverage: platform darwin, python 3.13.14-final-0 _______________\n\nCoverage JSON written to file <temporary-coverage-file>\n5 passed in 0.03s\n",
+      "correct_coverage": {
+        "covered_statements": 11,
+        "statements": 11,
+        "statement_percent": 100.0,
+        "covered_branches": 6,
+        "branches": 6,
+        "branch_percent": 100.0
+      },
+      "correct_coverage_output": ".....                                                                    [100%]\n================================ tests coverage ================================\n______________ coverage: platform darwin, python 3.13.14-final-0 _______________\n\nCoverage JSON written to file <temporary-coverage-file>\n5 passed in 0.03s\n"
+    },
+    {
+      "strategy": "baseline",
+      "file": "generated_tests/repetitions/generate_manifest_template/baseline/run_3.py",
+      "collection_success": true,
+      "collection_output": "generated_tests/repetitions/generate_manifest_template/baseline/run_3.py::test_generate_manifest_template_normal_cases\ngenerated_tests/repetitions/generate_manifest_template/baseline/run_3.py::test_generate_manifest_template_empty_inventory\ngenerated_tests/repetitions/generate_manifest_template/baseline/run_3.py::test_generate_manifest_template_single_record\ngenerated_tests/repetitions/generate_manifest_template/baseline/run_3.py::test_generate_manifest_template_multiple_years\ngenerated_tests/repetitions/generate_manifest_template/baseline/run_3.py::test_generate_manifest_template_edge_case_years\n\n5 tests collected in 0.01s\n",
+      "collected_tests": 5,
+      "passing_tests": 5,
+      "epr_percent": 100.0,
+      "method_results": [
+        {
+          "nodeid": "generated_tests/repetitions/generate_manifest_template/baseline/run_3.py::test_generate_manifest_template_normal_cases",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        },
+        {
+          "nodeid": "generated_tests/repetitions/generate_manifest_template/baseline/run_3.py::test_generate_manifest_template_empty_inventory",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        },
+        {
+          "nodeid": "generated_tests/repetitions/generate_manifest_template/baseline/run_3.py::test_generate_manifest_template_single_record",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        },
+        {
+          "nodeid": "generated_tests/repetitions/generate_manifest_template/baseline/run_3.py::test_generate_manifest_template_multiple_years",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        },
+        {
+          "nodeid": "generated_tests/repetitions/generate_manifest_template/baseline/run_3.py::test_generate_manifest_template_edge_case_years",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        }
+      ],
+      "raw_coverage": {
+        "covered_statements": 11,
+        "statements": 11,
+        "statement_percent": 100.0,
+        "covered_branches": 6,
+        "branches": 6,
+        "branch_percent": 100.0
+      },
+      "raw_coverage_output": ".....                                                                    [100%]\n================================ tests coverage ================================\n______________ coverage: platform darwin, python 3.13.14-final-0 _______________\n\nCoverage JSON written to file <temporary-coverage-file>\n5 passed in 0.03s\n",
+      "correct_coverage": {
+        "covered_statements": 11,
+        "statements": 11,
+        "statement_percent": 100.0,
+        "covered_branches": 6,
+        "branches": 6,
+        "branch_percent": 100.0
+      },
+      "correct_coverage_output": ".....                                                                    [100%]\n================================ tests coverage ================================\n______________ coverage: platform darwin, python 3.13.14-final-0 _______________\n\nCoverage JSON written to file <temporary-coverage-file>\n5 passed in 0.04s\n"
+    },
+    {
+      "strategy": "baseline",
+      "file": "generated_tests/repetitions/generate_manifest_template/baseline/run_4.py",
+      "collection_success": true,
+      "collection_output": "generated_tests/repetitions/generate_manifest_template/baseline/run_4.py::test_generate_manifest_template_normal_cases\ngenerated_tests/repetitions/generate_manifest_template/baseline/run_4.py::test_generate_manifest_template_edge_cases\n\n2 tests collected in 0.01s\n",
+      "collected_tests": 2,
+      "passing_tests": 2,
+      "epr_percent": 100.0,
+      "method_results": [
+        {
+          "nodeid": "generated_tests/repetitions/generate_manifest_template/baseline/run_4.py::test_generate_manifest_template_normal_cases",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        },
+        {
+          "nodeid": "generated_tests/repetitions/generate_manifest_template/baseline/run_4.py::test_generate_manifest_template_edge_cases",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        }
+      ],
+      "raw_coverage": {
+        "covered_statements": 11,
+        "statements": 11,
+        "statement_percent": 100.0,
+        "covered_branches": 6,
+        "branches": 6,
+        "branch_percent": 100.0
+      },
+      "raw_coverage_output": "..                                                                       [100%]\n================================ tests coverage ================================\n______________ coverage: platform darwin, python 3.13.14-final-0 _______________\n\nCoverage JSON written to file <temporary-coverage-file>\n2 passed in 0.03s\n",
+      "correct_coverage": {
+        "covered_statements": 11,
+        "statements": 11,
+        "statement_percent": 100.0,
+        "covered_branches": 6,
+        "branches": 6,
+        "branch_percent": 100.0
+      },
+      "correct_coverage_output": "..                                                                       [100%]\n================================ tests coverage ================================\n______________ coverage: platform darwin, python 3.13.14-final-0 _______________\n\nCoverage JSON written to file <temporary-coverage-file>\n2 passed in 0.03s\n"
+    },
+    {
+      "strategy": "baseline",
+      "file": "generated_tests/repetitions/generate_manifest_template/baseline/run_5.py",
+      "collection_success": true,
+      "collection_output": "generated_tests/repetitions/generate_manifest_template/baseline/run_5.py::test_generate_manifest_template_normal_cases\ngenerated_tests/repetitions/generate_manifest_template/baseline/run_5.py::test_generate_manifest_template_edge_case_empty_inventory\ngenerated_tests/repetitions/generate_manifest_template/baseline/run_5.py::test_generate_manifest_template_edge_case_single_record\ngenerated_tests/repetitions/generate_manifest_template/baseline/run_5.py::test_generate_manifest_template_edge_case_same_year_different_kinds\ngenerated_tests/repetitions/generate_manifest_template/baseline/run_5.py::test_generate_manifest_template_edge_case_multiple_years\n\n5 tests collected in 0.01s\n",
+      "collected_tests": 5,
+      "passing_tests": 5,
+      "epr_percent": 100.0,
+      "method_results": [
+        {
+          "nodeid": "generated_tests/repetitions/generate_manifest_template/baseline/run_5.py::test_generate_manifest_template_normal_cases",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        },
+        {
+          "nodeid": "generated_tests/repetitions/generate_manifest_template/baseline/run_5.py::test_generate_manifest_template_edge_case_empty_inventory",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        },
+        {
+          "nodeid": "generated_tests/repetitions/generate_manifest_template/baseline/run_5.py::test_generate_manifest_template_edge_case_single_record",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        },
+        {
+          "nodeid": "generated_tests/repetitions/generate_manifest_template/baseline/run_5.py::test_generate_manifest_template_edge_case_same_year_different_kinds",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        },
+        {
+          "nodeid": "generated_tests/repetitions/generate_manifest_template/baseline/run_5.py::test_generate_manifest_template_edge_case_multiple_years",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        }
+      ],
+      "raw_coverage": {
+        "covered_statements": 11,
+        "statements": 11,
+        "statement_percent": 100.0,
+        "covered_branches": 6,
+        "branches": 6,
+        "branch_percent": 100.0
+      },
+      "raw_coverage_output": ".....                                                                    [100%]\n================================ tests coverage ================================\n______________ coverage: platform darwin, python 3.13.14-final-0 _______________\n\nCoverage JSON written to file <temporary-coverage-file>\n5 passed in 0.03s\n",
+      "correct_coverage": {
+        "covered_statements": 11,
+        "statements": 11,
+        "statement_percent": 100.0,
+        "covered_branches": 6,
+        "branches": 6,
+        "branch_percent": 100.0
+      },
+      "correct_coverage_output": ".....                                                                    [100%]\n================================ tests coverage ================================\n______________ coverage: platform darwin, python 3.13.14-final-0 _______________\n\nCoverage JSON written to file <temporary-coverage-file>\n5 passed in 0.03s\n"
+    },
+    {
+      "strategy": "guided",
+      "file": "generated_tests/repetitions/generate_manifest_template/guided/run_1.py",
+      "collection_success": true,
+      "collection_output": "generated_tests/repetitions/generate_manifest_template/guided/run_1.py::test_mixed_record_types\ngenerated_tests/repetitions/generate_manifest_template/guided/run_1.py::test_empty_inventory\ngenerated_tests/repetitions/generate_manifest_template/guided/run_1.py::test_duplicate_years\ngenerated_tests/repetitions/generate_manifest_template/guided/run_1.py::test_year_as_string\ngenerated_tests/repetitions/generate_manifest_template/guided/run_1.py::test_missing_required_fields\ngenerated_tests/repetitions/generate_manifest_template/guided/run_1.py::test_unexpected_kind_value\n\n6 tests collected in 0.01s\n",
+      "collected_tests": 6,
+      "passing_tests": 5,
+      "epr_percent": 83.33333333333333,
+      "method_results": [
+        {
+          "nodeid": "generated_tests/repetitions/generate_manifest_template/guided/run_1.py::test_mixed_record_types",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        },
+        {
+          "nodeid": "generated_tests/repetitions/generate_manifest_template/guided/run_1.py::test_empty_inventory",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        },
+        {
+          "nodeid": "generated_tests/repetitions/generate_manifest_template/guided/run_1.py::test_duplicate_years",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        },
+        {
+          "nodeid": "generated_tests/repetitions/generate_manifest_template/guided/run_1.py::test_year_as_string",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        },
+        {
+          "nodeid": "generated_tests/repetitions/generate_manifest_template/guided/run_1.py::test_missing_required_fields",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        },
+        {
+          "nodeid": "generated_tests/repetitions/generate_manifest_template/guided/run_1.py::test_unexpected_kind_value",
+          "passed": false,
+          "returncode": 1,
+          "output": "F                                                                        [100%]\n=================================== FAILURES ===================================\n__________________________ test_unexpected_kind_value __________________________\n\n    def test_unexpected_kind_value():\n        inventory = [\n            {\"year\": 2021, \"kind\": \"unknown\", \"part\": \"Part A\", \"part_title\": \"Proceedings of Part A\", \"paper_count\": 5}\n        ]\n        venue = \"Conference XYZ\"\n        expected_output = {\n            \"Conference XYZ\": {\n                2021: []\n            }\n        }\n>       assert generate_manifest_template(inventory, venue) == expected_output\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\ngenerated_tests/repetitions/generate_manifest_template/guided/run_1.py:124: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\ninventory = [{'year': 2021, 'kind': 'unknown', 'part': 'Part A', 'part_title': 'Proceedings of Part A', ...}]\nvenue = 'Conference XYZ'\n\n    def generate_manifest_template(inventory, venue):\n        manifest = {venue: {}}\n        for record in inventory:\n            year = record[\"year\"]\n            if year not in manifest[venue]:\n                manifest[venue][year] = []\n            if record[\"kind\"] == \"proceedings\":\n                manifest[venue][year].append(\n                    {\n                        \"kind\":\"proceedings\",\n                        \"part\":record[\"part\"],\n                        \"display_name\":record[\"part_title\"],\n                        \"paper_count\":record[\"paper_count\"],\n                    }\n                )\n            else:\n                display_name = (\n>                   f\"{record['journal']} \"\n                       ^^^^^^^^^^^^^^^^^\n                    f\"volume {record['volume']} \"\n                    f\"issue {record['issue']}\"\n                )\nE               KeyError: 'journal'\n\ntarget_functions/generate_manifest_template_target.py:18: KeyError\n=========================== short test summary info ============================\nFAILED generated_tests/repetitions/generate_manifest_template/guided/run_1.py::test_unexpected_kind_value\n1 failed in 0.02s\n"
+        }
+      ],
+      "raw_coverage": {
+        "covered_statements": 11,
+        "statements": 11,
+        "statement_percent": 100.0,
+        "covered_branches": 6,
+        "branches": 6,
+        "branch_percent": 100.0
+      },
+      "raw_coverage_output": ".....F                                                                   [100%]\n=================================== FAILURES ===================================\n__________________________ test_unexpected_kind_value __________________________\n\n    def test_unexpected_kind_value():\n        inventory = [\n            {\"year\": 2021, \"kind\": \"unknown\", \"part\": \"Part A\", \"part_title\": \"Proceedings of Part A\", \"paper_count\": 5}\n        ]\n        venue = \"Conference XYZ\"\n        expected_output = {\n            \"Conference XYZ\": {\n                2021: []\n            }\n        }\n>       assert generate_manifest_template(inventory, venue) == expected_output\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\ngenerated_tests/repetitions/generate_manifest_template/guided/run_1.py:124: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\ninventory = [{'year': 2021, 'kind': 'unknown', 'part': 'Part A', 'part_title': 'Proceedings of Part A', ...}]\nvenue = 'Conference XYZ'\n\n    def generate_manifest_template(inventory, venue):\n        manifest = {venue: {}}\n        for record in inventory:\n            year = record[\"year\"]\n            if year not in manifest[venue]:\n                manifest[venue][year] = []\n            if record[\"kind\"] == \"proceedings\":\n                manifest[venue][year].append(\n                    {\n                        \"kind\":\"proceedings\",\n                        \"part\":record[\"part\"],\n                        \"display_name\":record[\"part_title\"],\n                        \"paper_count\":record[\"paper_count\"],\n                    }\n                )\n            else:\n                display_name = (\n>                   f\"{record['journal']} \"\n                       ^^^^^^^^^^^^^^^^^\n                    f\"volume {record['volume']} \"\n                    f\"issue {record['issue']}\"\n                )\nE               KeyError: 'journal'\n\ntarget_functions/generate_manifest_template_target.py:18: KeyError\n================================ tests coverage ================================\n______________ coverage: platform darwin, python 3.13.14-final-0 _______________\n\nCoverage JSON written to file <temporary-coverage-file>\n=========================== short test summary info ============================\nFAILED generated_tests/repetitions/generate_manifest_template/guided/run_1.py::test_unexpected_kind_value\n1 failed, 5 passed in 0.05s\n",
+      "correct_coverage": {
+        "covered_statements": 11,
+        "statements": 11,
+        "statement_percent": 100.0,
+        "covered_branches": 6,
+        "branches": 6,
+        "branch_percent": 100.0
+      },
+      "correct_coverage_output": ".....                                                                    [100%]\n================================ tests coverage ================================\n______________ coverage: platform darwin, python 3.13.14-final-0 _______________\n\nCoverage JSON written to file <temporary-coverage-file>\n5 passed in 0.03s\n"
+    },
+    {
+      "strategy": "guided",
+      "file": "generated_tests/repetitions/generate_manifest_template/guided/run_2.py",
+      "collection_success": true,
+      "collection_output": "generated_tests/repetitions/generate_manifest_template/guided/run_2.py::test_normal_case_with_mixed_records\ngenerated_tests/repetitions/generate_manifest_template/guided/run_2.py::test_empty_inventory\ngenerated_tests/repetitions/generate_manifest_template/guided/run_2.py::test_all_records_in_same_year\ngenerated_tests/repetitions/generate_manifest_template/guided/run_2.py::test_duplicate_records\ngenerated_tests/repetitions/generate_manifest_template/guided/run_2.py::test_boundary_case_with_missing_keys\ngenerated_tests/repetitions/generate_manifest_template/guided/run_2.py::test_invalid_kind_value\n\n6 tests collected in 0.01s\n",
+      "collected_tests": 6,
+      "passing_tests": 5,
+      "epr_percent": 83.33333333333333,
+      "method_results": [
+        {
+          "nodeid": "generated_tests/repetitions/generate_manifest_template/guided/run_2.py::test_normal_case_with_mixed_records",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        },
+        {
+          "nodeid": "generated_tests/repetitions/generate_manifest_template/guided/run_2.py::test_empty_inventory",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        },
+        {
+          "nodeid": "generated_tests/repetitions/generate_manifest_template/guided/run_2.py::test_all_records_in_same_year",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        },
+        {
+          "nodeid": "generated_tests/repetitions/generate_manifest_template/guided/run_2.py::test_duplicate_records",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        },
+        {
+          "nodeid": "generated_tests/repetitions/generate_manifest_template/guided/run_2.py::test_boundary_case_with_missing_keys",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        },
+        {
+          "nodeid": "generated_tests/repetitions/generate_manifest_template/guided/run_2.py::test_invalid_kind_value",
+          "passed": false,
+          "returncode": 1,
+          "output": "F                                                                        [100%]\n=================================== FAILURES ===================================\n___________________________ test_invalid_kind_value ____________________________\n\n    def test_invalid_kind_value():\n        inventory = [\n            {\"year\": 2021, \"kind\": \"invalid_kind\", \"journal\": \"Journal D\", \"volume\": \"2\", \"issue\": \"1\", \"paper_count\": 5}\n        ]\n        venue = \"Conference JKL\"\n        expected = {\n            \"Conference JKL\": {\n                2021: [\n                    {\n                        \"kind\": \"invalid_kind\",\n                        \"journal\": \"Journal D\",\n                        \"display_name\": \"Journal D volume 2 issue 1\",\n                        \"volume\": \"2\",\n                        \"issue\": \"1\",\n                        \"paper_count\": 5\n                    }\n                ]\n            }\n        }\n>       assert generate_manifest_template(inventory, venue) == expected\nE       AssertionError: assert {'Conference ...: '2', ...}]}} == {'Conference ...: '2', ...}]}}\nE         \nE         Differing items:\nE         {'Conference JKL': {2021: [{'kind': 'journal', 'journal': 'Journal D', 'display_name': 'Journal D volume 2 issue 1', 'volume': '2', ...}]}} != {'Conference JKL': {2021: [{'kind': 'invalid_kind', 'journal': 'Journal D', 'display_name': 'Journal D volume 2 issue 1', 'volume': '2', ...}]}}\nE         Use -v to get more diff\n\ngenerated_tests/repetitions/generate_manifest_template/guided/run_2.py:135: AssertionError\n=========================== short test summary info ============================\nFAILED generated_tests/repetitions/generate_manifest_template/guided/run_2.py::test_invalid_kind_value\n1 failed in 0.02s\n"
+        }
+      ],
+      "raw_coverage": {
+        "covered_statements": 11,
+        "statements": 11,
+        "statement_percent": 100.0,
+        "covered_branches": 6,
+        "branches": 6,
+        "branch_percent": 100.0
+      },
+      "raw_coverage_output": ".....F                                                                   [100%]\n=================================== FAILURES ===================================\n___________________________ test_invalid_kind_value ____________________________\n\n    def test_invalid_kind_value():\n        inventory = [\n            {\"year\": 2021, \"kind\": \"invalid_kind\", \"journal\": \"Journal D\", \"volume\": \"2\", \"issue\": \"1\", \"paper_count\": 5}\n        ]\n        venue = \"Conference JKL\"\n        expected = {\n            \"Conference JKL\": {\n                2021: [\n                    {\n                        \"kind\": \"invalid_kind\",\n                        \"journal\": \"Journal D\",\n                        \"display_name\": \"Journal D volume 2 issue 1\",\n                        \"volume\": \"2\",\n                        \"issue\": \"1\",\n                        \"paper_count\": 5\n                    }\n                ]\n            }\n        }\n>       assert generate_manifest_template(inventory, venue) == expected\nE       AssertionError: assert {'Conference ...: '2', ...}]}} == {'Conference ...: '2', ...}]}}\nE         \nE         Differing items:\nE         {'Conference JKL': {2021: [{'kind': 'journal', 'journal': 'Journal D', 'display_name': 'Journal D volume 2 issue 1', 'volume': '2', ...}]}} != {'Conference JKL': {2021: [{'kind': 'invalid_kind', 'journal': 'Journal D', 'display_name': 'Journal D volume 2 issue 1', 'volume': '2', ...}]}}\nE         Use -v to get more diff\n\ngenerated_tests/repetitions/generate_manifest_template/guided/run_2.py:135: AssertionError\n================================ tests coverage ================================\n______________ coverage: platform darwin, python 3.13.14-final-0 _______________\n\nCoverage JSON written to file <temporary-coverage-file>\n=========================== short test summary info ============================\nFAILED generated_tests/repetitions/generate_manifest_template/guided/run_2.py::test_invalid_kind_value\n1 failed, 5 passed in 0.04s\n",
+      "correct_coverage": {
+        "covered_statements": 11,
+        "statements": 11,
+        "statement_percent": 100.0,
+        "covered_branches": 6,
+        "branches": 6,
+        "branch_percent": 100.0
+      },
+      "correct_coverage_output": ".....                                                                    [100%]\n================================ tests coverage ================================\n______________ coverage: platform darwin, python 3.13.14-final-0 _______________\n\nCoverage JSON written to file <temporary-coverage-file>\n5 passed in 0.03s\n"
+    },
+    {
+      "strategy": "guided",
+      "file": "generated_tests/repetitions/generate_manifest_template/guided/run_3.py",
+      "collection_success": true,
+      "collection_output": "generated_tests/repetitions/generate_manifest_template/guided/run_3.py::test_empty_inventory\ngenerated_tests/repetitions/generate_manifest_template/guided/run_3.py::test_single_proceedings_record\ngenerated_tests/repetitions/generate_manifest_template/guided/run_3.py::test_single_journal_record\ngenerated_tests/repetitions/generate_manifest_template/guided/run_3.py::test_multiple_records_in_same_year\ngenerated_tests/repetitions/generate_manifest_template/guided/run_3.py::test_different_years\ngenerated_tests/repetitions/generate_manifest_template/guided/run_3.py::test_duplicate_records_in_same_year\ngenerated_tests/repetitions/generate_manifest_template/guided/run_3.py::test_handling_missing_required_fields\ngenerated_tests/repetitions/generate_manifest_template/guided/run_3.py::test_invalid_year_format\n\n8 tests collected in 0.01s\n",
+      "collected_tests": 8,
+      "passing_tests": 7,
+      "epr_percent": 87.5,
+      "method_results": [
+        {
+          "nodeid": "generated_tests/repetitions/generate_manifest_template/guided/run_3.py::test_empty_inventory",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        },
+        {
+          "nodeid": "generated_tests/repetitions/generate_manifest_template/guided/run_3.py::test_single_proceedings_record",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        },
+        {
+          "nodeid": "generated_tests/repetitions/generate_manifest_template/guided/run_3.py::test_single_journal_record",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        },
+        {
+          "nodeid": "generated_tests/repetitions/generate_manifest_template/guided/run_3.py::test_multiple_records_in_same_year",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        },
+        {
+          "nodeid": "generated_tests/repetitions/generate_manifest_template/guided/run_3.py::test_different_years",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        },
+        {
+          "nodeid": "generated_tests/repetitions/generate_manifest_template/guided/run_3.py::test_duplicate_records_in_same_year",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        },
+        {
+          "nodeid": "generated_tests/repetitions/generate_manifest_template/guided/run_3.py::test_handling_missing_required_fields",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        },
+        {
+          "nodeid": "generated_tests/repetitions/generate_manifest_template/guided/run_3.py::test_invalid_year_format",
+          "passed": false,
+          "returncode": 1,
+          "output": "F                                                                        [100%]\n=================================== FAILURES ===================================\n___________________________ test_invalid_year_format ___________________________\n\n    def test_invalid_year_format():\n        inventory = [{\"year\": \"2023a\", \"kind\": \"journal\", \"journal\": \"Journal D\", \"volume\": \"4\", \"issue\": \"3\", \"paper_count\": 6}]\n        venue = \"Journal Venue\"\n>       with pytest.raises(KeyError):\n             ^^^^^^^^^^^^^^^^^^^^^^^\nE       Failed: DID NOT RAISE KeyError\n\ngenerated_tests/repetitions/generate_manifest_template/guided/run_3.py:77: Failed\n=========================== short test summary info ============================\nFAILED generated_tests/repetitions/generate_manifest_template/guided/run_3.py::test_invalid_year_format\n1 failed in 0.02s\n"
+        }
+      ],
+      "raw_coverage": {
+        "covered_statements": 11,
+        "statements": 11,
+        "statement_percent": 100.0,
+        "covered_branches": 6,
+        "branches": 6,
+        "branch_percent": 100.0
+      },
+      "raw_coverage_output": ".......F                                                                 [100%]\n=================================== FAILURES ===================================\n___________________________ test_invalid_year_format ___________________________\n\n    def test_invalid_year_format():\n        inventory = [{\"year\": \"2023a\", \"kind\": \"journal\", \"journal\": \"Journal D\", \"volume\": \"4\", \"issue\": \"3\", \"paper_count\": 6}]\n        venue = \"Journal Venue\"\n>       with pytest.raises(KeyError):\n             ^^^^^^^^^^^^^^^^^^^^^^^\nE       Failed: DID NOT RAISE KeyError\n\ngenerated_tests/repetitions/generate_manifest_template/guided/run_3.py:77: Failed\n================================ tests coverage ================================\n______________ coverage: platform darwin, python 3.13.14-final-0 _______________\n\nCoverage JSON written to file <temporary-coverage-file>\n=========================== short test summary info ============================\nFAILED generated_tests/repetitions/generate_manifest_template/guided/run_3.py::test_invalid_year_format\n1 failed, 7 passed in 0.04s\n",
+      "correct_coverage": {
+        "covered_statements": 11,
+        "statements": 11,
+        "statement_percent": 100.0,
+        "covered_branches": 6,
+        "branches": 6,
+        "branch_percent": 100.0
+      },
+      "correct_coverage_output": ".......                                                                  [100%]\n================================ tests coverage ================================\n______________ coverage: platform darwin, python 3.13.14-final-0 _______________\n\nCoverage JSON written to file <temporary-coverage-file>\n7 passed in 0.04s\n"
+    },
+    {
+      "strategy": "guided",
+      "file": "generated_tests/repetitions/generate_manifest_template/guided/run_4.py",
+      "collection_success": true,
+      "collection_output": "generated_tests/repetitions/generate_manifest_template/guided/run_4.py::test_empty_inventory\ngenerated_tests/repetitions/generate_manifest_template/guided/run_4.py::test_single_proceedings_record\ngenerated_tests/repetitions/generate_manifest_template/guided/run_4.py::test_single_journal_record\ngenerated_tests/repetitions/generate_manifest_template/guided/run_4.py::test_multiple_records_same_year\ngenerated_tests/repetitions/generate_manifest_template/guided/run_4.py::test_multiple_proceedings_records\ngenerated_tests/repetitions/generate_manifest_template/guided/run_4.py::test_different_year_types\ngenerated_tests/repetitions/generate_manifest_template/guided/run_4.py::test_duplicate_records\ngenerated_tests/repetitions/generate_manifest_template/guided/run_4.py::test_missing_keys_in_records\ngenerated_tests/repetitions/generate_manifest_template/guided/run_4.py::test_incorrect_data_types\ngenerated_tests/repetitions/generate_manifest_template/guided/run_4.py::test_mixed_record_types\n\n10 tests collected in 0.01s\n",
+      "collected_tests": 10,
+      "passing_tests": 9,
+      "epr_percent": 90.0,
+      "method_results": [
+        {
+          "nodeid": "generated_tests/repetitions/generate_manifest_template/guided/run_4.py::test_empty_inventory",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        },
+        {
+          "nodeid": "generated_tests/repetitions/generate_manifest_template/guided/run_4.py::test_single_proceedings_record",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        },
+        {
+          "nodeid": "generated_tests/repetitions/generate_manifest_template/guided/run_4.py::test_single_journal_record",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        },
+        {
+          "nodeid": "generated_tests/repetitions/generate_manifest_template/guided/run_4.py::test_multiple_records_same_year",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        },
+        {
+          "nodeid": "generated_tests/repetitions/generate_manifest_template/guided/run_4.py::test_multiple_proceedings_records",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        },
+        {
+          "nodeid": "generated_tests/repetitions/generate_manifest_template/guided/run_4.py::test_different_year_types",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        },
+        {
+          "nodeid": "generated_tests/repetitions/generate_manifest_template/guided/run_4.py::test_duplicate_records",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        },
+        {
+          "nodeid": "generated_tests/repetitions/generate_manifest_template/guided/run_4.py::test_missing_keys_in_records",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        },
+        {
+          "nodeid": "generated_tests/repetitions/generate_manifest_template/guided/run_4.py::test_incorrect_data_types",
+          "passed": false,
+          "returncode": 1,
+          "output": "F                                                                        [100%]\n=================================== FAILURES ===================================\n__________________________ test_incorrect_data_types ___________________________\n\n    def test_incorrect_data_types():\n        inventory = [{\"year\": 2023, \"kind\": \"journal\", \"journal\": \"Journal A\", \"volume\": \"1\", \"issue\": \"1\", \"paper_count\": \"three\"}]\n>       with pytest.raises(TypeError):\n             ^^^^^^^^^^^^^^^^^^^^^^^^\nE       Failed: DID NOT RAISE TypeError\n\ngenerated_tests/repetitions/generate_manifest_template/guided/run_4.py:87: Failed\n=========================== short test summary info ============================\nFAILED generated_tests/repetitions/generate_manifest_template/guided/run_4.py::test_incorrect_data_types\n1 failed in 0.02s\n"
+        },
+        {
+          "nodeid": "generated_tests/repetitions/generate_manifest_template/guided/run_4.py::test_mixed_record_types",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        }
+      ],
+      "raw_coverage": {
+        "covered_statements": 11,
+        "statements": 11,
+        "statement_percent": 100.0,
+        "covered_branches": 6,
+        "branches": 6,
+        "branch_percent": 100.0
+      },
+      "raw_coverage_output": "........F.                                                               [100%]\n=================================== FAILURES ===================================\n__________________________ test_incorrect_data_types ___________________________\n\n    def test_incorrect_data_types():\n        inventory = [{\"year\": 2023, \"kind\": \"journal\", \"journal\": \"Journal A\", \"volume\": \"1\", \"issue\": \"1\", \"paper_count\": \"three\"}]\n>       with pytest.raises(TypeError):\n             ^^^^^^^^^^^^^^^^^^^^^^^^\nE       Failed: DID NOT RAISE TypeError\n\ngenerated_tests/repetitions/generate_manifest_template/guided/run_4.py:87: Failed\n================================ tests coverage ================================\n______________ coverage: platform darwin, python 3.13.14-final-0 _______________\n\nCoverage JSON written to file <temporary-coverage-file>\n=========================== short test summary info ============================\nFAILED generated_tests/repetitions/generate_manifest_template/guided/run_4.py::test_incorrect_data_types\n1 failed, 9 passed in 0.04s\n",
+      "correct_coverage": {
+        "covered_statements": 11,
+        "statements": 11,
+        "statement_percent": 100.0,
+        "covered_branches": 6,
+        "branches": 6,
+        "branch_percent": 100.0
+      },
+      "correct_coverage_output": ".........                                                                [100%]\n================================ tests coverage ================================\n______________ coverage: platform darwin, python 3.13.14-final-0 _______________\n\nCoverage JSON written to file <temporary-coverage-file>\n9 passed in 0.04s\n"
+    },
+    {
+      "strategy": "guided",
+      "file": "generated_tests/repetitions/generate_manifest_template/guided/run_5.py",
+      "collection_success": true,
+      "collection_output": "generated_tests/repetitions/generate_manifest_template/guided/run_5.py::test_mixed_proceedings_and_journal_records\ngenerated_tests/repetitions/generate_manifest_template/guided/run_5.py::test_empty_inventory\ngenerated_tests/repetitions/generate_manifest_template/guided/run_5.py::test_multiple_records_for_same_year\ngenerated_tests/repetitions/generate_manifest_template/guided/run_5.py::test_boundary_year_values\ngenerated_tests/repetitions/generate_manifest_template/guided/run_5.py::test_duplicate_records\ngenerated_tests/repetitions/generate_manifest_template/guided/run_5.py::test_record_with_missing_required_fields\ngenerated_tests/repetitions/generate_manifest_template/guided/run_5.py::test_record_with_invalid_kind\ngenerated_tests/repetitions/generate_manifest_template/guided/run_5.py::test_large_inventory_processing\n\n8 tests collected in 0.01s\n",
+      "collected_tests": 8,
+      "passing_tests": 6,
+      "epr_percent": 75.0,
+      "method_results": [
+        {
+          "nodeid": "generated_tests/repetitions/generate_manifest_template/guided/run_5.py::test_mixed_proceedings_and_journal_records",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        },
+        {
+          "nodeid": "generated_tests/repetitions/generate_manifest_template/guided/run_5.py::test_empty_inventory",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        },
+        {
+          "nodeid": "generated_tests/repetitions/generate_manifest_template/guided/run_5.py::test_multiple_records_for_same_year",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        },
+        {
+          "nodeid": "generated_tests/repetitions/generate_manifest_template/guided/run_5.py::test_boundary_year_values",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        },
+        {
+          "nodeid": "generated_tests/repetitions/generate_manifest_template/guided/run_5.py::test_duplicate_records",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        },
+        {
+          "nodeid": "generated_tests/repetitions/generate_manifest_template/guided/run_5.py::test_record_with_missing_required_fields",
+          "passed": false,
+          "returncode": 1,
+          "output": "F                                                                        [100%]\n=================================== FAILURES ===================================\n___________________ test_record_with_missing_required_fields ___________________\n\n    def test_record_with_missing_required_fields():\n        inventory = [\n            {\"year\": 2021, \"kind\": \"proceedings\", \"part\": \"Part E\", \"paper_count\": 5},  # Missing part_title\n            {\"year\": 2021, \"kind\": \"journal\", \"journal\": \"Journal C\", \"paper_count\": 2}  # Missing volume and issue\n        ]\n        venue = \"Conference F\"\n    \n        expected_output = {\n            \"Conference F\": {\n                2021: [\n                    {\n                        \"kind\": \"proceedings\",\n                        \"part\": \"Part E\",\n                        \"display_name\": \"None\",  # Display name cannot be generated\n                        \"paper_count\": 5\n                    }\n                ]\n            }\n        }\n    \n>       assert generate_manifest_template(inventory, venue) == expected_output\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\ngenerated_tests/repetitions/generate_manifest_template/guided/run_5.py:172: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\ninventory = [{'year': 2021, 'kind': 'proceedings', 'part': 'Part E', 'paper_count': 5}, {'year': 2021, 'kind': 'journal', 'journal': 'Journal C', 'paper_count': 2}]\nvenue = 'Conference F'\n\n    def generate_manifest_template(inventory, venue):\n        manifest = {venue: {}}\n        for record in inventory:\n            year = record[\"year\"]\n            if year not in manifest[venue]:\n                manifest[venue][year] = []\n            if record[\"kind\"] == \"proceedings\":\n                manifest[venue][year].append(\n                    {\n                        \"kind\":\"proceedings\",\n                        \"part\":record[\"part\"],\n>                       \"display_name\":record[\"part_title\"],\n                                       ^^^^^^^^^^^^^^^^^^^^\n                        \"paper_count\":record[\"paper_count\"],\n                    }\n                )\nE               KeyError: 'part_title'\n\ntarget_functions/generate_manifest_template_target.py:12: KeyError\n=========================== short test summary info ============================\nFAILED generated_tests/repetitions/generate_manifest_template/guided/run_5.py::test_record_with_missing_required_fields\n1 failed in 0.02s\n"
+        },
+        {
+          "nodeid": "generated_tests/repetitions/generate_manifest_template/guided/run_5.py::test_record_with_invalid_kind",
+          "passed": false,
+          "returncode": 1,
+          "output": "F                                                                        [100%]\n=================================== FAILURES ===================================\n________________________ test_record_with_invalid_kind _________________________\n\n    def test_record_with_invalid_kind():\n        inventory = [\n            {\"year\": 2021, \"kind\": \"invalid_kind\", \"part\": \"Part F\", \"part_title\": \"Invalid Proceedings\", \"paper_count\": 5}\n        ]\n        venue = \"Conference G\"\n    \n        expected_output = {\n            \"Conference G\": {}\n        }\n    \n>       assert generate_manifest_template(inventory, venue) == expected_output\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\ngenerated_tests/repetitions/generate_manifest_template/guided/run_5.py:184: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\ninventory = [{'year': 2021, 'kind': 'invalid_kind', 'part': 'Part F', 'part_title': 'Invalid Proceedings', ...}]\nvenue = 'Conference G'\n\n    def generate_manifest_template(inventory, venue):\n        manifest = {venue: {}}\n        for record in inventory:\n            year = record[\"year\"]\n            if year not in manifest[venue]:\n                manifest[venue][year] = []\n            if record[\"kind\"] == \"proceedings\":\n                manifest[venue][year].append(\n                    {\n                        \"kind\":\"proceedings\",\n                        \"part\":record[\"part\"],\n                        \"display_name\":record[\"part_title\"],\n                        \"paper_count\":record[\"paper_count\"],\n                    }\n                )\n            else:\n                display_name = (\n>                   f\"{record['journal']} \"\n                       ^^^^^^^^^^^^^^^^^\n                    f\"volume {record['volume']} \"\n                    f\"issue {record['issue']}\"\n                )\nE               KeyError: 'journal'\n\ntarget_functions/generate_manifest_template_target.py:18: KeyError\n=========================== short test summary info ============================\nFAILED generated_tests/repetitions/generate_manifest_template/guided/run_5.py::test_record_with_invalid_kind\n1 failed in 0.02s\n"
+        },
+        {
+          "nodeid": "generated_tests/repetitions/generate_manifest_template/guided/run_5.py::test_large_inventory_processing",
+          "passed": true,
+          "returncode": 0,
+          "output": ".                                                                        [100%]\n1 passed in 0.01s\n"
+        }
+      ],
+      "raw_coverage": {
+        "covered_statements": 11,
+        "statements": 11,
+        "statement_percent": 100.0,
+        "covered_branches": 6,
+        "branches": 6,
+        "branch_percent": 100.0
+      },
+      "raw_coverage_output": ".....FF.                                                                 [100%]\n=================================== FAILURES ===================================\n___________________ test_record_with_missing_required_fields ___________________\n\n    def test_record_with_missing_required_fields():\n        inventory = [\n            {\"year\": 2021, \"kind\": \"proceedings\", \"part\": \"Part E\", \"paper_count\": 5},  # Missing part_title\n            {\"year\": 2021, \"kind\": \"journal\", \"journal\": \"Journal C\", \"paper_count\": 2}  # Missing volume and issue\n        ]\n        venue = \"Conference F\"\n    \n        expected_output = {\n            \"Conference F\": {\n                2021: [\n                    {\n                        \"kind\": \"proceedings\",\n                        \"part\": \"Part E\",\n                        \"display_name\": \"None\",  # Display name cannot be generated\n                        \"paper_count\": 5\n                    }\n                ]\n            }\n        }\n    \n>       assert generate_manifest_template(inventory, venue) == expected_output\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\ngenerated_tests/repetitions/generate_manifest_template/guided/run_5.py:172: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\ninventory = [{'year': 2021, 'kind': 'proceedings', 'part': 'Part E', 'paper_count': 5}, {'year': 2021, 'kind': 'journal', 'journal': 'Journal C', 'paper_count': 2}]\nvenue = 'Conference F'\n\n    def generate_manifest_template(inventory, venue):\n        manifest = {venue: {}}\n        for record in inventory:\n            year = record[\"year\"]\n            if year not in manifest[venue]:\n                manifest[venue][year] = []\n            if record[\"kind\"] == \"proceedings\":\n                manifest[venue][year].append(\n                    {\n                        \"kind\":\"proceedings\",\n                        \"part\":record[\"part\"],\n>                       \"display_name\":record[\"part_title\"],\n                                       ^^^^^^^^^^^^^^^^^^^^\n                        \"paper_count\":record[\"paper_count\"],\n                    }\n                )\nE               KeyError: 'part_title'\n\ntarget_functions/generate_manifest_template_target.py:12: KeyError\n________________________ test_record_with_invalid_kind _________________________\n\n    def test_record_with_invalid_kind():\n        inventory = [\n            {\"year\": 2021, \"kind\": \"invalid_kind\", \"part\": \"Part F\", \"part_title\": \"Invalid Proceedings\", \"paper_count\": 5}\n        ]\n        venue = \"Conference G\"\n    \n        expected_output = {\n            \"Conference G\": {}\n        }\n    \n>       assert generate_manifest_template(inventory, venue) == expected_output\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\ngenerated_tests/repetitions/generate_manifest_template/guided/run_5.py:184: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\ninventory = [{'year': 2021, 'kind': 'invalid_kind', 'part': 'Part F', 'part_title': 'Invalid Proceedings', ...}]\nvenue = 'Conference G'\n\n    def generate_manifest_template(inventory, venue):\n        manifest = {venue: {}}\n        for record in inventory:\n            year = record[\"year\"]\n            if year not in manifest[venue]:\n                manifest[venue][year] = []\n            if record[\"kind\"] == \"proceedings\":\n                manifest[venue][year].append(\n                    {\n                        \"kind\":\"proceedings\",\n                        \"part\":record[\"part\"],\n                        \"display_name\":record[\"part_title\"],\n                        \"paper_count\":record[\"paper_count\"],\n                    }\n                )\n            else:\n                display_name = (\n>                   f\"{record['journal']} \"\n                       ^^^^^^^^^^^^^^^^^\n                    f\"volume {record['volume']} \"\n                    f\"issue {record['issue']}\"\n                )\nE               KeyError: 'journal'\n\ntarget_functions/generate_manifest_template_target.py:18: KeyError\n================================ tests coverage ================================\n______________ coverage: platform darwin, python 3.13.14-final-0 _______________\n\nCoverage JSON written to file <temporary-coverage-file>\n=========================== short test summary info ============================\nFAILED generated_tests/repetitions/generate_manifest_template/guided/run_5.py::test_record_with_missing_required_fields\nFAILED generated_tests/repetitions/generate_manifest_template/guided/run_5.py::test_record_with_invalid_kind\n2 failed, 6 passed in 0.05s\n",
+      "correct_coverage": {
+        "covered_statements": 11,
+        "statements": 11,
+        "statement_percent": 100.0,
+        "covered_branches": 6,
+        "branches": 6,
+        "branch_percent": 100.0
+      },
+      "correct_coverage_output": "......                                                                   [100%]\n================================ tests coverage ================================\n______________ coverage: platform darwin, python 3.13.14-final-0 _______________\n\nCoverage JSON written to file <temporary-coverage-file>\n6 passed in 0.04s\n"
+    }
+  ]
+}

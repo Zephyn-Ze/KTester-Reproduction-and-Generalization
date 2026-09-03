@@ -1,0 +1,63 @@
+Based on the provided source code and analysis of the `normalize_string_quotes` function, here are the designed test scenarios:
+
+### Scenario 1: Normal Case with Single Quotes
+1. **Scenario name:** Single Quote Normalization
+2. **Input:** `s = "'Hello, World!'"`
+3. **Expected behavior or expected output:** The output should be `"Hello, World!"`.
+4. **Why this scenario matters:** This tests the basic functionality of the function to convert single quotes to double quotes, which is the primary goal of the normalization.
+
+### Scenario 2: Already Double Quotes
+1. **Scenario name:** Already Normalized Double Quotes
+2. **Input:** `s = '"Hello, World!"'`
+3. **Expected behavior or expected output:** The output should be `"Hello, World!"`.
+4. **Why this scenario matters:** This tests that the function correctly identifies when no changes are needed and returns the original string.
+
+### Scenario 3: Raw String with Unescaped Quotes
+1. **Scenario name:** Raw String with Unescaped Quotes
+2. **Input:** `s = r'Hello, "World"'`
+3. **Expected behavior or expected output:** The output should be `r'Hello, "World"'`.
+4. **Why this scenario matters:** This checks that the function respects the raw string semantics and does not change the content, especially when unescaped quotes are present.
+
+### Scenario 4: Raw String with Escaped Quotes
+1. **Scenario name:** Raw String with Escaped Quotes
+2. **Input:** `s = r'Hello, \"World\"'`
+3. **Expected behavior or expected output:** The output should be `r'Hello, \"World\"'`.
+4. **Why this scenario matters:** This tests that the function preserves the escaping in raw strings, ensuring that the integrity of the string is maintained.
+
+### Scenario 5: String with Mixed Quotes
+1. **Scenario name:** Mixed Quotes Normalization
+2. **Input:** `s = "'This is a \"test\" string.'"`
+3. **Expected behavior or expected output:** The output should be `"This is a \"test\" string."`.
+4. **Why this scenario matters:** This scenario checks the function's ability to handle strings containing both single and double quotes, ensuring proper normalization.
+
+### Scenario 6: Edge Case with Escaped New Quote at End
+1. **Scenario name:** Escaped New Quote at End
+2. **Input:** `s = '"This is a test string."\\'`
+3. **Expected behavior or expected output:** The output should be `"This is a test string.\\"`.
+4. **Why this scenario matters:** This tests the specific edge case where the output must handle an escaped double quote at the end of the string.
+
+### Scenario 7: String with Multiple Escapes
+1. **Scenario name:** Multiple Escapes Handling
+2. **Input:** `s = "'This is a test string with \\\"escaped quotes\\\".'"`
+3. **Expected behavior or expected output:** The output should be `"This is a test string with \\"escaped quotes\\"."`.
+4. **Why this scenario matters:** This scenario checks the function's ability to handle complex escape sequences correctly.
+
+### Scenario 8: Empty String
+1. **Scenario name:** Empty String Input
+2. **Input:** `s = ""`
+3. **Expected behavior or expected output:** The output should be `""`.
+4. **Why this scenario matters:** This tests the function's behavior with an empty input, ensuring that it can handle this edge case gracefully.
+
+### Scenario 9: String with Only Prefix and Quotes
+1. **Scenario name:** Prefix Only with Quotes
+2. **Input:** `s = "f'Hello, World!'"`
+3. **Expected behavior or expected output:** The output should be `"f'Hello, World!'"`.
+4. **Why this scenario matters:** This checks that the function correctly identifies the prefix and does not alter the string when only quotes are present.
+
+### Scenario 10: Assertion Error for Malformed Input
+1. **Scenario name:** Malformed Input without Quotes
+2. **Input:** `s = "No quotes here"`
+3. **Expected behavior or expected output:** An `AssertionError` should be raised.
+4. **Why this scenario matters:** This tests the function's internal assertion that ensures the presence of at least one quote in the string, verifying that it correctly identifies malformed inputs.
+
+These scenarios cover a wide range of normal, boundary, and exceptional cases for the `normalize_string_quotes` function, ensuring comprehensive testing of its functionality.

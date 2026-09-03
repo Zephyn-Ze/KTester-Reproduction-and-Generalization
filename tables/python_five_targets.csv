@@ -1,0 +1,7 @@
+target,baseline_epr,guided_epr,collection_caveat,main_observation
+parse_bindings,0.8000,0.8611,"Guided EPR is among four collecting runs; one Guided run failed collection","Small Guided EPR edge; effective correct coverage tied at 80% when the failed run is zero"
+is_main_conference,0.6500,0.6000,"All headline denominators are test methods","Baseline EPR higher; raw coverage tied and correct coverage nearly tied"
+generate_manifest_template,1.0000,0.8421,"Both strategies collected 5/5","Baseline EPR higher; all focal coverage saturated"
+parse_size,0.7143,0.6901,"Both strategies collected 5/5","Baseline EPR slightly higher; Guided coverage edge was small"
+normalize_string_quotes,0.0000,0.3953,"Baseline collected 1/5; Guided collected 4/5","Guided more executable, but absolute EPR remained low"
+

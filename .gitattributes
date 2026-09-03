@@ -1,0 +1,3 @@
+# Preserve model outputs byte-for-byte; whitespace can be part of malformed evidence.
+python_generalization/generated_tests/** -whitespace
+

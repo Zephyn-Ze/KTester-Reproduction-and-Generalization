@@ -1,0 +1,38 @@
+# Credentials and local configuration
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+credentials*.json
+secrets*.json
+
+# Python
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+
+# Java / Maven / coverage products
+target/
+*.class
+*.jar
+jacoco.exec
+
+# IDE and operating-system files
+.DS_Store
+.idea/
+.vscode/
+
+# Generated logs and large local worktrees
+*.log
+evaluation/
+evaluation_before_full_run/
+evaluation_mixed_before_full_run/
+data/projects/
+data/project_index/
+

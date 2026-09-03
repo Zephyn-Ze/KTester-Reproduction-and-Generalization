@@ -1,0 +1,39 @@
+### Analysis of the `parse_size` Function
+
+1. **Input Structure and Constraints:**
+   - **Type:** The input is a string representing a human-readable data size (e.g., '1 KB', '5 bytes').
+   - **Format:** The string may contain:
+     - A number (integer or float) followed by a unit (e.g., '1.5 GB', '2 TB').
+     - A unit without a number (e.g., '13b', '5 bytes').
+     - The unit can be specified in various forms (e.g., 'KB', 'kilobyte', 'KiB').
+   - **Binary Flag:** An optional boolean parameter `binary` to indicate whether to use binary (base-2) or decimal (base-10) multiples of bytes.
+
+2. **Output Structure:**
+   - The function returns an integer representing the size in bytes.
+   - If the input is invalid, it raises an `InvalidSize` exception.
+
+3. **Important Branches and Conditions:**
+   - The function checks if the input can be tokenized into a valid number and unit.
+   - It handles:
+     - Cases where the input consists of only a number (interpreted as bytes).
+     - Different unit forms (ambiguous and unambiguous).
+     - The binary flag to determine which conversion factor to apply.
+
+4. **Boundary and Edge Cases:**
+   - Input with just a number (e.g., '0', '1', '1.0').
+   - Input with units that are singular or plural (e.g., '1 KB' vs. '1 kilobyte').
+   - Inputs that test the limits of size (e.g., very large values like '1 YB').
+   - Inputs with leading/trailing spaces or mixed case (e.g., ' 1 KB ', '1 kb').
+   - Invalid formats (e.g., 'one GB', '1.5.3 GB').
+
+5. **Possible Exception Cases:**
+   - Inputs that cannot be parsed (e.g., 'abc', '1.5.5 GB').
+   - Inputs with unsupported units (e.g., '1 foo').
+   - Empty strings or `None`.
+
+6. **Important Semantic Behaviors that Should Be Tested:**
+   - Correct parsing of standard sizes across both binary and decimal interpretations.
+   - Handling of ambiguous units correctly based on the `binary` flag.
+   - Proper error messages when invalid inputs are provided.
+   - Consistency in handling variations of unit naming (e.g., pluralization and abbreviations).
+   - Performance and correctness with very large inputs (e.g., testing the upper limits of size representation).

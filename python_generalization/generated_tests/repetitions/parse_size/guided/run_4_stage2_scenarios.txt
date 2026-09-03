@@ -1,0 +1,99 @@
+Here are the designed unit test scenarios for the `parse_size` function based on the provided source code and extracted knowledge:
+
+### Scenario 1: Basic Integer Input
+1. **Scenario Name**: Basic Integer Input
+2. **Input**: `'42'`
+3. **Expected Behavior**: Returns `42`
+4. **Why This Scenario Matters**: Tests the function's ability to handle plain integer inputs without any units, ensuring it correctly interprets them as bytes.
+
+---
+
+### Scenario 2: Input with Bytes Unit
+1. **Scenario Name**: Input with Bytes Unit
+2. **Input**: `'13b'`
+3. **Expected Behavior**: Returns `13`
+4. **Why This Scenario Matters**: Validates the function's handling of inputs that explicitly specify the bytes unit, confirming correct parsing.
+
+---
+
+### Scenario 3: Input with Singular Unit
+1. **Scenario Name**: Input with Singular Unit
+2. **Input**: `'1 KB'`
+3. **Expected Behavior**: Returns `1000`
+4. **Why This Scenario Matters**: Tests the function's ability to parse a valid size with a decimal unit, ensuring correct conversion.
+
+---
+
+### Scenario 4: Input with Plural Unit
+1. **Scenario Name**: Input with Plural Unit
+2. **Input**: `'1 kilobyte'`
+3. **Expected Behavior**: Returns `1000`
+4. **Why This Scenario Matters**: Ensures the function correctly normalizes plural unit names, confirming its robustness in handling different forms of the same unit.
+
+---
+
+### Scenario 5: Input with Binary Unit
+1. **Scenario Name**: Input with Binary Unit
+2. **Input**: `'1 KiB'`
+3. **Expected Behavior**: Returns `1024`
+4. **Why This Scenario Matters**: Tests the function's ability to handle binary units, verifying that it performs the correct conversion based on the binary interpretation.
+
+---
+
+### Scenario 6: Input with Decimal Value
+1. **Scenario Name**: Input with Decimal Value
+2. **Input**: `'1.5 GB'`
+3. **Expected Behavior**: Returns `1500000000`
+4. **Why This Scenario Matters**: Validates the function's capability to parse and convert decimal values, ensuring it handles fractional sizes correctly.
+
+---
+
+### Scenario 7: Input with Ambiguous Unit (Binary)
+1. **Scenario Name**: Input with Ambiguous Unit (Binary)
+2. **Input**: `'1 KB'` with `binary=True`
+3. **Expected Behavior**: Returns `1024`
+4. **Why This Scenario Matters**: Tests the function's handling of ambiguous units when the binary flag is set, ensuring it uses the correct conversion factor.
+
+---
+
+### Scenario 8: Input with Extremely Large Size
+1. **Scenario Name**: Input with Extremely Large Size
+2. **Input**: `'1 YB'`
+3. **Expected Behavior**: Returns `1000000000000000000`
+4. **Why This Scenario Matters**: Ensures the function can handle very large sizes, testing its performance and correctness with large numerical values.
+
+---
+
+### Scenario 9: Input with Invalid Format
+1. **Scenario Name**: Input with Invalid Format
+2. **Input**: `'abc'`
+3. **Expected Behavior**: Raises `InvalidSize` exception
+4. **Why This Scenario Matters**: Tests the function's robustness against invalid inputs, ensuring it raises the appropriate exception for unparseable strings.
+
+---
+
+### Scenario 10: Input with Multiple Decimal Points
+1. **Scenario Name**: Input with Multiple Decimal Points
+2. **Input**: `'1.5.5 GB'`
+3. **Expected Behavior**: Raises `InvalidSize` exception
+4. **Why This Scenario Matters**: Validates that the function correctly identifies malformed numerical inputs and raises an exception, ensuring input integrity.
+
+---
+
+### Scenario 11: Input with Singular and Plural Units
+1. **Scenario Name**: Input with Singular and Plural Units
+2. **Input**: `'1 byte'` and `'1 bytes'`
+3. **Expected Behavior**: Both return `1`
+4. **Why This Scenario Matters**: Confirms that the function treats singular and plural forms of units equivalently, ensuring consistent behavior across different input formats.
+
+---
+
+### Scenario 12: Input with Ambiguous Unit (Decimal)
+1. **Scenario Name**: Input with Ambiguous Unit (Decimal)
+2. **Input**: `'1 K'` with `binary=False`
+3. **Expected Behavior**: Returns `1000`
+4. **Why This Scenario Matters**: Tests the function's ability to interpret ambiguous units when the decimal flag is set, verifying it performs the correct conversion based on the decimal interpretation.
+
+---
+
+These scenarios cover a wide range of normal, boundary, branch, aggregation, duplicate, and exception cases, ensuring comprehensive testing of the `parse_size` function.

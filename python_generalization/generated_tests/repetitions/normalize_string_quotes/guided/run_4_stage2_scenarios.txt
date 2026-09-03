@@ -1,0 +1,75 @@
+Here are the unit test scenarios designed for the `normalize_string_quotes` function based on the provided source code and analysis:
+
+### Scenario 1: Triple Double Quotes
+1. **Scenario Name:** Triple Double Quotes Unchanged
+2. **Input:** `s = '"""This is a test."""'`
+3. **Expected Behavior:** The output should be `"""This is a test."""`
+4. **Why This Scenario Matters:** This tests the function's ability to recognize and leave unchanged strings that are already properly formatted with triple double quotes.
+
+### Scenario 2: Triple Single Quotes
+1. **Scenario Name:** Triple Single Quotes Unchanged
+2. **Input:** `s = "'''This is a test.'''"` 
+3. **Expected Behavior:** The output should be `'''This is a test.'''"` 
+4. **Why This Scenario Matters:** This checks that the function correctly identifies and preserves strings that are formatted with triple single quotes.
+
+### Scenario 3: Single Quote to Double Quote
+1. **Scenario Name:** Single Quote to Double Quote Conversion
+2. **Input:** `s = "'This is a test.'"`
+3. **Expected Behavior:** The output should be `"This is a test."`
+4. **Why This Scenario Matters:** This tests the primary functionality of the function to convert single quotes to double quotes when appropriate.
+
+### Scenario 4: Double Quote to Single Quote
+1. **Scenario Name:** Double Quote to Single Quote Conversion
+2. **Input:** `s = '"This is a test."'
+3. **Expected Behavior:** The output should be `'This is a test.'`
+4. **Why This Scenario Matters:** This checks the function's ability to convert double quotes to single quotes when necessary.
+
+### Scenario 5: Raw String with Escaped Quotes
+1. **Scenario Name:** Raw String with Escaped Quotes
+2. **Input:** `s = r'\'This is a test.\''`
+3. **Expected Behavior:** The output should be `r'\'This is a test.\''`
+4. **Why This Scenario Matters:** This tests that raw strings remain unchanged, ensuring that backslashes are preserved.
+
+### Scenario 6: Normal String with Escaped Quotes
+1. **Scenario Name:** Normal String with Escaped Quotes
+2. **Input:** `s = '"This is a test with an escaped quote: \\"'`
+3. **Expected Behavior:** The output should be `'This is a test with an escaped quote: \\"'`
+4. **Why This Scenario Matters:** This checks that the function correctly handles strings with escaped quotes without introducing additional escapes.
+
+### Scenario 7: Empty String
+1. **Scenario Name:** Empty String Input
+2. **Input:** `s = ''`
+3. **Expected Behavior:** The output should be `''`
+4. **Why This Scenario Matters:** This tests the function's ability to handle edge cases without throwing errors.
+
+### Scenario 8: String with No Quotes
+1. **Scenario Name:** String Without Quotes
+2. **Input:** `s = 'This is a test.'`
+3. **Expected Behavior:** The output should be `'This is a test.'`
+4. **Why This Scenario Matters:** This checks that the function correctly identifies that no quotes are present and returns the string unchanged.
+
+### Scenario 9: Mixed Prefix with Formatted String
+1. **Scenario Name:** Formatted String with Escape Characters
+2. **Input:** `s = r'f"This is a test with {value}."`
+3. **Expected Behavior:** The output should be `r'f"This is a test with {value}."'`
+4. **Why This Scenario Matters:** This tests the function's handling of formatted strings to ensure that it does not introduce backslashes or modify the string incorrectly.
+
+### Scenario 10: Assertion Error on Malformed Input
+1. **Scenario Name:** Malformed String Input
+2. **Input:** `s = 'This string has no quotes'`
+3. **Expected Behavior:** An `AssertionError` should be raised.
+4. **Why This Scenario Matters:** This tests the function's assertion that a quote must be present in the input string, ensuring robustness against malformed inputs.
+
+### Scenario 11: String with Unescaped Quotes in Raw String
+1. **Scenario Name:** Raw String with Unescaped New Quote
+2. **Input:** `s = r'This is a test with an unescaped quote: "'`
+3. **Expected Behavior:** The output should be `r'This is a test with an unescaped quote: "'`
+4. **Why This Scenario Matters:** This checks that the function correctly identifies unescaped quotes in raw strings and maintains the original string without changes.
+
+### Scenario 12: Edge Case with Last Character as New Quote
+1. **Scenario Name:** Edge Case with Last Character as Quote
+2. **Input:** `s = '"This is a test."'`
+3. **Expected Behavior:** The output should be `'"This is a test.\\"'`
+4. **Why This Scenario Matters:** This tests the specific edge case where the new quote would be double quotes and the last character of the body is also a double quote, ensuring correct output handling.
+
+These scenarios cover a comprehensive range of normal, boundary, and edge cases, ensuring that the function's behavior is thoroughly tested.

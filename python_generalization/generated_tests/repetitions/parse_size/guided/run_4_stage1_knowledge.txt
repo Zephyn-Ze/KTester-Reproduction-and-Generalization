@@ -1,0 +1,40 @@
+### Analysis of the `parse_size` Function
+
+1. **Input Structure and Constraints**
+   - **Type**: The input must be a string representing a human-readable file size.
+   - **Format**: The string can include:
+     - Pure numbers (e.g., `'42'`).
+     - Numbers with units (e.g., `'1 KB'`, `'5 bytes'`, `'1.5 GB'`).
+     - Units can be specified in both decimal (e.g., `KB`, `MB`) and binary (e.g., `KiB`, `MiB`).
+   - **Binary Parameter**: A boolean (`True` or `False`) that specifies whether to interpret ambiguous units as binary (base-2) or decimal (base-10).
+
+2. **Output Structure**
+   - **Type**: The function returns an integer representing the size in bytes.
+   - **Value**: The output is the computed byte size based on the input string and unit.
+
+3. **Important Branches and Conditions**
+   - The function checks if the input can be tokenized correctly.
+   - It distinguishes between:
+     - Plain numbers (assumed to be bytes).
+     - Numbers followed by units, which can be either ambiguous or unambiguous.
+   - It handles plural forms of units by normalizing them to singular.
+   - It decides the conversion based on the `binary` parameter when dealing with ambiguous units.
+
+4. **Boundary and Edge Cases**
+   - Input with only a number (e.g., `'0'`, `'1'`).
+   - Input with units in both singular and plural forms (e.g., `'1 byte'`, `'1 bytes'`).
+   - Extremely large sizes (e.g., `'1 YB'`).
+   - Input with decimal values (e.g., `'1.5 GB'`).
+   - Inputs that are not well-formed or contain unexpected characters (e.g., `'abc'`, `'1.5.5 GB'`).
+
+5. **Possible Exception Cases**
+   - Invalid size formats that cannot be parsed (e.g., non-numeric values, incorrect unit names).
+   - Inputs that lead to ambiguous unit interpretation without the `binary` flag being set.
+   - Input strings that result in empty tokens after tokenization.
+
+6. **Important Semantic Behaviors that Should Be Tested**
+   - Correct parsing of various valid input formats and their expected byte output.
+   - Handling of both binary and decimal interpretations for ambiguous units.
+   - Robustness against invalid inputs and ensuring that the `InvalidSize` exception is raised with appropriate messages.
+   - Consistency in handling plural vs. singular unit names.
+   - Performance and correctness when processing large input sizes or edge cases (e.g., extremely small or large values).
