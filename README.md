@@ -17,6 +17,8 @@ The local run evaluated 111 focal methods with `openai/gpt-4o-mini-2024-07-18` a
 
 The evidence supports degraded generation/repair quality as the strongest near-term explanation. Prompt/context drift, provider/backend details, and exact historical artifact provenance remain unresolved. The repository therefore does **not** claim a successful exact reproduction of Table 2.
 
+The complete path-sanitized evidence chain is documented in [`reproduction/reports/DETAILED_DIFFERENCE_ANALYSIS.md`](reproduction/reports/DETAILED_DIFFERENCE_ANALYSIS.md); [`run3_table2_analysis.md`](reproduction/reports/run3_table2_analysis.md) is its compact summary.
+
 ### Controlled repair comparison
 
 A paired three-case intervention reused identical initial generated tests and varied only repair information:
@@ -103,4 +105,3 @@ No blanket open-source license is granted for this repository's original materia
 - [KTester preprint](https://arxiv.org/abs/2511.14224)
 - [Black](https://github.com/psf/black)
 - [python-humanfriendly](https://github.com/xolox/python-humanfriendly)
-

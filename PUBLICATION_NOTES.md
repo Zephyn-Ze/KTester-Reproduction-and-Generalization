@@ -3,7 +3,7 @@
 ## Included
 
 - The compact 111-focal-method local evaluator summary.
-- Public, path-sanitized diagnosis and artifact-provenance findings.
+- Public, path-sanitized diagnosis and artifact-provenance findings, including the complete evidence-by-evidence long report.
 - Compact controlled-repair and stochasticity reports with their supporting CSV/JSON tables.
 - Five Python target snapshots, frozen prompts, generated tests, Guided Stage 1/2 artifacts where available, evaluation records, provenance notes, and contract tests.
 - MIT license texts and archived evidence for the two third-party Python targets.
@@ -22,4 +22,3 @@ The original directories and experiment outputs remain on the local machine unch
 ## Sanitization
 
 Public copies of Python evaluation JSON replace local absolute interpreter, workspace, and temporary coverage paths with descriptive placeholders. Metrics, test identifiers, failures, and coverage values are unchanged. Original JSON files remain preserved in the local experiment directory.
-

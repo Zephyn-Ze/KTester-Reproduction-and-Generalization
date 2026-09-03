@@ -1,5 +1,7 @@
 # Local Run3 versus KTester Table 2
 
+This is the compact version. The complete evidence-by-evidence public report is available in [`DETAILED_DIFFERENCE_ANALYSIS.md`](DETAILED_DIFFERENCE_ANALYSIS.md).
+
 ## Scope
 
 This is a public, path-sanitized summary of a read-only diagnosis. The local KTester checkout and its evaluation artifacts were not modified during the diagnosis.
@@ -30,4 +32,3 @@ The controlled repair comparison strengthens the causal claim: keeping the initi
 ## Metric caveat
 
 The evaluator field is JaCoCo instruction coverage even though the paper labels the first coverage metric as line coverage. Direct spot checks showed that this naming difference is too small to explain the observed aggregate gap, but the operational field name is retained here as IC.
-
